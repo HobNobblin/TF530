@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<generated_project xmlns="http://www.xilinx.com/XMLSchema" xmlns:xil_pn="http://www.xilinx.com/XMLSchema">
+
+  <!--                                                          -->
+
+  <!--             For tool use only. Do not edit.              -->
+
+  <!--                                                          -->
+
+  <!-- ProjectNavigator created generated project file.         -->
+
+  <!-- For use in tracking generated file and other information -->
+
+  <!-- allowing preservation of process status.                 -->
+
+  <!--                                                          -->
+
+  <!-- Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved. -->
+
+  <version xmlns="http://www.xilinx.com/XMLSchema">11.1</version>
+
+  <sourceproject xmlns="http://www.xilinx.com/XMLSchema" xil_pn:fileType="FILE_XISE" xil_pn:name="tf530r3_bus_top.xise"/>
+
+  <files xmlns="http://www.xilinx.com/XMLSchema">
+    <file xil_pn:fileType="FILE_DIRECTORY" xil_pn:name="_ngo"/>
+    <file xil_pn:fileType="FILE_XMSGS" xil_pn:name="_xmsgs/ngdbuild.xmsgs"/>
+    <file xil_pn:fileType="FILE_XMSGS" xil_pn:name="_xmsgs/xst.xmsgs"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_NGDBUILD_LOG" xil_pn:name="tf530r3_bus_top.bld"/>
+    <file xil_pn:fileType="FILE_CMD_LOG" xil_pn:name="tf530r3_bus_top.cmd_log"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_GYD" xil_pn:name="tf530r3_bus_top.gyd"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_JEDEC" xil_pn:name="tf530r3_bus_top.jed"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_LSO" xil_pn:name="tf530r3_bus_top.lso"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_MFD" xil_pn:name="tf530r3_bus_top.mfd"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_NGA" xil_pn:name="tf530r3_bus_top.nga"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_NGC" xil_pn:name="tf530r3_bus_top.ngc"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_NGD" xil_pn:name="tf530r3_bus_top.ngd"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_NGR" xil_pn:name="tf530r3_bus_top.ngr"/>
+    <file xil_pn:fileType="FILE_PAD_MISC" xil_pn:name="tf530r3_bus_top.pad"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_PNX" xil_pn:name="tf530r3_bus_top.pnx"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_XST_PROJECT" xil_pn:name="tf530r3_bus_top.prj"/>
+    <file xil_pn:fileType="FILE_FITTER_REPORT" xil_pn:name="tf530r3_bus_top.rpt"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_XST_STX" xil_pn:name="tf530r3_bus_top.stx"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_XST_REPORT" xil_pn:name="tf530r3_bus_top.syr"/>
+    <file xil_pn:fileType="FILE_FITTER_REPORT" xil_pn:name="tf530r3_bus_top.tspec"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_VM6" xil_pn:name="tf530r3_bus_top.vm6"/>
+    <file xil_pn:fileType="FILE_FITTER_REPORT" xil_pn:name="tf530r3_bus_top.xml"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_XST" xil_pn:name="tf530r3_bus_top.xst"/>
+    <file xil_pn:fileType="FILE_FITTER_REPORT" xil_pn:name="tf530r3_bus_top_build.xml"/>
+    <file xil_pn:fileType="FILE_DIRECTORY" xil_pn:name="tf530r3_bus_top_html"/>
+    <file xil_pn:fileType="FILE_XRPT" xil_pn:name="tf530r3_bus_top_ngdbuild.xrpt"/>
+    <file xil_pn:fileType="FILE_PAD_EXCEL_REPORT" xil_pn:name="tf530r3_bus_top_pad.csv"/>
+    <file xil_pn:fileType="FILE_HTML" xil_pn:name="tf530r3_bus_top_summary.html"/>
+    <file xil_pn:fileType="FILE_XRPT" xil_pn:name="tf530r3_bus_top_xst.xrpt"/>
+    <file xil_pn:fileType="FILE_FITTER_REPORT" xil_pn:name="webtalk_pn.xml"/>
+    <file xil_pn:fileType="FILE_DIRECTORY" xil_pn:name="xlnx_auto_0_xdb"/>
+    <file xil_pn:fileType="FILE_DIRECTORY" xil_pn:name="xst"/>
+  </files>
+
+  <transforms xmlns="http://www.xilinx.com/XMLSchema">
+    <transform xil_pn:end_ts="1774210310" xil_pn:name="TRAN_copyInitialToXSTAbstractSynthesis" xil_pn:start_ts="1774210310">
+      <status xil_pn:value="SuccessfullyRun"/>
+    </transform>
+    <transform xil_pn:end_ts="1774210310" xil_pn:name="TRAN_schematicsToHdl" xil_pn:prop_ck="372771561538835897" xil_pn:start_ts="1774210310">
+      <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="ReadyToRun"/>
+    </transform>
+    <transform xil_pn:end_ts="1774210315" xil_pn:in_ck="-8364404881345762164" xil_pn:name="TRANEXT_xstsynthesize_xc9500xl" xil_pn:prop_ck="-3393663225112134408" xil_pn:start_ts="1774210310">
+      <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="WarningsGenerated"/>
+      <status xil_pn:value="ReadyToRun"/>
+      <outfile xil_pn:name="_xmsgs/xst.xmsgs"/>
+      <outfile xil_pn:name="tf530r3_bus_top.lso"/>
+      <outfile xil_pn:name="tf530r3_bus_top.ngc"/>
+      <outfile xil_pn:name="tf530r3_bus_top.ngr"/>
+      <outfile xil_pn:name="tf530r3_bus_top.prj"/>
+      <outfile xil_pn:name="tf530r3_bus_top.stx"/>
+      <outfile xil_pn:name="tf530r3_bus_top.syr"/>
+      <outfile xil_pn:name="tf530r3_bus_top.xst"/>
+      <outfile xil_pn:name="tf530r3_bus_top_xst.xrpt"/>
+      <outfile xil_pn:name="webtalk_pn.xml"/>
+      <outfile xil_pn:name="xst"/>
+    </transform>
+    <transform xil_pn:end_ts="1774210315" xil_pn:in_ck="-4207870599024479751" xil_pn:name="TRAN_compileBCD2" xil_pn:prop_ck="5524089477000536084" xil_pn:start_ts="1774210315">
+      <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="ReadyToRun"/>
+    </transform>
+    <transform xil_pn:end_ts="1774210319" xil_pn:in_ck="-7178446237850538447" xil_pn:name="TRAN_ngdbuild" xil_pn:prop_ck="-2081320714713457669" xil_pn:start_ts="1774210315">
+      <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="WarningsGenerated"/>
+      <status xil_pn:value="ReadyToRun"/>
+      <outfile xil_pn:name="_ngo"/>
+      <outfile xil_pn:name="_xmsgs/ngdbuild.xmsgs"/>
+      <outfile xil_pn:name="tf530r3_bus_top.bld"/>
+      <outfile xil_pn:name="tf530r3_bus_top.ngd"/>
+      <outfile xil_pn:name="tf530r3_bus_top_ngdbuild.xrpt"/>
+    </transform>
+    <transform xil_pn:end_ts="1774210333" xil_pn:in_ck="7550953641863250137" xil_pn:name="TRANEXT_vm6File_xc9500xl" xil_pn:prop_ck="-7803592096684451546" xil_pn:start_ts="1774210319">
+      <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="ReadyToRun"/>
+      <status xil_pn:value="OutOfDateForOutputs"/>
+      <status xil_pn:value="OutputChanged"/>
+      <outfile xil_pn:name="tf530r3_bus_top.gyd"/>
+      <outfile xil_pn:name="tf530r3_bus_top.mfd"/>
+      <outfile xil_pn:name="tf530r3_bus_top.nga"/>
+      <outfile xil_pn:name="tf530r3_bus_top.pad"/>
+      <outfile xil_pn:name="tf530r3_bus_top.pnx"/>
+      <outfile xil_pn:name="tf530r3_bus_top.rpt"/>
+      <outfile xil_pn:name="tf530r3_bus_top.tspec"/>
+      <outfile xil_pn:name="tf530r3_bus_top.vm6"/>
+      <outfile xil_pn:name="tf530r3_bus_top.xml"/>
+      <outfile xil_pn:name="tf530r3_bus_top_build.xml"/>
+      <outfile xil_pn:name="tf530r3_bus_top_html"/>
+      <outfile xil_pn:name="tf530r3_bus_top_pad.csv"/>
+    </transform>
+    <transform xil_pn:end_ts="1774210335" xil_pn:in_ck="7550953641863259001" xil_pn:name="TRANEXT_crtProg_xc9500" xil_pn:prop_ck="-6294026017969277533" xil_pn:start_ts="1774210333">
+      <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="ReadyToRun"/>
+      <outfile xil_pn:name="tf530r3_bus_top.jed"/>
+    </transform>
+    <transform xil_pn:end_ts="1774210333" xil_pn:in_ck="7550953641863259001" xil_pn:name="TRAN_timRpt" xil_pn:prop_ck="111903974446" xil_pn:start_ts="1774210330">
+      <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="WarningsGenerated"/>
+      <status xil_pn:value="ReadyToRun"/>
+    </transform>
+  </transforms>
+
+</generated_project>

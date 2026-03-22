@@ -1,0 +1,789 @@
+MDF Database:  version 1.0
+MDF_INFO | tf530r3_bus_top | XC9572XL-10-VQ64
+MACROCELL | 1 | 14 | BUSTOP/AS_INT
+ATTRIBUTES | 8816518 | 0
+OUTPUTMC | 9 | 1 | 13 | 0 | 0 | 0 | 2 | 0 | 5 | 2 | 16 | 0 | 15 | 0 | 12 | 0 | 17 | 1 | 17
+INPUTS | 8 | BUSTOP/AS20DLY  | INTCYCLE  | BUSTOP/BGACK_INT  | BGACK  | IOR_OBUF.EXP  | EXP10_.EXP  | AS20  | $OpTx$BIN_STEP$36
+INPUTMC | 5 | 0 | 16 | 0 | 3 | 1 | 13 | 1 | 15 | 0 | 6
+INPUTP | 3 | 86 | 16 | 30
+IMPORTS | 2 | 1 | 13 | 1 | 15
+EQ | 15 | 
+   AS.D = !INTCYCLE
+	# BUSTOP/AS20DLY
+	# !BUSTOP/BGACK_INT
+;Imported pterms FB2_14
+	# !BGACK
+	# AS & !BUSTOP/CANSTART
+;Imported pterms FB2_16
+	# FC<2> & FC<1> & FC<0> & !A<19> & !A<18> & A<17> & 
+	!A<16>
+	# A<19> & !A<18> & A<17> & !A<16> & A<22> & A<20> & 
+	A<23> & !A<15> & !A<21>;
+   AS.CLK = CLK7M;	// GCK
+   AS.AP = AS20;
+   AS.OE = INTCYCLE & BGACK & BUSTOP/BGACK_INT & 
+	!$OpTx$BIN_STEP$36;
+GLOBALS | 1 | 2 | CLK7M
+
+MACROCELL | 0 | 14 | BUSTOP/VMA_SYNC
+ATTRIBUTES | 4622214 | 0
+OUTPUTMC | 4 | 0 | 14 | 2 | 17 | 0 | 13 | 0 | 15
+INPUTS | 14 | VMA  | BUSTOP/M6800BUS/Q<0>  | BUSTOP/M6800BUS/Q<1>  | BUSTOP/M6800BUS/Q<2>  | BUSTOP/M6800BUS/Q<3>  | FC<0>  | FC<1>  | ADDRESS_MAP<10>$BUF4.EXP  | VPA  | INTCYCLE  | BGACK  | BUSTOP/BGACK_INT  | $OpTx$BIN_STEP$36  | BUSTOP/AS_INTD.EXP
+INPUTMC | 9 | 0 | 14 | 0 | 2 | 0 | 11 | 0 | 0 | 0 | 10 | 0 | 13 | 0 | 3 | 0 | 6 | 0 | 15
+INPUTP | 5 | 55 | 49 | 33 | 86 | 16
+IMPORTS | 2 | 0 | 13 | 0 | 15
+EQ | 17 | 
+   VMA.T = !VMA & BUSTOP/M6800BUS/Q<0> & 
+	!BUSTOP/M6800BUS/Q<1> & !BUSTOP/M6800BUS/Q<2> & BUSTOP/M6800BUS/Q<3>
+	# !FC<1> & VMA & !BUSTOP/M6800BUS/Q<0> & 
+	BUSTOP/M6800BUS/Q<1> & !BUSTOP/M6800BUS/Q<2> & !BUSTOP/M6800BUS/Q<3>
+	# !FC<0> & VMA & !BUSTOP/M6800BUS/Q<0> & 
+	BUSTOP/M6800BUS/Q<1> & !BUSTOP/M6800BUS/Q<2> & !BUSTOP/M6800BUS/Q<3>
+;Imported pterms FB1_14
+	# !FC<2> & VMA & !BUSTOP/M6800BUS/Q<0> & 
+	BUSTOP/M6800BUS/Q<1> & !BUSTOP/M6800BUS/Q<2> & !BUSTOP/M6800BUS/Q<3>
+;Imported pterms FB1_16
+	# FC<2> & FC<1> & FC<0> & !VMA & 
+	!BUSTOP/M6800BUS/Q<0> & BUSTOP/M6800BUS/Q<1> & !BUSTOP/M6800BUS/Q<2> & 
+	!BUSTOP/M6800BUS/Q<3>;
+   VMA.CLK = CLK7M;	// GCK
+   VMA.AP = VPA;
+   VMA.OE = INTCYCLE & BGACK & BUSTOP/BGACK_INT & 
+	!$OpTx$BIN_STEP$36;
+GLOBALS | 1 | 2 | CLK7M
+
+MACROCELL | 0 | 1 | BUSTOP/LDS_INT
+ATTRIBUTES | 8685446 | 0
+INPUTS | 9 | INTCYCLE  | DS20  | BUSTOP/AS20DLY  | BUSTOP/BGACK_INT  | BGACK  | BUSTOP/M6800BUS/Q<2>.EXP  | BUSTOP/M6800BUS/Q<0>.EXP  | AS20  | $OpTx$BIN_STEP$36
+INPUTMC | 5 | 0 | 16 | 0 | 3 | 0 | 0 | 0 | 2 | 0 | 6
+INPUTP | 4 | 86 | 31 | 16 | 30
+IMPORTS | 2 | 0 | 0 | 0 | 2
+EQ | 18 | 
+   LDS.D = DS20
+	# !INTCYCLE
+	# BUSTOP/AS20DLY
+;Imported pterms FB1_1
+	# !BGACK
+	# !BUSTOP/BGACK_INT
+	# AS & !BUSTOP/CANSTART
+;Imported pterms FB1_3
+	# AS & !RW20
+	# !A<0> & SIZ<0> & !SIZ<1>
+	# FC<2> & FC<1> & FC<0> & !A<19> & !A<18> & A<17> & 
+	!A<16>
+	# A<19> & !A<18> & A<17> & !A<16> & A<22> & A<20> & 
+	A<23> & !A<15> & !A<21>;
+   LDS.CLK = CLK7M;	// GCK
+   LDS.AP = AS20;
+   LDS.OE = INTCYCLE & BGACK & BUSTOP/BGACK_INT & 
+	!$OpTx$BIN_STEP$36;
+GLOBALS | 1 | 2 | CLK7M
+
+MACROCELL | 0 | 4 | BUSTOP/RW_INT
+ATTRIBUTES | 8685446 | 0
+INPUTS | 9 | BUSTOP/AS20DLY  | INTCYCLE  | RW20  | BUSTOP/BGACK_INT  | BGACK  | BUSTOP/BGACK_INT.EXP  | BUSTOP/ATA/ASDLY.EXP  | AS20  | $OpTx$BIN_STEP$36
+INPUTMC | 5 | 0 | 16 | 0 | 3 | 0 | 3 | 0 | 5 | 0 | 6
+INPUTP | 4 | 86 | 17 | 16 | 30
+IMPORTS | 2 | 0 | 3 | 0 | 5
+EQ | 16 | 
+   RW.D = RW20
+	# !INTCYCLE
+	# BUSTOP/AS20DLY
+;Imported pterms FB1_4
+	# !BGACK
+	# !BUSTOP/BGACK_INT
+;Imported pterms FB1_6
+	# AS & !BUSTOP/CANSTART
+	# FC<2> & FC<1> & FC<0> & !A<19> & !A<18> & A<17> & 
+	!A<16>
+	# A<19> & !A<18> & A<17> & !A<16> & A<22> & A<20> & 
+	A<23> & !A<15> & !A<21>;
+   RW.CLK = CLK7M;	// GCK
+   RW.AP = AS20;
+   RW.OE = INTCYCLE & BGACK & BUSTOP/BGACK_INT & 
+	!$OpTx$BIN_STEP$36;
+GLOBALS | 1 | 2 | CLK7M
+
+MACROCELL | 1 | 16 | BUSTOP/UDS_INT
+ATTRIBUTES | 8685446 | 0
+INPUTS | 8 | BUSTOP/AS20DLY  | INTCYCLE  | A<0>  | EXP11_.EXP  | BUSTOP/BGACK_INT  | BGACK  | AS20  | $OpTx$BIN_STEP$36
+INPUTMC | 4 | 0 | 16 | 1 | 17 | 0 | 3 | 0 | 6
+INPUTP | 4 | 86 | 54 | 16 | 30
+IMPORTS | 1 | 1 | 17
+EQ | 18 | 
+   UDS.D = A<0>
+	# !INTCYCLE
+	# BUSTOP/AS20DLY
+;Imported pterms FB2_18
+	# DS20
+	# !BGACK
+	# !BUSTOP/BGACK_INT
+	# AS & !RW20
+	# AS & !BUSTOP/CANSTART
+;Imported pterms FB2_1
+	# FC<2> & FC<1> & FC<0> & !A<19> & !A<18> & A<17> & 
+	!A<16>
+	# A<19> & !A<18> & A<17> & !A<16> & A<22> & A<20> & 
+	A<23> & !A<15> & !A<21>;
+   UDS.CLK = CLK7M;	// GCK
+   UDS.AP = AS20;
+   UDS.OE = INTCYCLE & BGACK & BUSTOP/BGACK_INT & 
+	!$OpTx$BIN_STEP$36;
+GLOBALS | 1 | 2 | CLK7M
+
+MACROCELL | 1 | 5 | BUSTOP/CPCS_INT
+ATTRIBUTES | 8815494 | 0
+OUTPUTMC | 1 | 2 | 8
+INPUTS | 8 | FC<2>  | FC<1>  | FC<0>  | A<19>  | A<18>  | A<17>  | A<16>  | AS20
+INPUTP | 8 | 43 | 49 | 55 | 68 | 67 | 66 | 65 | 30
+EQ | 4 | 
+   !CPCS.D = FC<2> & FC<1> & FC<0> & !A<19> & !A<18> & A<17> & 
+	!A<16>;
+   CPCS.CLK = CLKCPU;	// GCK
+   CPCS.AP = AS20;
+GLOBALS | 1 | 2 | CLKCPU
+
+MACROCELL | 2 | 17 | BUSTOP/DSACK1_SYNC
+ATTRIBUTES | 4359044 | 0
+OUTPUTMC | 2 | 2 | 17 | 1 | 8
+INPUTS | 7 | VMA  | BUSTOP/DSACK1_SYNC  | BUSTOP/M6800BUS/Q<1>  | BUSTOP/M6800BUS/Q<2>  | BUSTOP/M6800BUS/Q<3>  | BUSTOP/M6800BUS/Q<0>  | AS20
+INPUTMC | 6 | 0 | 14 | 2 | 17 | 0 | 11 | 0 | 0 | 0 | 10 | 0 | 2
+INPUTP | 1 | 30
+EQ | 8 | 
+   BUSTOP/DSACK1_SYNC.T = VMA & !BUSTOP/DSACK1_SYNC & !BUSTOP/M6800BUS/Q<1> & 
+	!BUSTOP/M6800BUS/Q<2> & BUSTOP/M6800BUS/Q<3>
+	# !BUSTOP/DSACK1_SYNC & BUSTOP/M6800BUS/Q<0> & 
+	!BUSTOP/M6800BUS/Q<1> & !BUSTOP/M6800BUS/Q<2> & BUSTOP/M6800BUS/Q<3>
+	# !VMA & BUSTOP/DSACK1_SYNC & !BUSTOP/M6800BUS/Q<0> & 
+	!BUSTOP/M6800BUS/Q<1> & !BUSTOP/M6800BUS/Q<2> & BUSTOP/M6800BUS/Q<3>;
+   BUSTOP/DSACK1_SYNC.CLK = CLK7M;	// GCK
+   BUSTOP/DSACK1_SYNC.AP = AS20;
+GLOBALS | 1 | 2 | CLK7M
+
+MACROCELL | 2 | 16 | BUSTOP/BG_INT
+ATTRIBUTES | 8553344 | 0
+OUTPUTMC | 2 | 2 | 16 | 0 | 7
+INPUTS | 4 | AS20  | AS  | BUSTOP/BG_INT  | BG20
+INPUTMC | 2 | 1 | 14 | 2 | 16
+INPUTP | 2 | 30 | 44
+EQ | 4 | 
+   BUSTOP/BG_INT.D = AS20 & !AS & BUSTOP/BG_INT
+	# !AS20 & AS & BUSTOP/BG_INT;
+   BUSTOP/BG_INT.CLK = CLKCPU;	// GCK
+   BUSTOP/BG_INT.AP = BG20;
+GLOBALS | 1 | 2 | CLKCPU
+
+MACROCELL | 0 | 16 | BUSTOP/AS20DLY
+ATTRIBUTES | 8553348 | 0
+OUTPUTMC | 4 | 1 | 14 | 0 | 1 | 0 | 4 | 1 | 16
+INPUTS | 8 | FC<2>  | FC<1>  | FC<0>  | A<19>  | A<18>  | A<17>  | A<16>  | AS20
+INPUTP | 8 | 43 | 49 | 55 | 68 | 67 | 66 | 65 | 30
+EQ | 4 | 
+   BUSTOP/AS20DLY.D = FC<2> & FC<1> & FC<0> & !A<19> & !A<18> & A<17> & 
+	!A<16>;
+   BUSTOP/AS20DLY.CLK = CLKCPU;	// GCK
+   BUSTOP/AS20DLY.AP = AS20;
+GLOBALS | 1 | 2 | CLKCPU
+
+MACROCELL | 0 | 15 | BUSTOP/AS_INTD
+ATTRIBUTES | 8553348 | 0
+OUTPUTMC | 2 | 2 | 7 | 0 | 14
+INPUTS | 10 | AS  | AS20  | FC<2>  | FC<1>  | FC<0>  | VMA  | BUSTOP/M6800BUS/Q<0>  | BUSTOP/M6800BUS/Q<1>  | BUSTOP/M6800BUS/Q<2>  | BUSTOP/M6800BUS/Q<3>
+INPUTMC | 6 | 1 | 14 | 0 | 14 | 0 | 2 | 0 | 11 | 0 | 0 | 0 | 10
+INPUTP | 4 | 30 | 43 | 49 | 55
+EXPORTS | 1 | 0 | 14
+EQ | 6 | 
+   BUSTOP/AS_INTD.D = AS;
+   BUSTOP/AS_INTD.CLK = CLK7M;	// GCK
+   BUSTOP/AS_INTD.AP = AS20;
+    BUSTOP/AS_INTD.EXP  =  FC<2> & FC<1> & FC<0> & !VMA & 
+	!BUSTOP/M6800BUS/Q<0> & BUSTOP/M6800BUS/Q<1> & !BUSTOP/M6800BUS/Q<2> & 
+	!BUSTOP/M6800BUS/Q<3>
+GLOBALS | 1 | 2 | CLK7M
+
+MACROCELL | 1 | 0 | BUSTOP/ATA/ASDLY2
+ATTRIBUTES | 8553348 | 0
+OUTPUTMC | 2 | 1 | 11 | 1 | 17
+INPUTS | 14 | BUSTOP/ATA/ASDLY  | AS20  | FC<2>  | FC<1>  | FC<0>  | A<19>  | A<18>  | A<17>  | A<16>  | A<22>  | A<20>  | A<23>  | A<15>  | A<21>
+INPUTMC | 1 | 0 | 5
+INPUTP | 13 | 30 | 43 | 49 | 55 | 68 | 67 | 66 | 65 | 74 | 70 | 75 | 63 | 72
+EXPORTS | 1 | 1 | 17
+EQ | 7 | 
+   BUSTOP/ATA/ASDLY2.D = BUSTOP/ATA/ASDLY;
+   BUSTOP/ATA/ASDLY2.CLK = CLKCPU;	// GCK
+   BUSTOP/ATA/ASDLY2.AP = AS20;
+    BUSTOP/ATA/ASDLY2.EXP  =  FC<2> & FC<1> & FC<0> & !A<19> & !A<18> & A<17> & 
+	!A<16>
+	# A<19> & !A<18> & A<17> & !A<16> & A<22> & A<20> & 
+	A<23> & !A<15> & !A<21>
+GLOBALS | 1 | 2 | CLKCPU
+
+MACROCELL | 0 | 12 | BUSTOP/CANSTART
+ATTRIBUTES | 8553236 | 0
+OUTPUTMC | 4 | 1 | 13 | 0 | 0 | 0 | 5 | 1 | 17
+INPUTS | 5 | BGACK  | BUSTOP/BGACK_INT  | AS  | INTCYCLE  | $OpTx$BIN_STEP$36
+INPUTMC | 3 | 0 | 3 | 1 | 14 | 0 | 6
+INPUTP | 2 | 16 | 86
+EQ | 4 | 
+   BUSTOP/CANSTART.D = BGACK & BUSTOP/BGACK_INT;
+   !BUSTOP/CANSTART.CLK = CLK7M;	// GCK
+   BUSTOP/CANSTART.AR = !AS & INTCYCLE & BGACK & BUSTOP/BGACK_INT & 
+	!$OpTx$BIN_STEP$36;
+GLOBALS | 1 | 2 | CLK7M
+
+MACROCELL | 2 | 9 | BUSTOP/DSACK_INT<0>
+ATTRIBUTES | 8553344 | 0
+OUTPUTMC | 1 | 1 | 8
+INPUTS | 2 | BUSTOP/DTACK_S7D  | AS20
+INPUTMC | 1 | 3 | 12
+INPUTP | 1 | 30
+EQ | 3 | 
+   BUSTOP/DSACK_INT<0>.D = BUSTOP/DTACK_S7D;
+   BUSTOP/DSACK_INT<0>.CLK = CLKCPU;	// GCK
+   BUSTOP/DSACK_INT<0>.AP = AS20;
+GLOBALS | 1 | 2 | CLKCPU
+
+MACROCELL | 1 | 3 | BUSTOP/DTACK_IDE
+ATTRIBUTES | 8553348 | 0
+OUTPUTMC | 1 | 1 | 8
+INPUTS | 11 | A<19>  | A<18>  | A<17>  | A<16>  | A<22>  | A<20>  | A<23>  | A<15>  | A<21>  | BUSTOP/ATA/ASDLY  | AS20
+INPUTMC | 1 | 0 | 5
+INPUTP | 10 | 68 | 67 | 66 | 65 | 74 | 70 | 75 | 63 | 72 | 30
+EQ | 4 | 
+   !BUSTOP/DTACK_IDE.D = A<19> & !A<18> & A<17> & !A<16> & A<22> & A<20> & 
+	A<23> & !A<15> & !A<21> & !BUSTOP/ATA/ASDLY;
+   !BUSTOP/DTACK_IDE.CLK = CLKCPU;	// GCK
+   BUSTOP/DTACK_IDE.AP = AS20;
+GLOBALS | 1 | 2 | CLKCPU
+
+MACROCELL | 2 | 7 | BUSTOP/DTACK_LATCHED
+ATTRIBUTES | 8553344 | 0
+OUTPUTMC | 1 | 2 | 6
+INPUTS | 3 | BUSTOP/AS_INTD  | DTACK  | AS20
+INPUTMC | 1 | 0 | 15
+INPUTP | 2 | 13 | 30
+EQ | 3 | 
+   !BUSTOP/DTACK_LATCHED.D = !BUSTOP/AS_INTD & !DTACK;
+   !BUSTOP/DTACK_LATCHED.CLK = CLK7M;	// GCK
+   BUSTOP/DTACK_LATCHED.AP = AS20;
+GLOBALS | 1 | 2 | CLK7M
+
+MACROCELL | 2 | 6 | BUSTOP/DTACK_S6
+ATTRIBUTES | 8553344 | 0
+OUTPUTMC | 1 | 2 | 4
+INPUTS | 2 | BUSTOP/DTACK_LATCHED  | AS20
+INPUTMC | 1 | 2 | 7
+INPUTP | 1 | 30
+EQ | 3 | 
+   BUSTOP/DTACK_S6.D = BUSTOP/DTACK_LATCHED;
+   BUSTOP/DTACK_S6.CLK = CLK7M;	// GCK
+   BUSTOP/DTACK_S6.AP = AS20;
+GLOBALS | 1 | 2 | CLK7M
+
+MACROCELL | 2 | 4 | BUSTOP/DTACK_S7
+ATTRIBUTES | 8553344 | 0
+OUTPUTMC | 1 | 2 | 15
+INPUTS | 2 | BUSTOP/DTACK_S6  | AS20
+INPUTMC | 1 | 2 | 6
+INPUTP | 1 | 30
+EQ | 3 | 
+   BUSTOP/DTACK_S7.D = BUSTOP/DTACK_S6;
+   !BUSTOP/DTACK_S7.CLK = CLK7M;	// GCK
+   BUSTOP/DTACK_S7.AP = AS20;
+GLOBALS | 1 | 2 | CLK7M
+
+MACROCELL | 0 | 8 | SLOWCYCLE_D<0>
+ATTRIBUTES | 8553344 | 0
+OUTPUTMC | 1 | 2 | 3
+INPUTS | 2 | INTCYCLE  | AS20
+INPUTP | 2 | 86 | 30
+EQ | 3 | 
+   SLOWCYCLE_D<0>.D = INTCYCLE;
+   SLOWCYCLE_D<0>.CLK = CLK7M;	// GCK
+   SLOWCYCLE_D<0>.AP = AS20;
+GLOBALS | 1 | 2 | CLK7M
+
+MACROCELL | 2 | 3 | SLOWCYCLE_D<1>
+ATTRIBUTES | 8553344 | 0
+OUTPUTMC | 1 | 2 | 2
+INPUTS | 2 | SLOWCYCLE_D<0>  | AS20
+INPUTMC | 1 | 0 | 8
+INPUTP | 1 | 30
+EQ | 3 | 
+   SLOWCYCLE_D<1>.D = SLOWCYCLE_D<0>;
+   SLOWCYCLE_D<1>.CLK = CLK7M;	// GCK
+   SLOWCYCLE_D<1>.AP = AS20;
+GLOBALS | 1 | 2 | CLK7M
+
+MACROCELL | 2 | 2 | SLOWCYCLE_D<2>
+ATTRIBUTES | 8553344 | 0
+OUTPUTMC | 1 | 2 | 0
+INPUTS | 2 | SLOWCYCLE_D<1>  | AS20
+INPUTMC | 1 | 2 | 3
+INPUTP | 1 | 30
+EQ | 3 | 
+   SLOWCYCLE_D<2>.D = SLOWCYCLE_D<1>;
+   SLOWCYCLE_D<2>.CLK = CLK7M;	// GCK
+   SLOWCYCLE_D<2>.AP = AS20;
+GLOBALS | 1 | 2 | CLK7M
+
+MACROCELL | 2 | 0 | SLOWCYCLE_D<3>
+ATTRIBUTES | 8553344 | 0
+OUTPUTMC | 1 | 1 | 8
+INPUTS | 2 | SLOWCYCLE_D<2>  | AS20
+INPUTMC | 1 | 2 | 2
+INPUTP | 1 | 30
+EQ | 3 | 
+   SLOWCYCLE_D<3>.D = SLOWCYCLE_D<2>;
+   SLOWCYCLE_D<3>.CLK = CLK7M;	// GCK
+   SLOWCYCLE_D<3>.AP = AS20;
+GLOBALS | 1 | 2 | CLK7M
+
+MACROCELL | 1 | 7 | BUSTOP/AVEC_INT
+ATTRIBUTES | 8684422 | 0
+INPUTS | 9 | FC<2>  | FC<1>  | FC<0>  | A<19>  | A<18>  | A<17>  | A<16>  | VPA  | AS20
+INPUTP | 9 | 43 | 49 | 55 | 68 | 67 | 66 | 65 | 33 | 30
+EQ | 4 | 
+   !AVEC.D = FC<2> & FC<1> & FC<0> & A<19> & A<18> & A<17> & 
+	A<16> & !VPA;
+   AVEC.CLK = CLKCPU;	// GCK
+   AVEC.AP = AS20;
+GLOBALS | 1 | 2 | CLKCPU
+
+MACROCELL | 1 | 13 | IOR_OBUF
+ATTRIBUTES | 8684422 | 0
+OUTPUTMC | 1 | 1 | 14
+INPUTS | 15 | A<19>  | A<18>  | A<17>  | A<16>  | RW20  | A<22>  | A<20>  | A<23>  | A<15>  | A<21>  | BUSTOP/ATA/ASDLY  | AS20  | BGACK  | AS  | BUSTOP/CANSTART
+INPUTMC | 3 | 0 | 5 | 1 | 14 | 0 | 12
+INPUTP | 12 | 68 | 67 | 66 | 65 | 17 | 74 | 70 | 75 | 63 | 72 | 30 | 16
+EXPORTS | 1 | 1 | 14
+EQ | 6 | 
+   !IOR.D = A<19> & !A<18> & A<17> & !A<16> & RW20 & A<22> & 
+	A<20> & A<23> & !A<15> & !A<21> & !BUSTOP/ATA/ASDLY;
+   !IOR.CLK = CLKCPU;	// GCK
+   IOR.AP = AS20;
+    IOR_OBUF.EXP  =  !BGACK
+	# AS & !BUSTOP/CANSTART
+GLOBALS | 1 | 2 | CLKCPU
+
+MACROCELL | 1 | 11 | IOW_OBUF
+ATTRIBUTES | 8684422 | 0
+INPUTS | 12 | A<19>  | A<18>  | A<17>  | A<16>  | RW20  | A<22>  | A<20>  | A<23>  | A<15>  | A<21>  | BUSTOP/ATA/ASDLY2  | AS20
+INPUTMC | 1 | 1 | 0
+INPUTP | 11 | 68 | 67 | 66 | 65 | 17 | 74 | 70 | 75 | 63 | 72 | 30
+EQ | 4 | 
+   !IOW.D = A<19> & !A<18> & A<17> & !A<16> & !RW20 & A<22> & 
+	A<20> & A<23> & !A<15> & !A<21> & !BUSTOP/ATA/ASDLY2;
+   !IOW.CLK = CLKCPU;	// GCK
+   IOW.AP = AS20;
+GLOBALS | 1 | 2 | CLKCPU
+
+MACROCELL | 2 | 1 | E_OBUF
+ATTRIBUTES | 4621058 | 0
+OUTPUTMC | 1 | 2 | 1
+INPUTS | 5 | E  | BUSTOP/M6800BUS/Q<0>  | BUSTOP/M6800BUS/Q<1>  | BUSTOP/M6800BUS/Q<2>  | BUSTOP/M6800BUS/Q<3>
+INPUTMC | 5 | 2 | 1 | 0 | 2 | 0 | 11 | 0 | 0 | 0 | 10
+EQ | 5 | 
+   E.T = E & !BUSTOP/M6800BUS/Q<0> & !BUSTOP/M6800BUS/Q<1> & 
+	!BUSTOP/M6800BUS/Q<2> & BUSTOP/M6800BUS/Q<3>
+	# !E & !BUSTOP/M6800BUS/Q<0> & !BUSTOP/M6800BUS/Q<1> & 
+	BUSTOP/M6800BUS/Q<2> & !BUSTOP/M6800BUS/Q<3>;
+   E.CLK = CLK7M;	// GCK
+GLOBALS | 1 | 2 | CLK7M
+
+MACROCELL | 0 | 2 | BUSTOP/M6800BUS/Q<0>
+ATTRIBUTES | 4358912 | 0
+OUTPUTMC | 9 | 0 | 14 | 2 | 17 | 2 | 1 | 0 | 11 | 0 | 0 | 0 | 10 | 0 | 13 | 0 | 15 | 0 | 1
+INPUTS | 17 | AS  | RW20  | A<0>  | SIZ<0>  | SIZ<1>  | FC<2>  | FC<1>  | FC<0>  | A<19>  | A<18>  | A<17>  | A<16>  | A<22>  | A<20>  | A<23>  | A<15>  | A<21>
+INPUTMC | 1 | 1 | 14
+INPUTP | 16 | 17 | 54 | 50 | 52 | 43 | 49 | 55 | 68 | 67 | 66 | 65 | 74 | 70 | 75 | 63 | 72
+EXPORTS | 1 | 0 | 1
+EQ | 8 | 
+   BUSTOP/M6800BUS/Q<0>.T = Vcc;
+   BUSTOP/M6800BUS/Q<0>.CLK = CLK7M;	// GCK
+    BUSTOP/M6800BUS/Q<0>.EXP  =  AS & !RW20
+	# !A<0> & SIZ<0> & !SIZ<1>
+	# FC<2> & FC<1> & FC<0> & !A<19> & !A<18> & A<17> & 
+	!A<16>
+	# A<19> & !A<18> & A<17> & !A<16> & A<22> & A<20> & 
+	A<23> & !A<15> & !A<21>
+GLOBALS | 1 | 2 | CLK7M
+
+MACROCELL | 0 | 11 | BUSTOP/M6800BUS/Q<1>
+ATTRIBUTES | 4358912 | 0
+OUTPUTMC | 8 | 0 | 14 | 2 | 17 | 2 | 1 | 0 | 11 | 0 | 0 | 0 | 10 | 0 | 13 | 0 | 15
+INPUTS | 4 | BUSTOP/M6800BUS/Q<0>  | BUSTOP/M6800BUS/Q<1>  | BUSTOP/M6800BUS/Q<2>  | BUSTOP/M6800BUS/Q<3>
+INPUTMC | 4 | 0 | 2 | 0 | 11 | 0 | 0 | 0 | 10
+EQ | 4 | 
+   !BUSTOP/M6800BUS/Q<1>.T = !BUSTOP/M6800BUS/Q<0>
+	# !BUSTOP/M6800BUS/Q<1> & !BUSTOP/M6800BUS/Q<2> & 
+	BUSTOP/M6800BUS/Q<3>;
+   BUSTOP/M6800BUS/Q<1>.CLK = CLK7M;	// GCK
+GLOBALS | 1 | 2 | CLK7M
+
+MACROCELL | 0 | 0 | BUSTOP/M6800BUS/Q<2>
+ATTRIBUTES | 4358916 | 0
+OUTPUTMC | 8 | 0 | 14 | 2 | 17 | 2 | 1 | 0 | 11 | 0 | 10 | 0 | 13 | 0 | 15 | 0 | 1
+INPUTS | 6 | BUSTOP/M6800BUS/Q<0>  | BUSTOP/M6800BUS/Q<1>  | BGACK  | BUSTOP/BGACK_INT  | AS  | BUSTOP/CANSTART
+INPUTMC | 5 | 0 | 2 | 0 | 11 | 0 | 3 | 1 | 14 | 0 | 12
+INPUTP | 1 | 16
+EXPORTS | 1 | 0 | 1
+EQ | 5 | 
+   BUSTOP/M6800BUS/Q<2>.T = BUSTOP/M6800BUS/Q<0> & BUSTOP/M6800BUS/Q<1>;
+   BUSTOP/M6800BUS/Q<2>.CLK = CLK7M;	// GCK
+    BUSTOP/M6800BUS/Q<2>.EXP  =  !BGACK
+	# !BUSTOP/BGACK_INT
+	# AS & !BUSTOP/CANSTART
+GLOBALS | 1 | 2 | CLK7M
+
+MACROCELL | 0 | 10 | BUSTOP/M6800BUS/Q<3>
+ATTRIBUTES | 4358912 | 0
+OUTPUTMC | 7 | 0 | 14 | 2 | 17 | 2 | 1 | 0 | 11 | 0 | 10 | 0 | 13 | 0 | 15
+INPUTS | 4 | BUSTOP/M6800BUS/Q<0>  | BUSTOP/M6800BUS/Q<1>  | BUSTOP/M6800BUS/Q<2>  | BUSTOP/M6800BUS/Q<3>
+INPUTMC | 4 | 0 | 2 | 0 | 11 | 0 | 0 | 0 | 10
+EQ | 5 | 
+   BUSTOP/M6800BUS/Q<3>.T = BUSTOP/M6800BUS/Q<0> & BUSTOP/M6800BUS/Q<1> & 
+	BUSTOP/M6800BUS/Q<2>
+	# BUSTOP/M6800BUS/Q<0> & !BUSTOP/M6800BUS/Q<1> & 
+	!BUSTOP/M6800BUS/Q<2> & BUSTOP/M6800BUS/Q<3>;
+   BUSTOP/M6800BUS/Q<3>.CLK = CLK7M;	// GCK
+GLOBALS | 1 | 2 | CLK7M
+
+MACROCELL | 0 | 5 | BUSTOP/ATA/ASDLY
+ATTRIBUTES | 8553348 | 0
+OUTPUTMC | 4 | 1 | 0 | 1 | 3 | 1 | 13 | 0 | 4
+INPUTS | 15 | AS20  | AS  | BUSTOP/CANSTART  | FC<2>  | FC<1>  | FC<0>  | A<19>  | A<18>  | A<17>  | A<16>  | A<22>  | A<20>  | A<23>  | A<15>  | A<21>
+INPUTMC | 2 | 1 | 14 | 0 | 12
+INPUTP | 13 | 30 | 43 | 49 | 55 | 68 | 67 | 66 | 65 | 74 | 70 | 75 | 63 | 72
+EXPORTS | 1 | 0 | 4
+EQ | 8 | 
+   BUSTOP/ATA/ASDLY.D = Gnd;
+   BUSTOP/ATA/ASDLY.CLK = CLKCPU;	// GCK
+   BUSTOP/ATA/ASDLY.AP = AS20;
+    BUSTOP/ATA/ASDLY.EXP  =  AS & !BUSTOP/CANSTART
+	# FC<2> & FC<1> & FC<0> & !A<19> & !A<18> & A<17> & 
+	!A<16>
+	# A<19> & !A<18> & A<17> & !A<16> & A<22> & A<20> & 
+	A<23> & !A<15> & !A<21>
+GLOBALS | 1 | 2 | CLKCPU
+
+MACROCELL | 2 | 15 | BUSTOP/DELAY/dtack_int<1>
+ATTRIBUTES | 8520612 | 0
+OUTPUTMC | 1 | 2 | 14
+INPUTS | 2 | BUSTOP/DTACK_S7  | BUSTOP/DTACK_S7D/BUSTOP/DTACK_S7D_SETF
+INPUTMC | 2 | 2 | 4 | 0 | 17
+EQ | 3 | 
+   BUSTOP/DELAY/dtack_int<1>.D = Gnd;
+   BUSTOP/DELAY/dtack_int<1>.CLK = !BUSTOP/DTACK_S7;
+   BUSTOP/DELAY/dtack_int<1>.AP = BUSTOP/DTACK_S7D/BUSTOP/DTACK_S7D_SETF;
+
+MACROCELL | 2 | 14 | BUSTOP/DELAY/dtack_int<2>
+ATTRIBUTES | 8520612 | 0
+OUTPUTMC | 1 | 2 | 13
+INPUTS | 2 | BUSTOP/DELAY/dtack_int<1>  | BUSTOP/DTACK_S7D/BUSTOP/DTACK_S7D_SETF
+INPUTMC | 2 | 2 | 15 | 0 | 17
+EQ | 3 | 
+   BUSTOP/DELAY/dtack_int<2>.D = Gnd;
+   BUSTOP/DELAY/dtack_int<2>.CLK = !BUSTOP/DELAY/dtack_int<1>;
+   BUSTOP/DELAY/dtack_int<2>.AP = BUSTOP/DTACK_S7D/BUSTOP/DTACK_S7D_SETF;
+
+MACROCELL | 2 | 13 | BUSTOP/DELAY/dtack_int<3>
+ATTRIBUTES | 8520612 | 0
+OUTPUTMC | 1 | 2 | 12
+INPUTS | 2 | BUSTOP/DELAY/dtack_int<2>  | BUSTOP/DTACK_S7D/BUSTOP/DTACK_S7D_SETF
+INPUTMC | 2 | 2 | 14 | 0 | 17
+EQ | 3 | 
+   BUSTOP/DELAY/dtack_int<3>.D = Gnd;
+   BUSTOP/DELAY/dtack_int<3>.CLK = !BUSTOP/DELAY/dtack_int<2>;
+   BUSTOP/DELAY/dtack_int<3>.AP = BUSTOP/DTACK_S7D/BUSTOP/DTACK_S7D_SETF;
+
+MACROCELL | 2 | 12 | BUSTOP/DELAY/dtack_int<4>
+ATTRIBUTES | 8520612 | 0
+OUTPUTMC | 1 | 2 | 11
+INPUTS | 2 | BUSTOP/DELAY/dtack_int<3>  | BUSTOP/DTACK_S7D/BUSTOP/DTACK_S7D_SETF
+INPUTMC | 2 | 2 | 13 | 0 | 17
+EQ | 3 | 
+   BUSTOP/DELAY/dtack_int<4>.D = Gnd;
+   BUSTOP/DELAY/dtack_int<4>.CLK = !BUSTOP/DELAY/dtack_int<3>;
+   BUSTOP/DELAY/dtack_int<4>.AP = BUSTOP/DTACK_S7D/BUSTOP/DTACK_S7D_SETF;
+
+MACROCELL | 2 | 11 | BUSTOP/DELAY/dtack_int<5>
+ATTRIBUTES | 8520612 | 0
+OUTPUTMC | 1 | 2 | 10
+INPUTS | 2 | BUSTOP/DELAY/dtack_int<4>  | BUSTOP/DTACK_S7D/BUSTOP/DTACK_S7D_SETF
+INPUTMC | 2 | 2 | 12 | 0 | 17
+EQ | 3 | 
+   BUSTOP/DELAY/dtack_int<5>.D = Gnd;
+   BUSTOP/DELAY/dtack_int<5>.CLK = !BUSTOP/DELAY/dtack_int<4>;
+   BUSTOP/DELAY/dtack_int<5>.AP = BUSTOP/DTACK_S7D/BUSTOP/DTACK_S7D_SETF;
+
+MACROCELL | 2 | 10 | BUSTOP/DELAY/dtack_int<6>
+ATTRIBUTES | 8520612 | 0
+OUTPUTMC | 1 | 3 | 17
+INPUTS | 2 | BUSTOP/DELAY/dtack_int<5>  | BUSTOP/DTACK_S7D/BUSTOP/DTACK_S7D_SETF
+INPUTMC | 2 | 2 | 11 | 0 | 17
+EQ | 3 | 
+   BUSTOP/DELAY/dtack_int<6>.D = Gnd;
+   BUSTOP/DELAY/dtack_int<6>.CLK = !BUSTOP/DELAY/dtack_int<5>;
+   BUSTOP/DELAY/dtack_int<6>.AP = BUSTOP/DTACK_S7D/BUSTOP/DTACK_S7D_SETF;
+
+MACROCELL | 3 | 17 | BUSTOP/DELAY/dtack_int<7>
+ATTRIBUTES | 8520612 | 0
+OUTPUTMC | 1 | 3 | 15
+INPUTS | 2 | BUSTOP/DELAY/dtack_int<6>  | BUSTOP/DTACK_S7D/BUSTOP/DTACK_S7D_SETF
+INPUTMC | 2 | 2 | 10 | 0 | 17
+EQ | 3 | 
+   BUSTOP/DELAY/dtack_int<7>.D = Gnd;
+   BUSTOP/DELAY/dtack_int<7>.CLK = !BUSTOP/DELAY/dtack_int<6>;
+   BUSTOP/DELAY/dtack_int<7>.AP = BUSTOP/DTACK_S7D/BUSTOP/DTACK_S7D_SETF;
+
+MACROCELL | 3 | 15 | BUSTOP/DELAY/dtack_int<8>
+ATTRIBUTES | 8520612 | 0
+OUTPUTMC | 1 | 3 | 13
+INPUTS | 2 | BUSTOP/DELAY/dtack_int<7>  | BUSTOP/DTACK_S7D/BUSTOP/DTACK_S7D_SETF
+INPUTMC | 2 | 3 | 17 | 0 | 17
+EQ | 3 | 
+   BUSTOP/DELAY/dtack_int<8>.D = Gnd;
+   BUSTOP/DELAY/dtack_int<8>.CLK = !BUSTOP/DELAY/dtack_int<7>;
+   BUSTOP/DELAY/dtack_int<8>.AP = BUSTOP/DTACK_S7D/BUSTOP/DTACK_S7D_SETF;
+
+MACROCELL | 3 | 13 | BUSTOP/DELAY/dtack_int<9>
+ATTRIBUTES | 8520612 | 0
+OUTPUTMC | 1 | 3 | 12
+INPUTS | 2 | BUSTOP/DELAY/dtack_int<8>  | BUSTOP/DTACK_S7D/BUSTOP/DTACK_S7D_SETF
+INPUTMC | 2 | 3 | 15 | 0 | 17
+EQ | 3 | 
+   BUSTOP/DELAY/dtack_int<9>.D = Gnd;
+   BUSTOP/DELAY/dtack_int<9>.CLK = !BUSTOP/DELAY/dtack_int<8>;
+   BUSTOP/DELAY/dtack_int<9>.AP = BUSTOP/DTACK_S7D/BUSTOP/DTACK_S7D_SETF;
+
+MACROCELL | 3 | 12 | BUSTOP/DTACK_S7D
+ATTRIBUTES | 8520612 | 0
+OUTPUTMC | 1 | 2 | 9
+INPUTS | 2 | BUSTOP/DELAY/dtack_int<9>  | BUSTOP/DTACK_S7D/BUSTOP/DTACK_S7D_SETF
+INPUTMC | 2 | 3 | 13 | 0 | 17
+EQ | 3 | 
+   BUSTOP/DTACK_S7D.D = Gnd;
+   BUSTOP/DTACK_S7D.CLK = !BUSTOP/DELAY/dtack_int<9>;
+   BUSTOP/DTACK_S7D.AP = BUSTOP/DTACK_S7D/BUSTOP/DTACK_S7D_SETF;
+
+MACROCELL | 0 | 3 | BUSTOP/BGACK_INT
+ATTRIBUTES | 8553216 | 0
+OUTPUTMC | 10 | 1 | 14 | 0 | 14 | 0 | 1 | 0 | 4 | 1 | 16 | 0 | 12 | 0 | 17 | 0 | 0 | 0 | 3 | 1 | 17
+INPUTS | 2 | BGACK  | BUSTOP/BGACK_INT
+INPUTMC | 1 | 0 | 3
+INPUTP | 1 | 16
+EXPORTS | 1 | 0 | 4
+EQ | 4 | 
+   BUSTOP/BGACK_INT.D = BGACK;
+   BUSTOP/BGACK_INT.CLK = CLKCPU;	// GCK
+    BUSTOP/BGACK_INT.EXP  =  !BGACK
+	# !BUSTOP/BGACK_INT
+GLOBALS | 1 | 2 | CLKCPU
+
+MACROCELL | 1 | 8 | DSACK_1_OBUF
+ATTRIBUTES | 264962 | 0
+INPUTS | 12 | BUSTOP/DSACK1_SYNC  | BUSTOP/DTACK_IDE  | SLOWCYCLE_D<3>  | IDEWAIT  | BUSTOP/DSACK_INT<0>  | FC<2>  | FC<1>  | FC<0>  | A<19>  | A<18>  | A<17>  | A<16>
+INPUTMC | 4 | 2 | 17 | 1 | 3 | 2 | 0 | 2 | 9
+INPUTP | 8 | 3 | 43 | 49 | 55 | 68 | 67 | 66 | 65
+EQ | 6 | 
+   DSACK<1> = BUSTOP/DSACK1_SYNC & BUSTOP/DSACK_INT<0> & 
+	BUSTOP/DTACK_IDE & SLOWCYCLE_D<3>
+	# BUSTOP/DSACK1_SYNC & BUSTOP/DTACK_IDE & 
+	SLOWCYCLE_D<3> & !IDEWAIT
+	# FC<2> & FC<1> & FC<0> & !A<19> & !A<18> & A<17> & 
+	!A<16>;
+
+MACROCELL | 1 | 9 | IDECS_0_OBUF
+ATTRIBUTES | 264962 | 0
+INPUTS | 10 | A<19>  | A<18>  | A<17>  | A<16>  | A<22>  | A<20>  | A<23>  | A<15>  | A<21>  | A<12>
+INPUTP | 10 | 68 | 67 | 66 | 65 | 74 | 70 | 75 | 63 | 72 | 59
+EQ | 2 | 
+   !IDECS<0> = A<19> & !A<18> & A<17> & !A<16> & A<22> & A<20> & 
+	A<23> & !A<15> & !A<21> & !A<12>;
+
+MACROCELL | 1 | 4 | IDECS_1_OBUF
+ATTRIBUTES | 264962 | 0
+INPUTS | 10 | A<19>  | A<18>  | A<17>  | A<16>  | A<22>  | A<20>  | A<23>  | A<15>  | A<21>  | A<12>
+INPUTP | 10 | 68 | 67 | 66 | 65 | 74 | 70 | 75 | 63 | 72 | 59
+EQ | 2 | 
+   !IDECS<1> = A<19> & !A<18> & A<17> & !A<16> & A<22> & A<20> & 
+	A<23> & !A<15> & !A<21> & A<12>;
+
+MACROCELL | 0 | 7 | ADDRESS_MAP<10>$BUF6
+ATTRIBUTES | 265986 | 0
+INPUTS | 1 | BUSTOP/BG_INT
+INPUTMC | 1 | 2 | 16
+EQ | 2 | 
+   BG = Gnd;
+   BG.OE = !BUSTOP/BG_INT;
+
+MACROCELL | 2 | 8 | ADDRESS_MAP<10>$BUF7
+ATTRIBUTES | 265986 | 0
+INPUTS | 2 | CPCS  | CPSENSE
+INPUTMC | 1 | 1 | 5
+INPUTP | 1 | 27
+EQ | 2 | 
+   BERR = Gnd;
+   BERR.OE = !CPCS & CPSENSE;
+
+MACROCELL | 0 | 9 | ADDRESS_MAP<10>
+ATTRIBUTES | 265986 | 0
+INPUTS | 0
+EQ | 2 | 
+   RESET = Gnd;
+   RESET.OE = Gnd;
+
+MACROCELL | 3 | 14 | ADDRESS_MAP<10>$BUF0
+ATTRIBUTES | 265986 | 0
+INPUTS | 0
+EQ | 2 | 
+   OVR = Gnd;
+   OVR.OE = Gnd;
+
+MACROCELL | 1 | 2 | ADDRESS_MAP<10>$BUF1
+ATTRIBUTES | 265986 | 0
+INPUTS | 0
+EQ | 2 | 
+   IPL<2> = Gnd;
+   IPL<2>.OE = Gnd;
+
+MACROCELL | 3 | 16 | ADDRESS_MAP<10>$BUF2
+ATTRIBUTES | 265986 | 0
+INPUTS | 0
+EQ | 2 | 
+   IPL<1> = Gnd;
+   IPL<1>.OE = Gnd;
+
+MACROCELL | 1 | 1 | ADDRESS_MAP<10>$BUF3
+ATTRIBUTES | 265986 | 0
+INPUTS | 0
+EQ | 2 | 
+   INT2 = Gnd;
+   INT2.OE = Gnd;
+
+MACROCELL | 0 | 13 | ADDRESS_MAP<10>$BUF4
+ATTRIBUTES | 265986 | 0
+OUTPUTMC | 1 | 0 | 14
+INPUTS | 6 | FC<2>  | VMA  | BUSTOP/M6800BUS/Q<0>  | BUSTOP/M6800BUS/Q<1>  | BUSTOP/M6800BUS/Q<2>  | BUSTOP/M6800BUS/Q<3>
+INPUTMC | 5 | 0 | 14 | 0 | 2 | 0 | 11 | 0 | 0 | 0 | 10
+INPUTP | 1 | 43
+EXPORTS | 1 | 0 | 14
+EQ | 4 | 
+   HALT = Gnd;
+   HALT.OE = Gnd;
+    ADDRESS_MAP<10>$BUF4.EXP  =  !FC<2> & VMA & !BUSTOP/M6800BUS/Q<0> & 
+	BUSTOP/M6800BUS/Q<1> & !BUSTOP/M6800BUS/Q<2> & !BUSTOP/M6800BUS/Q<3>
+
+MACROCELL | 2 | 5 | ADDRESS_MAP<10>$BUF5
+ATTRIBUTES | 265986 | 0
+INPUTS | 0
+EQ | 2 | 
+   DSACK<0> = Gnd;
+   DSACK<0>.OE = Gnd;
+
+MACROCELL | 0 | 6 | $OpTx$BIN_STEP$36
+ATTRIBUTES | 133888 | 0
+OUTPUTMC | 6 | 1 | 14 | 0 | 14 | 0 | 1 | 0 | 4 | 1 | 16 | 0 | 12
+INPUTS | 9 | A<19>  | A<18>  | A<17>  | A<16>  | A<22>  | A<20>  | A<23>  | A<15>  | A<21>
+INPUTP | 9 | 68 | 67 | 66 | 65 | 74 | 70 | 75 | 63 | 72
+EQ | 2 | 
+   $OpTx$BIN_STEP$36 = A<19> & !A<18> & A<17> & !A<16> & A<22> & A<20> & 
+	A<23> & !A<15> & !A<21>;
+
+MACROCELL | 0 | 17 | BUSTOP/DTACK_S7D/BUSTOP/DTACK_S7D_SETF
+ATTRIBUTES | 133888 | 0
+OUTPUTMC | 10 | 2 | 15 | 2 | 14 | 2 | 13 | 2 | 12 | 2 | 11 | 2 | 10 | 3 | 17 | 3 | 15 | 3 | 13 | 3 | 12
+INPUTS | 13 | AS  | INTCYCLE  | BGACK  | BUSTOP/BGACK_INT  | A<19>  | A<18>  | A<17>  | A<16>  | A<22>  | A<20>  | A<23>  | A<15>  | A<21>
+INPUTMC | 2 | 1 | 14 | 0 | 3
+INPUTP | 11 | 86 | 16 | 68 | 67 | 66 | 65 | 74 | 70 | 75 | 63 | 72
+EQ | 6 | 
+   BUSTOP/DTACK_S7D/BUSTOP/DTACK_S7D_SETF = AS
+	# !INTCYCLE
+	# !BGACK
+	# !BUSTOP/BGACK_INT
+	# A<19> & !A<18> & A<17> & !A<16> & A<22> & A<20> & 
+	A<23> & !A<15> & !A<21>;
+
+MACROCELL | 1 | 15 | EXP10_
+ATTRIBUTES | 2048 | 0
+OUTPUTMC | 1 | 1 | 14
+INPUTS | 12 | FC<2>  | FC<1>  | FC<0>  | A<19>  | A<18>  | A<17>  | A<16>  | A<22>  | A<20>  | A<23>  | A<15>  | A<21>
+INPUTP | 12 | 43 | 49 | 55 | 68 | 67 | 66 | 65 | 74 | 70 | 75 | 63 | 72
+EXPORTS | 1 | 1 | 14
+EQ | 4 | 
+       EXP10_.EXP  =  FC<2> & FC<1> & FC<0> & !A<19> & !A<18> & A<17> & 
+	!A<16>
+	# A<19> & !A<18> & A<17> & !A<16> & A<22> & A<20> & 
+	A<23> & !A<15> & !A<21>
+
+MACROCELL | 1 | 17 | EXP11_
+ATTRIBUTES | 2048 | 0
+OUTPUTMC | 1 | 1 | 16
+INPUTS | 7 | DS20  | BGACK  | BUSTOP/BGACK_INT  | AS  | RW20  | BUSTOP/CANSTART  | BUSTOP/ATA/ASDLY2.EXP
+INPUTMC | 4 | 0 | 3 | 1 | 14 | 0 | 12 | 1 | 0
+INPUTP | 3 | 31 | 16 | 17
+EXPORTS | 1 | 1 | 16
+IMPORTS | 1 | 1 | 0
+EQ | 10 | 
+       EXP11_.EXP  =  DS20
+	# !BGACK
+	# !BUSTOP/BGACK_INT
+	# AS & !RW20
+	# AS & !BUSTOP/CANSTART
+;Imported pterms FB2_1
+	# FC<2> & FC<1> & FC<0> & !A<19> & !A<18> & A<17> & 
+	!A<16>
+	# A<19> & !A<18> & A<17> & !A<16> & A<22> & A<20> & 
+	A<23> & !A<15> & !A<21>
+
+PIN | FC<2> | 64 | 0 | N/A | 43 | 10 | 1 | 0 | 0 | 13 | 1 | 8 | 0 | 2 | 1 | 15 | 1 | 5 | 0 | 16 | 1 | 7 | 0 | 5 | 0 | 15
+PIN | FC<1> | 64 | 0 | N/A | 49 | 10 | 1 | 0 | 0 | 14 | 1 | 8 | 0 | 2 | 1 | 15 | 1 | 5 | 0 | 16 | 1 | 7 | 0 | 5 | 0 | 15
+PIN | FC<0> | 64 | 0 | N/A | 55 | 10 | 1 | 0 | 0 | 14 | 1 | 8 | 0 | 2 | 1 | 15 | 1 | 5 | 0 | 16 | 1 | 7 | 0 | 5 | 0 | 15
+PIN | A<19> | 64 | 0 | N/A | 68 | 15 | 1 | 0 | 0 | 17 | 0 | 2 | 1 | 15 | 1 | 5 | 0 | 16 | 1 | 3 | 1 | 7 | 1 | 13 | 1 | 11 | 1 | 8 | 1 | 9 | 1 | 4 | 0 | 6 | 0 | 5
+PIN | A<18> | 64 | 0 | N/A | 67 | 15 | 1 | 0 | 0 | 17 | 0 | 2 | 1 | 15 | 1 | 5 | 0 | 16 | 1 | 3 | 1 | 7 | 1 | 13 | 1 | 11 | 1 | 8 | 1 | 9 | 1 | 4 | 0 | 6 | 0 | 5
+PIN | A<17> | 64 | 0 | N/A | 66 | 15 | 1 | 0 | 0 | 17 | 0 | 2 | 1 | 15 | 1 | 5 | 0 | 16 | 1 | 3 | 1 | 7 | 1 | 13 | 1 | 11 | 1 | 8 | 1 | 9 | 1 | 4 | 0 | 6 | 0 | 5
+PIN | A<16> | 64 | 0 | N/A | 65 | 15 | 1 | 0 | 0 | 17 | 0 | 2 | 1 | 15 | 1 | 5 | 0 | 16 | 1 | 3 | 1 | 7 | 1 | 13 | 1 | 11 | 1 | 8 | 1 | 9 | 1 | 4 | 0 | 6 | 0 | 5
+PIN | CLK7M | 4096 | 0 | N/A | 20 | 20 | 1 | 14 | 0 | 14 | 0 | 1 | 0 | 4 | 1 | 16 | 2 | 17 | 0 | 15 | 2 | 6 | 0 | 8 | 2 | 3 | 2 | 2 | 2 | 0 | 2 | 1 | 0 | 2 | 0 | 11 | 0 | 0 | 0 | 10 | 0 | 12 | 2 | 7 | 2 | 4
+PIN | AS20 | 64 | 0 | N/A | 30 | 23 | 1 | 14 | 0 | 1 | 0 | 4 | 1 | 16 | 1 | 5 | 2 | 17 | 2 | 16 | 0 | 16 | 0 | 15 | 1 | 0 | 2 | 9 | 1 | 3 | 2 | 7 | 2 | 6 | 2 | 4 | 0 | 8 | 2 | 3 | 2 | 2 | 2 | 0 | 1 | 7 | 1 | 13 | 1 | 11 | 0 | 5
+PIN | INTCYCLE | 64 | 0 | N/A | 86 | 8 | 1 | 14 | 0 | 14 | 0 | 1 | 0 | 4 | 1 | 16 | 0 | 12 | 0 | 8 | 0 | 17
+PIN | BGACK | 64 | 0 | N/A | 16 | 11 | 1 | 14 | 0 | 14 | 0 | 1 | 0 | 4 | 1 | 16 | 0 | 12 | 0 | 3 | 0 | 17 | 0 | 0 | 1 | 13 | 1 | 17
+PIN | A<15> | 64 | 0 | N/A | 63 | 11 | 1 | 0 | 0 | 17 | 0 | 2 | 1 | 15 | 1 | 3 | 1 | 13 | 1 | 11 | 1 | 9 | 1 | 4 | 0 | 6 | 0 | 5
+PIN | A<20> | 64 | 0 | N/A | 70 | 11 | 1 | 0 | 0 | 17 | 0 | 2 | 1 | 15 | 1 | 3 | 1 | 13 | 1 | 11 | 1 | 9 | 1 | 4 | 0 | 6 | 0 | 5
+PIN | A<21> | 64 | 0 | N/A | 72 | 11 | 1 | 0 | 0 | 17 | 0 | 2 | 1 | 15 | 1 | 3 | 1 | 13 | 1 | 11 | 1 | 9 | 1 | 4 | 0 | 6 | 0 | 5
+PIN | A<22> | 64 | 0 | N/A | 74 | 11 | 1 | 0 | 0 | 17 | 0 | 2 | 1 | 15 | 1 | 3 | 1 | 13 | 1 | 11 | 1 | 9 | 1 | 4 | 0 | 6 | 0 | 5
+PIN | A<23> | 64 | 0 | N/A | 75 | 11 | 1 | 0 | 0 | 17 | 0 | 2 | 1 | 15 | 1 | 3 | 1 | 13 | 1 | 11 | 1 | 9 | 1 | 4 | 0 | 6 | 0 | 5
+PIN | VPA | 64 | 0 | N/A | 33 | 2 | 0 | 14 | 1 | 7
+PIN | DS20 | 64 | 0 | N/A | 31 | 2 | 0 | 1 | 1 | 17
+PIN | RW20 | 64 | 0 | N/A | 17 | 5 | 1 | 11 | 0 | 4 | 0 | 2 | 1 | 13 | 1 | 17
+PIN | A<0> | 64 | 0 | N/A | 54 | 2 | 1 | 16 | 0 | 2
+PIN | SIZ<0> | 64 | 0 | N/A | 50 | 1 | 0 | 2
+PIN | SIZ<1> | 64 | 0 | N/A | 52 | 1 | 0 | 2
+PIN | CLKCPU | 8192 | 0 | N/A | 21 | 11 | 1 | 5 | 2 | 16 | 0 | 16 | 1 | 0 | 2 | 9 | 1 | 7 | 0 | 5 | 0 | 3 | 1 | 3 | 1 | 13 | 1 | 11
+PIN | BG20 | 64 | 0 | N/A | 44 | 1 | 2 | 16
+PIN | DTACK | 64 | 0 | N/A | 13 | 1 | 2 | 7
+PIN | IDEWAIT | 64 | 0 | N/A | 3 | 1 | 1 | 8
+PIN | CPSENSE | 64 | 0 | N/A | 27 | 1 | 2 | 8
+PIN | A<12> | 64 | 0 | N/A | 59 | 2 | 1 | 9 | 1 | 4
+PIN | AS | 536871040 | 0 | N/A | 9
+PIN | VMA | 536871040 | 0 | N/A | 26
+PIN | LDS | 536871040 | 0 | N/A | 11
+PIN | RW | 536871040 | 0 | N/A | 12
+PIN | UDS | 536871040 | 0 | N/A | 10
+PIN | CPCS | 536871040 | 0 | N/A | 89
+PIN | AVEC | 536871040 | 0 | N/A | 90
+PIN | IOR | 536871040 | 0 | N/A | 7
+PIN | IOW | 536871040 | 0 | N/A | 5
+PIN | E | 536871040 | 0 | N/A | 29
+PIN | DSACK<1> | 536871040 | 0 | N/A | 92
+PIN | IDECS<0> | 536871040 | 0 | N/A | 1
+PIN | IDECS<1> | 536871040 | 0 | N/A | 88
+PIN | BG | 536871040 | 0 | N/A | 15
+PIN | BERR | 536871040 | 0 | N/A | 38
+PIN | RESET | 536871040 | 0 | N/A | 25
+PIN | OVR | 536871040 | 0 | N/A | 82
+PIN | IPL<2> | 536871040 | 0 | N/A | 84
+PIN | IPL<1> | 536871040 | 0 | N/A | 83
+PIN | INT2 | 536871040 | 0 | N/A | 87
+PIN | HALT | 536871040 | 0 | N/A | 24
+PIN | DSACK<0> | 536871040 | 0 | N/A | 47

@@ -1,0 +1,792 @@
+MDF Database:  version 1.0
+MDF_INFO | tf530r3_ram_top | XC9572XL-10-VQ64
+MACROCELL | 1 | 3 | RAMTOP/data_out<10>
+ATTRIBUTES | 8816386 | 0
+OUTPUTMC | 3 | 1 | 2 | 1 | 4 | 1 | 5
+INPUTS | 11 | AS20  | A<22>  | A<21>  | A<19>  | A<16>  | A<23>  | A<20>  | A<18>  | A<17>  | RAMTOP/AUTOCONFIG/shutup<1>  | RAMTOP/intcycle_dout
+INPUTMC | 2 | 1 | 8 | 2 | 17
+INPUTP | 9 | 67 | 1 | 3 | 25 | 49 | 92 | 24 | 26 | 27
+EQ | 4 | 
+   D<3>.D = !AS20 & A<22> & A<21> & A<19> & A<16> & A<23> & 
+	!A<20> & !A<18> & !A<17> & !RAMTOP/AUTOCONFIG/shutup<1>;
+   D<3>.CLK = CLKCPU;	// GCK
+   D<3>.OE = !RAMTOP/intcycle_dout;
+GLOBALS | 1 | 2 | CLKCPU
+
+MACROCELL | 2 | 5 | RAMTOP/data_out<15>
+ATTRIBUTES | 8685314 | 0
+INPUTS | 8 | A<21>  | RAMTOP/gayle_dout  | A<22>  | A<23>  | A<19>  | RAMTOP/RAMCS<2>.EXP  | EXP12_.EXP  | RAMTOP/intcycle_dout
+INPUTMC | 4 | 0 | 17 | 2 | 4 | 2 | 6 | 2 | 17
+INPUTP | 4 | 3 | 1 | 92 | 25
+IMPORTS | 2 | 2 | 4 | 2 | 6
+EQ | 23 | 
+   !D<7>.D = !A<22> & !RAMTOP/gayle_dout
+	# !A<21> & !RAMTOP/gayle_dout
+	# !A<19> & !RAMTOP/gayle_dout
+	# !A<23> & !RAMTOP/gayle_dout
+;Imported pterms FB3_5
+	# A<18> & !RAMTOP/gayle_dout
+;Imported pterms FB3_7
+	# AS20 & !RAMTOP/gayle_dout
+	# A<20> & !RAMTOP/gayle_dout
+	# A<17> & !RAMTOP/gayle_dout
+	# A<16> & !RAMTOP/gayle_dout & 
+	RAMTOP/AUTOCONFIG/shutup<1>
+	# !A<16> & RAMTOP/AUTOCONFIG/config_out<1> & 
+	RAMTOP/AUTOCONFIG/config_out<0> & !RAMTOP/gayle_dout
+;Imported pterms FB3_8
+	# !AS20 & A<22> & A<21> & A<19> & !A<16> & A<23> & 
+	!A<20> & !A<18> & !A<17> & !RAMTOP/AUTOCONFIG/config_out<1> & 
+	!RAMTOP/zii_dout<7>
+	# !AS20 & A<22> & A<21> & A<19> & !A<16> & A<23> & 
+	!A<20> & !A<18> & !A<17> & !RAMTOP/AUTOCONFIG/config_out<0> & 
+	!RAMTOP/zii_dout<7>;
+   D<7>.CLK = CLKCPU;	// GCK
+   D<7>.OE = !RAMTOP/intcycle_dout;
+GLOBALS | 1 | 2 | CLKCPU
+
+MACROCELL | 2 | 10 | RAMTOP/data_out<12>
+ATTRIBUTES | 8685314 | 0
+INPUTS | 14 | AS20  | A<22>  | A<21>  | A<19>  | A<16>  | A<23>  | A<20>  | A<18>  | A<17>  | RAMTOP/AUTOCONFIG/shutup<1>  | RAMTOP/AUTOCONFIG/config_out<1>  | RAMTOP/zii_dout<4>  | RAMTOP/AUTOCONFIG/config_out<0>  | RAMTOP/intcycle_dout
+INPUTMC | 5 | 1 | 8 | 0 | 10 | 1 | 0 | 0 | 12 | 2 | 17
+INPUTP | 9 | 67 | 1 | 3 | 25 | 49 | 92 | 24 | 26 | 27
+EQ | 10 | 
+   D<4>.D = !AS20 & A<22> & A<21> & A<19> & A<16> & A<23> & 
+	!A<20> & !A<18> & !A<17> & !RAMTOP/AUTOCONFIG/shutup<1>
+	# !AS20 & A<22> & A<21> & A<19> & !A<16> & A<23> & 
+	!A<20> & !A<18> & !A<17> & !RAMTOP/AUTOCONFIG/config_out<1> & 
+	RAMTOP/zii_dout<4>
+	# !AS20 & A<22> & A<21> & A<19> & !A<16> & A<23> & 
+	!A<20> & !A<18> & !A<17> & !RAMTOP/AUTOCONFIG/config_out<0> & 
+	RAMTOP/zii_dout<4>;
+   D<4>.CLK = CLKCPU;	// GCK
+   D<4>.OE = !RAMTOP/intcycle_dout;
+GLOBALS | 1 | 2 | CLKCPU
+
+MACROCELL | 2 | 3 | RAMTOP/data_out<13>
+ATTRIBUTES | 8685314 | 0
+OUTPUTMC | 1 | 2 | 4
+INPUTS | 18 | AS20  | A<22>  | A<21>  | A<19>  | A<16>  | A<23>  | A<20>  | A<18>  | A<17>  | RAMTOP/AUTOCONFIG/shutup<1>  | RAMTOP/AUTOCONFIG/config_out<1>  | RAMTOP/zii_dout<5>  | RAMTOP/AUTOCONFIG/config_out<0>  | RAMTOP/intcycle_dout  | DS20  | RAMTOP/AUTOCONFIG/shutup<0>  | A<1>  | SIZ<1>
+INPUTMC | 6 | 1 | 8 | 0 | 10 | 1 | 14 | 0 | 12 | 2 | 17 | 1 | 9
+INPUTP | 12 | 67 | 1 | 3 | 25 | 49 | 92 | 24 | 26 | 27 | 65 | 5 | 54
+EXPORTS | 1 | 2 | 4
+EQ | 12 | 
+   D<5>.D = !AS20 & A<22> & A<21> & A<19> & A<16> & A<23> & 
+	!A<20> & !A<18> & !A<17> & !RAMTOP/AUTOCONFIG/shutup<1>
+	# !AS20 & A<22> & A<21> & A<19> & !A<16> & A<23> & 
+	!A<20> & !A<18> & !A<17> & !RAMTOP/AUTOCONFIG/config_out<1> & 
+	RAMTOP/zii_dout<5>
+	# !AS20 & A<22> & A<21> & A<19> & !A<16> & A<23> & 
+	!A<20> & !A<18> & !A<17> & !RAMTOP/AUTOCONFIG/config_out<0> & 
+	RAMTOP/zii_dout<5>;
+   D<5>.CLK = CLKCPU;	// GCK
+   D<5>.OE = !RAMTOP/intcycle_dout;
+    RAMTOP/data_out<13>.EXP  =  !AS20 & !A<22> & A<21> & !A<23> & !DS20 & 
+	!RAMTOP/AUTOCONFIG/shutup<0> & !A<1> & SIZ<1>
+GLOBALS | 1 | 2 | CLKCPU
+
+MACROCELL | 2 | 2 | RAMTOP/data_out<14>
+ATTRIBUTES | 8685314 | 0
+INPUTS | 14 | AS20  | A<22>  | A<21>  | A<19>  | A<16>  | A<23>  | A<20>  | A<18>  | A<17>  | RAMTOP/AUTOCONFIG/shutup<1>  | RAMTOP/AUTOCONFIG/config_out<1>  | RAMTOP/zii_dout<6>  | RAMTOP/AUTOCONFIG/config_out<0>  | RAMTOP/intcycle_dout
+INPUTMC | 5 | 1 | 8 | 0 | 10 | 1 | 12 | 0 | 12 | 2 | 17
+INPUTP | 9 | 67 | 1 | 3 | 25 | 49 | 92 | 24 | 26 | 27
+EQ | 10 | 
+   D<6>.D = !AS20 & A<22> & A<21> & A<19> & A<16> & A<23> & 
+	!A<20> & !A<18> & !A<17> & !RAMTOP/AUTOCONFIG/shutup<1>
+	# !AS20 & A<22> & A<21> & A<19> & !A<16> & A<23> & 
+	!A<20> & !A<18> & !A<17> & !RAMTOP/AUTOCONFIG/config_out<1> & 
+	RAMTOP/zii_dout<6>
+	# !AS20 & A<22> & A<21> & A<19> & !A<16> & A<23> & 
+	!A<20> & !A<18> & !A<17> & !RAMTOP/AUTOCONFIG/config_out<0> & 
+	RAMTOP/zii_dout<6>;
+   D<6>.CLK = CLKCPU;	// GCK
+   D<6>.OE = !RAMTOP/intcycle_dout;
+GLOBALS | 1 | 2 | CLKCPU
+
+MACROCELL | 0 | 14 | RAMTOP/GAYLE/INT_CHNG
+ATTRIBUTES | 4326324 | 0
+OUTPUTMC | 3 | 0 | 14 | 0 | 17 | 1 | 7
+INPUTS | 21 | AS20  | RAMTOP/GAYLE/INT_CHNG  | D<7>.PIN  | A<22>  | A<21>  | A<19>  | A<16>  | A<23>  | A<20>  | A<18>  | A<17>  | A<15>  | A<13>  | RW20  | A<12>  | DS20  | $OpTx$FX_DC$34  | RAMTOP/GAYLE/intena  | IDEINT  | RAMTOP/GAYLE/intlast  | RESET
+INPUTMC | 4 | 0 | 14 | 2 | 15 | 0 | 13 | 1 | 6
+INPUTP | 17 | 67 | 47 | 1 | 3 | 25 | 49 | 92 | 24 | 26 | 27 | 52 | 70 | 55 | 72 | 65 | 83 | 87
+EQ | 8 | 
+   RAMTOP/GAYLE/INT_CHNG.T = !AS20 & RAMTOP/GAYLE/INT_CHNG & !D<7>.PIN & A<22> & 
+	!A<21> & A<19> & !A<16> & A<23> & A<20> & !A<18> & A<17> & 
+	A<15> & !A<13> & !RW20 & A<12>;
+   RAMTOP/GAYLE/INT_CHNG.CLK = !AS20 & A<22> & !A<21> & A<19> & !A<16> & A<23> & 
+	A<20> & A<17> & !DS20 & $OpTx$FX_DC$34;
+   RAMTOP/GAYLE/INT_CHNG.AP = RAMTOP/GAYLE/intena & IDEINT & 
+	!RAMTOP/GAYLE/intlast;
+   RAMTOP/GAYLE/INT_CHNG.AR = !RESET;
+
+MACROCELL | 0 | 13 | RAMTOP/GAYLE/intena
+ATTRIBUTES | 8520560 | 0
+OUTPUTMC | 3 | 0 | 14 | 0 | 0 | 1 | 7
+INPUTS | 16 | D<7>.PIN  | AS20  | A<22>  | A<21>  | A<19>  | A<16>  | A<23>  | A<20>  | A<17>  | DS20  | $OpTx$FX_DC$34  | RESET  | A<18>  | A<13>  | RW20  | A<12>
+INPUTMC | 1 | 2 | 15
+INPUTP | 15 | 47 | 67 | 1 | 3 | 25 | 49 | 92 | 24 | 27 | 65 | 87 | 26 | 70 | 55 | 72
+EQ | 5 | 
+   RAMTOP/GAYLE/intena.D = D<7>.PIN;
+   RAMTOP/GAYLE/intena.CLK = !AS20 & A<22> & !A<21> & A<19> & !A<16> & A<23> & 
+	A<20> & A<17> & !DS20 & $OpTx$FX_DC$34;
+   RAMTOP/GAYLE/intena.AR = !RESET;
+   RAMTOP/GAYLE/intena.CE = !A<18> & A<13> & !RW20 & !A<12>;
+
+MACROCELL | 2 | 1 | RAMTOP/RAMOE
+ATTRIBUTES | 8684418 | 0
+INPUTS | 6 | AS20  | A<22>  | A<21>  | A<23>  | DS20  | RAMTOP/AUTOCONFIG/shutup<0>
+INPUTMC | 1 | 1 | 9
+INPUTP | 5 | 67 | 1 | 3 | 92 | 65
+EQ | 4 | 
+   !RAMOE.D = !AS20 & !A<22> & A<21> & !A<23> & !DS20 & 
+	!RAMTOP/AUTOCONFIG/shutup<0>;
+   RAMOE.CLK = CLKCPU;	// GCK
+   RAMOE.AP = AS20;
+GLOBALS | 1 | 2 | CLKCPU
+
+MACROCELL | 0 | 10 | RAMTOP/AUTOCONFIG/config_out<1>
+ATTRIBUTES | 8520496 | 0
+OUTPUTMC | 17 | 1 | 17 | 2 | 10 | 2 | 3 | 2 | 2 | 2 | 17 | 1 | 0 | 1 | 12 | 1 | 9 | 1 | 8 | 1 | 14 | 1 | 15 | 1 | 11 | 1 | 10 | 1 | 13 | 1 | 16 | 2 | 6 | 2 | 7
+INPUTS | 4 | RAMTOP/AUTOCONFIG/shutup<1>  | RAMTOP/AUTOCONFIG/configured<1>  | AS20  | RESET
+INPUTMC | 2 | 1 | 8 | 1 | 10
+INPUTP | 2 | 67 | 87
+EQ | 4 | 
+   !RAMTOP/AUTOCONFIG/config_out<1>.D = !RAMTOP/AUTOCONFIG/shutup<1> & 
+	!RAMTOP/AUTOCONFIG/configured<1>;
+   RAMTOP/AUTOCONFIG/config_out<1>.CLK = AS20;
+   RAMTOP/AUTOCONFIG/config_out<1>.AR = !RESET;
+
+MACROCELL | 2 | 17 | RAMTOP/intcycle_dout
+ATTRIBUTES | 8553348 | 0
+OUTPUTMC | 8 | 1 | 3 | 2 | 5 | 2 | 10 | 2 | 3 | 2 | 2 | 1 | 2 | 1 | 4 | 1 | 5
+INPUTS | 14 | AS20  | A<22>  | A<21>  | A<19>  | A<16>  | A<23>  | A<20>  | A<18>  | A<17>  | RW20  | RAMTOP/AUTOCONFIG/shutup<1>  | A<15>  | RAMTOP/AUTOCONFIG/config_out<1>  | RAMTOP/GAYLE/gayleid<1>.EXP
+INPUTMC | 3 | 1 | 8 | 0 | 10 | 2 | 16
+INPUTP | 11 | 67 | 1 | 3 | 25 | 49 | 92 | 24 | 26 | 27 | 55 | 52
+IMPORTS | 1 | 2 | 16
+EQ | 16 | 
+   !RAMTOP/intcycle_dout.D = !AS20 & A<22> & A<21> & A<19> & A<16> & A<23> & 
+	!A<20> & !A<18> & !A<17> & RW20 & 
+	!RAMTOP/AUTOCONFIG/shutup<1>
+	# !AS20 & A<22> & A<21> & A<19> & !A<16> & A<23> & 
+	!A<20> & !A<18> & !A<17> & RW20 & 
+	!RAMTOP/AUTOCONFIG/config_out<1>
+	# !AS20 & A<22> & !A<21> & A<19> & !A<16> & A<23> & 
+	A<20> & A<18> & A<17> & !A<15> & RW20
+	# !AS20 & A<22> & !A<21> & A<19> & !A<16> & A<23> & 
+	A<20> & !A<18> & A<17> & A<15> & RW20
+;Imported pterms FB3_17
+	# !AS20 & A<22> & A<21> & A<19> & !A<16> & A<23> & 
+	!A<20> & !A<18> & !A<17> & RW20 & 
+	!RAMTOP/AUTOCONFIG/config_out<0>;
+   RAMTOP/intcycle_dout.CLK = CLKCPU;	// GCK
+   RAMTOP/intcycle_dout.AP = AS20;
+GLOBALS | 1 | 2 | CLKCPU
+
+MACROCELL | 0 | 12 | RAMTOP/AUTOCONFIG/config_out<0>
+ATTRIBUTES | 8520496 | 0
+OUTPUTMC | 13 | 1 | 16 | 2 | 10 | 2 | 3 | 2 | 2 | 2 | 16 | 1 | 0 | 1 | 10 | 1 | 9 | 1 | 8 | 1 | 13 | 1 | 11 | 2 | 6 | 2 | 7
+INPUTS | 4 | RAMTOP/AUTOCONFIG/shutup<0>  | RAMTOP/AUTOCONFIG/configured<0>  | AS20  | RESET
+INPUTMC | 2 | 1 | 9 | 1 | 11
+INPUTP | 2 | 67 | 87
+EQ | 4 | 
+   !RAMTOP/AUTOCONFIG/config_out<0>.D = !RAMTOP/AUTOCONFIG/shutup<0> & 
+	!RAMTOP/AUTOCONFIG/configured<0>;
+   RAMTOP/AUTOCONFIG/config_out<0>.CLK = AS20;
+   RAMTOP/AUTOCONFIG/config_out<0>.AR = !RESET;
+
+MACROCELL | 0 | 17 | RAMTOP/gayle_dout
+ATTRIBUTES | 8520544 | 0
+OUTPUTMC | 5 | 2 | 5 | 0 | 17 | 0 | 0 | 2 | 4 | 2 | 6
+INPUTS | 19 | A<18>  | A<13>  | RW20  | A<12>  | RAMTOP/gayle_dout  | RAMTOP/GAYLE/gayleid<3>  | RAMTOP/GAYLE/INT_CHNG  | EXP10_.EXP  | AS20  | A<22>  | A<21>  | A<19>  | A<16>  | A<23>  | A<20>  | A<17>  | DS20  | $OpTx$FX_DC$34  | RESET
+INPUTMC | 5 | 0 | 17 | 0 | 15 | 0 | 14 | 0 | 0 | 2 | 15
+INPUTP | 14 | 26 | 70 | 55 | 72 | 67 | 1 | 3 | 25 | 49 | 92 | 24 | 27 | 65 | 87
+IMPORTS | 1 | 0 | 0
+EQ | 15 | 
+   RAMTOP/gayle_dout.D = RAMTOP/GAYLE/INT_CHNG & !A<18> & !A<13> & RW20 & 
+	A<12>
+	# A<18> & !A<13> & RW20 & A<12> & 
+	RAMTOP/GAYLE/gayleid<3>
+	# A<18> & !A<13> & !RW20 & A<12> & 
+	RAMTOP/gayle_dout
+;Imported pterms FB1_1
+	# RAMTOP/GAYLE/intena & !A<18> & A<13> & RW20 & 
+	!A<12>
+	# !A<18> & A<13> & !RW20 & !A<12> & 
+	RAMTOP/gayle_dout
+	# !A<18> & !A<13> & RW20 & !A<12> & IDEINT;
+   RAMTOP/gayle_dout.CLK = !AS20 & A<22> & !A<21> & A<19> & !A<16> & A<23> & 
+	A<20> & A<17> & !DS20 & $OpTx$FX_DC$34;
+   RAMTOP/gayle_dout.CE = RESET;
+
+MACROCELL | 1 | 0 | RAMTOP/zii_dout<4>
+ATTRIBUTES | 8520608 | 0
+OUTPUTMC | 2 | 2 | 10 | 1 | 17
+INPUTS | 11 | A<4>  | A<2>  | A<6>  | A<5>  | A<3>  | A<1>  | RAMTOP/AUTOCONFIG/config_out<1>  | RAMTOP/AUTOCONFIG/config_out<0>  | EXP11_.EXP  | DS20  | RESET
+INPUTMC | 3 | 0 | 10 | 0 | 12 | 1 | 17
+INPUTP | 8 | 15 | 12 | 17 | 16 | 13 | 5 | 65 | 87
+IMPORTS | 1 | 1 | 17
+EQ | 15 | 
+   !RAMTOP/zii_dout<4>.D = A<4> & !A<2> & !A<6> & !A<5> & !A<3>
+	# A<4> & !A<1> & !A<6> & !A<5> & !A<3>
+	# !A<2> & !RAMTOP/AUTOCONFIG/config_out<1> & 
+	!RAMTOP/AUTOCONFIG/config_out<0> & !A<6> & !A<5> & !A<3>
+;Imported pterms FB2_18
+	# !A<4> & A<2> & A<1> & !A<6> & !A<5> & !A<3>
+	# !A<4> & A<2> & !A<1> & !A<6> & A<5> & !A<3>
+	# !A<4> & RAMTOP/AUTOCONFIG/config_out<1> & 
+	!RAMTOP/zii_dout<4> & !A<6> & !A<5> & !A<3>
+	# !A<2> & RAMTOP/AUTOCONFIG/config_out<1> & 
+	!RAMTOP/zii_dout<4> & !A<6> & !A<5> & !A<3>
+	# !A<2> & !RAMTOP/AUTOCONFIG/config_out<1> & !A<1> & 
+	!A<6> & !A<5> & !A<3>;
+   RAMTOP/zii_dout<4>.CLK = !DS20;
+   RAMTOP/zii_dout<4>.AP = !RESET;
+
+MACROCELL | 1 | 12 | RAMTOP/zii_dout<6>
+ATTRIBUTES | 8520608 | 0
+OUTPUTMC | 2 | 2 | 2 | 1 | 12
+INPUTS | 11 | A<4>  | A<2>  | A<1>  | A<6>  | A<5>  | A<3>  | RAMTOP/AUTOCONFIG/config_out<1>  | RAMTOP/zii_dout<6>  | RAMTOP/AUTOCONFIG/configured<0>.EXP  | DS20  | RESET
+INPUTMC | 3 | 0 | 10 | 1 | 12 | 1 | 11
+INPUTP | 8 | 15 | 12 | 5 | 17 | 16 | 13 | 65 | 87
+IMPORTS | 1 | 1 | 11
+EQ | 10 | 
+   !RAMTOP/zii_dout<6>.D = A<4> & A<2> & !A<1> & !A<6> & !A<5> & !A<3>
+	# !A<4> & !A<2> & RAMTOP/AUTOCONFIG/config_out<1> & 
+	!RAMTOP/zii_dout<6> & !A<6> & !A<5> & !A<3>
+	# !A<4> & RAMTOP/AUTOCONFIG/config_out<1> & 
+	!RAMTOP/zii_dout<6> & !A<1> & !A<6> & !A<5> & !A<3>
+;Imported pterms FB2_12
+	# !A<4> & !A<2> & !RAMTOP/AUTOCONFIG/config_out<1> & 
+	RAMTOP/AUTOCONFIG/config_out<0> & A<1> & !A<6> & !A<5> & !A<3>;
+   RAMTOP/zii_dout<6>.CLK = !DS20;
+   RAMTOP/zii_dout<6>.AP = !RESET;
+
+MACROCELL | 1 | 9 | RAMTOP/AUTOCONFIG/shutup<0>
+ATTRIBUTES | 8520560 | 0
+OUTPUTMC | 12 | 2 | 1 | 0 | 12 | 2 | 14 | 2 | 8 | 2 | 7 | 2 | 4 | 0 | 11 | 3 | 14 | 3 | 4 | 3 | 11 | 2 | 3 | 2 | 9
+INPUTS | 19 | DS20  | RESET  | A<22>  | A<21>  | A<19>  | A<16>  | A<23>  | A<20>  | A<18>  | A<17>  | A<4>  | A<2>  | RW20  | RAMTOP/AUTOCONFIG/config_out<1>  | RAMTOP/AUTOCONFIG/config_out<0>  | A<1>  | A<6>  | A<5>  | A<3>
+INPUTMC | 2 | 0 | 10 | 0 | 12
+INPUTP | 17 | 65 | 87 | 1 | 3 | 25 | 49 | 92 | 24 | 26 | 27 | 15 | 12 | 55 | 5 | 17 | 16 | 13
+EQ | 7 | 
+   RAMTOP/AUTOCONFIG/shutup<0>.D = Vcc;
+   RAMTOP/AUTOCONFIG/shutup<0>.CLK = !DS20;
+   RAMTOP/AUTOCONFIG/shutup<0>.AR = !RESET;
+   RAMTOP/AUTOCONFIG/shutup<0>.CE = A<22> & A<21> & A<19> & !A<16> & A<23> & !A<20> & 
+	!A<18> & !A<17> & !A<4> & A<2> & !RW20 & 
+	!RAMTOP/AUTOCONFIG/config_out<1> & !RAMTOP/AUTOCONFIG/config_out<0> & !A<1> & A<6> & 
+	!A<5> & A<3>;
+
+MACROCELL | 1 | 8 | RAMTOP/AUTOCONFIG/shutup<1>
+ATTRIBUTES | 8520560 | 0
+OUTPUTMC | 7 | 1 | 3 | 2 | 17 | 2 | 10 | 2 | 3 | 2 | 2 | 0 | 10 | 2 | 6
+INPUTS | 19 | DS20  | RESET  | A<22>  | A<21>  | A<19>  | A<16>  | A<23>  | A<20>  | A<18>  | A<17>  | A<4>  | A<2>  | RW20  | RAMTOP/AUTOCONFIG/config_out<1>  | RAMTOP/AUTOCONFIG/config_out<0>  | A<1>  | A<6>  | A<5>  | A<3>
+INPUTMC | 2 | 0 | 10 | 0 | 12
+INPUTP | 17 | 65 | 87 | 1 | 3 | 25 | 49 | 92 | 24 | 26 | 27 | 15 | 12 | 55 | 5 | 17 | 16 | 13
+EQ | 7 | 
+   RAMTOP/AUTOCONFIG/shutup<1>.D = Vcc;
+   RAMTOP/AUTOCONFIG/shutup<1>.CLK = !DS20;
+   RAMTOP/AUTOCONFIG/shutup<1>.AR = !RESET;
+   RAMTOP/AUTOCONFIG/shutup<1>.CE = A<22> & A<21> & A<19> & !A<16> & A<23> & !A<20> & 
+	!A<18> & !A<17> & !A<4> & A<2> & !RW20 & 
+	!RAMTOP/AUTOCONFIG/config_out<1> & RAMTOP/AUTOCONFIG/config_out<0> & !A<1> & A<6> & 
+	!A<5> & A<3>;
+
+MACROCELL | 2 | 16 | RAMTOP/GAYLE/gayleid<1>
+ATTRIBUTES | 4326192 | 0
+OUTPUTMC | 3 | 2 | 16 | 0 | 16 | 2 | 17
+INPUTS | 17 | A<18>  | A<13>  | RW20  | A<12>  | RAMTOP/GAYLE/gayleid<1>  | AS20  | A<22>  | A<21>  | A<19>  | A<16>  | A<23>  | A<20>  | A<17>  | DS20  | $OpTx$FX_DC$34  | RESET  | RAMTOP/AUTOCONFIG/config_out<0>
+INPUTMC | 3 | 2 | 16 | 2 | 15 | 0 | 12
+INPUTP | 14 | 26 | 70 | 55 | 72 | 67 | 1 | 3 | 25 | 49 | 92 | 24 | 27 | 65 | 87
+EXPORTS | 1 | 2 | 17
+EQ | 10 | 
+   RAMTOP/GAYLE/gayleid<1>.T = A<18> & !A<13> & RW20 & A<12> & 
+	!RAMTOP/GAYLE/gayleid<1>
+	# A<18> & !A<13> & !RW20 & A<12> & 
+	RAMTOP/GAYLE/gayleid<1>;
+   RAMTOP/GAYLE/gayleid<1>.CLK = !AS20 & A<22> & !A<21> & A<19> & !A<16> & A<23> & 
+	A<20> & A<17> & !DS20 & $OpTx$FX_DC$34;
+   RAMTOP/GAYLE/gayleid<1>.AR = !RESET;
+    RAMTOP/GAYLE/gayleid<1>.EXP  =  !AS20 & A<22> & A<21> & A<19> & !A<16> & A<23> & 
+	!A<20> & !A<18> & !A<17> & RW20 & 
+	!RAMTOP/AUTOCONFIG/config_out<0>
+
+MACROCELL | 0 | 16 | RAMTOP/GAYLE/gayleid<2>
+ATTRIBUTES | 4326308 | 0
+OUTPUTMC | 2 | 0 | 16 | 0 | 15
+INPUTS | 17 | A<18>  | A<13>  | RW20  | A<12>  | RAMTOP/GAYLE/gayleid<2>  | RAMTOP/GAYLE/gayleid<1>  | AS20  | A<22>  | A<21>  | A<19>  | A<16>  | A<23>  | A<20>  | A<17>  | DS20  | $OpTx$FX_DC$34  | RESET
+INPUTMC | 3 | 0 | 16 | 2 | 16 | 2 | 15
+INPUTP | 14 | 26 | 70 | 55 | 72 | 67 | 1 | 3 | 25 | 49 | 92 | 24 | 27 | 65 | 87
+EQ | 9 | 
+   RAMTOP/GAYLE/gayleid<2>.T = A<18> & !A<13> & !RW20 & A<12> & 
+	!RAMTOP/GAYLE/gayleid<2>
+	# A<18> & !A<13> & A<12> & RAMTOP/GAYLE/gayleid<1> & 
+	!RAMTOP/GAYLE/gayleid<2>
+	# A<18> & !A<13> & RW20 & A<12> & 
+	!RAMTOP/GAYLE/gayleid<1> & RAMTOP/GAYLE/gayleid<2>;
+   RAMTOP/GAYLE/gayleid<2>.CLK = !AS20 & A<22> & !A<21> & A<19> & !A<16> & A<23> & 
+	A<20> & A<17> & !DS20 & $OpTx$FX_DC$34;
+   RAMTOP/GAYLE/gayleid<2>.AP = !RESET;
+
+MACROCELL | 0 | 15 | RAMTOP/GAYLE/gayleid<3>
+ATTRIBUTES | 4326308 | 0
+OUTPUTMC | 2 | 0 | 17 | 0 | 15
+INPUTS | 17 | A<18>  | A<13>  | RW20  | A<12>  | RAMTOP/GAYLE/gayleid<3>  | RAMTOP/GAYLE/gayleid<2>  | AS20  | A<22>  | A<21>  | A<19>  | A<16>  | A<23>  | A<20>  | A<17>  | DS20  | $OpTx$FX_DC$34  | RESET
+INPUTMC | 3 | 0 | 15 | 0 | 16 | 2 | 15
+INPUTP | 14 | 26 | 70 | 55 | 72 | 67 | 1 | 3 | 25 | 49 | 92 | 24 | 27 | 65 | 87
+EQ | 9 | 
+   RAMTOP/GAYLE/gayleid<3>.T = A<18> & !A<13> & !RW20 & A<12> & 
+	!RAMTOP/GAYLE/gayleid<3>
+	# A<18> & !A<13> & A<12> & RAMTOP/GAYLE/gayleid<2> & 
+	!RAMTOP/GAYLE/gayleid<3>
+	# A<18> & !A<13> & RW20 & A<12> & 
+	!RAMTOP/GAYLE/gayleid<2> & RAMTOP/GAYLE/gayleid<3>;
+   RAMTOP/GAYLE/gayleid<3>.CLK = !AS20 & A<22> & !A<21> & A<19> & !A<16> & A<23> & 
+	A<20> & A<17> & !DS20 & $OpTx$FX_DC$34;
+   RAMTOP/GAYLE/gayleid<3>.AP = !RESET;
+
+MACROCELL | 1 | 14 | RAMTOP/zii_dout<5>
+ATTRIBUTES | 8520608 | 0
+OUTPUTMC | 3 | 2 | 3 | 1 | 14 | 1 | 13
+INPUTS | 11 | A<2>  | RAMTOP/AUTOCONFIG/config_out<1>  | RAMTOP/zii_dout<5>  | A<1>  | A<6>  | A<5>  | A<3>  | A<4>  | ADDRESS_MAP<10>.EXP  | DS20  | RESET
+INPUTMC | 3 | 0 | 10 | 1 | 14 | 1 | 13
+INPUTP | 8 | 12 | 5 | 17 | 16 | 13 | 15 | 65 | 87
+IMPORTS | 1 | 1 | 13
+EQ | 11 | 
+   !RAMTOP/zii_dout<5>.D = !A<4> & A<1> & !A<6> & A<5> & !A<3>
+	# A<4> & !A<2> & A<1> & !A<6> & !A<5> & !A<3>
+	# !A<2> & RAMTOP/AUTOCONFIG/config_out<1> & 
+	!RAMTOP/zii_dout<5> & A<1> & !A<6> & !A<5> & !A<3>
+;Imported pterms FB2_14
+	# !A<4> & !A<2> & !RAMTOP/AUTOCONFIG/config_out<1> & 
+	RAMTOP/AUTOCONFIG/config_out<0> & !A<6> & !A<5> & !A<3>
+	# !A<4> & RAMTOP/AUTOCONFIG/config_out<1> & 
+	!RAMTOP/zii_dout<5> & !A<1> & !A<6> & !A<5> & !A<3>;
+   RAMTOP/zii_dout<5>.CLK = !DS20;
+   RAMTOP/zii_dout<5>.AP = !RESET;
+
+MACROCELL | 1 | 15 | RAMTOP/zii_dout<7>
+ATTRIBUTES | 8520608 | 0
+OUTPUTMC | 2 | 1 | 15 | 2 | 7
+INPUTS | 11 | A<4>  | A<2>  | RAMTOP/zii_dout<7>  | A<1>  | A<6>  | A<5>  | A<3>  | RAMTOP/AUTOCONFIG/config_out<1>  | CBACK_OBUF$BUF0.EXP  | DS20  | RESET
+INPUTMC | 3 | 1 | 15 | 0 | 10 | 1 | 16
+INPUTP | 8 | 15 | 12 | 5 | 17 | 16 | 13 | 65 | 87
+IMPORTS | 1 | 1 | 16
+EQ | 13 | 
+   !RAMTOP/zii_dout<7>.D = A<4> & A<2> & !A<6> & !A<5> & !A<3>
+	# !A<4> & !A<2> & !RAMTOP/zii_dout<7> & A<1> & !A<6> & 
+	!A<5> & !A<3>
+	# !A<4> & RAMTOP/AUTOCONFIG/config_out<1> & 
+	!RAMTOP/zii_dout<7> & !A<1> & !A<6> & !A<5> & !A<3>
+;Imported pterms FB2_17
+	# !A<4> & !A<2> & !A<1> & !A<6> & !A<5> & A<3>
+	# !A<4> & !A<2> & !RAMTOP/AUTOCONFIG/config_out<1> & 
+	A<1> & !A<6> & !A<5> & !A<3>
+	# A<2> & !RAMTOP/AUTOCONFIG/config_out<1> & 
+	RAMTOP/AUTOCONFIG/config_out<0> & !A<1> & !A<6> & !A<5> & !A<3>;
+   RAMTOP/zii_dout<7>.CLK = !DS20;
+   RAMTOP/zii_dout<7>.AP = !RESET;
+
+MACROCELL | 1 | 11 | RAMTOP/AUTOCONFIG/configured<0>
+ATTRIBUTES | 8520560 | 0
+OUTPUTMC | 2 | 0 | 12 | 1 | 12
+INPUTS | 19 | DS20  | RESET  | A<22>  | A<21>  | A<19>  | A<16>  | A<23>  | A<20>  | A<18>  | A<17>  | A<4>  | A<2>  | RW20  | RAMTOP/AUTOCONFIG/config_out<1>  | RAMTOP/AUTOCONFIG/config_out<0>  | A<1>  | A<6>  | A<5>  | A<3>
+INPUTMC | 2 | 0 | 10 | 0 | 12
+INPUTP | 17 | 65 | 87 | 1 | 3 | 25 | 49 | 92 | 24 | 26 | 27 | 15 | 12 | 55 | 5 | 17 | 16 | 13
+EXPORTS | 1 | 1 | 12
+EQ | 9 | 
+   RAMTOP/AUTOCONFIG/configured<0>.D = Vcc;
+   RAMTOP/AUTOCONFIG/configured<0>.CLK = !DS20;
+   RAMTOP/AUTOCONFIG/configured<0>.AR = !RESET;
+   RAMTOP/AUTOCONFIG/configured<0>.CE = A<22> & A<21> & A<19> & !A<16> & A<23> & !A<20> & 
+	!A<18> & !A<17> & !A<4> & !A<2> & !RW20 & 
+	!RAMTOP/AUTOCONFIG/config_out<1> & !RAMTOP/AUTOCONFIG/config_out<0> & !A<1> & A<6> & 
+	!A<5> & A<3>;
+    RAMTOP/AUTOCONFIG/configured<0>.EXP  =  !A<4> & !A<2> & !RAMTOP/AUTOCONFIG/config_out<1> & 
+	RAMTOP/AUTOCONFIG/config_out<0> & A<1> & !A<6> & !A<5> & !A<3>
+
+MACROCELL | 1 | 10 | RAMTOP/AUTOCONFIG/configured<1>
+ATTRIBUTES | 8520560 | 0
+OUTPUTMC | 1 | 0 | 10
+INPUTS | 19 | DS20  | RESET  | A<22>  | A<21>  | A<19>  | A<16>  | A<23>  | A<20>  | A<18>  | A<17>  | A<4>  | A<2>  | RW20  | RAMTOP/AUTOCONFIG/config_out<1>  | RAMTOP/AUTOCONFIG/config_out<0>  | A<1>  | A<6>  | A<5>  | A<3>
+INPUTMC | 2 | 0 | 10 | 0 | 12
+INPUTP | 17 | 65 | 87 | 1 | 3 | 25 | 49 | 92 | 24 | 26 | 27 | 15 | 12 | 55 | 5 | 17 | 16 | 13
+EQ | 7 | 
+   RAMTOP/AUTOCONFIG/configured<1>.D = Vcc;
+   RAMTOP/AUTOCONFIG/configured<1>.CLK = !DS20;
+   RAMTOP/AUTOCONFIG/configured<1>.AR = !RESET;
+   RAMTOP/AUTOCONFIG/configured<1>.CE = A<22> & A<21> & A<19> & !A<16> & A<23> & !A<20> & 
+	!A<18> & !A<17> & !A<4> & !A<2> & !RW20 & 
+	!RAMTOP/AUTOCONFIG/config_out<1> & RAMTOP/AUTOCONFIG/config_out<0> & !A<1> & A<6> & 
+	!A<5> & A<3>;
+
+MACROCELL | 2 | 14 | RAMTOP/WAITSTATE
+ATTRIBUTES | 8553344 | 0
+OUTPUTMC | 1 | 3 | 1
+INPUTS | 6 | AS20  | A<22>  | A<21>  | A<23>  | DS20  | RAMTOP/AUTOCONFIG/shutup<0>
+INPUTMC | 1 | 1 | 9
+INPUTP | 5 | 67 | 1 | 3 | 92 | 65
+EQ | 4 | 
+   !RAMTOP/WAITSTATE.D = !AS20 & !A<22> & A<21> & !A<23> & !DS20 & 
+	!RAMTOP/AUTOCONFIG/shutup<0>;
+   RAMTOP/WAITSTATE.CLK = CLKCPU;	// GCK
+   RAMTOP/WAITSTATE.AP = AS20;
+GLOBALS | 1 | 2 | CLKCPU
+
+MACROCELL | 2 | 8 | RAMTOP/RAMCS<0>
+ATTRIBUTES | 8684418 | 0
+OUTPUTMC | 1 | 2 | 7
+INPUTS | 12 | AS20  | A<22>  | A<21>  | A<23>  | RW20  | DS20  | RAMTOP/AUTOCONFIG/shutup<0>  | A<1>  | SIZ<0>  | SIZ<1>  | A<0>  | EXP13_.EXP
+INPUTMC | 2 | 1 | 9 | 2 | 9
+INPUTP | 10 | 67 | 1 | 3 | 92 | 55 | 65 | 5 | 59 | 54 | 74
+EXPORTS | 1 | 2 | 7
+IMPORTS | 1 | 2 | 9
+EQ | 19 | 
+   !RAMCS<0>.D = !AS20 & !A<22> & A<21> & !A<23> & RW20 & !DS20 & 
+	!RAMTOP/AUTOCONFIG/shutup<0>
+;Imported pterms FB3_10
+	# !AS20 & !A<22> & A<21> & !A<23> & !DS20 & 
+	!RAMTOP/AUTOCONFIG/shutup<0> & A<1> & SIZ<1>
+	# !AS20 & !A<22> & A<21> & !A<23> & !DS20 & 
+	!RAMTOP/AUTOCONFIG/shutup<0> & A<1> & A<0>
+	# !AS20 & !A<22> & A<21> & !A<23> & !DS20 & 
+	!RAMTOP/AUTOCONFIG/shutup<0> & !SIZ<0> & !SIZ<1>
+	# !AS20 & !A<22> & A<21> & !A<23> & !DS20 & 
+	!RAMTOP/AUTOCONFIG/shutup<0> & SIZ<0> & SIZ<1> & A<0>;
+   RAMCS<0>.CLK = CLKCPU;	// GCK
+   RAMCS<0>.AP = AS20;
+    RAMTOP/RAMCS<0>.EXP  =  !AS20 & !A<22> & A<21> & !A<23> & !DS20 & 
+	!RAMTOP/AUTOCONFIG/shutup<0> & !A<1> & SIZ<0> & SIZ<1>
+	# !AS20 & !A<22> & A<21> & !A<23> & !DS20 & 
+	!RAMTOP/AUTOCONFIG/shutup<0> & !A<1> & !SIZ<0> & !SIZ<1>
+	# !AS20 & !A<22> & A<21> & !A<23> & !DS20 & 
+	!RAMTOP/AUTOCONFIG/shutup<0> & !A<1> & !SIZ<0> & A<0>
+GLOBALS | 1 | 2 | CLKCPU
+
+MACROCELL | 2 | 7 | RAMTOP/RAMCS<1>
+ATTRIBUTES | 8684418 | 0
+OUTPUTMC | 1 | 2 | 6
+INPUTS | 18 | AS20  | A<22>  | A<21>  | A<23>  | RW20  | DS20  | RAMTOP/AUTOCONFIG/shutup<0>  | A<1>  | A<0>  | A<19>  | A<16>  | A<20>  | A<18>  | A<17>  | RAMTOP/AUTOCONFIG/config_out<1>  | RAMTOP/zii_dout<7>  | RAMTOP/AUTOCONFIG/config_out<0>  | RAMTOP/RAMCS<0>.EXP
+INPUTMC | 5 | 1 | 9 | 0 | 10 | 1 | 15 | 0 | 12 | 2 | 8
+INPUTP | 13 | 67 | 1 | 3 | 92 | 55 | 65 | 5 | 74 | 25 | 49 | 24 | 26 | 27
+EXPORTS | 1 | 2 | 6
+IMPORTS | 1 | 2 | 8
+EQ | 19 | 
+   !RAMCS<1>.D = !AS20 & !A<22> & A<21> & !A<23> & RW20 & !DS20 & 
+	!RAMTOP/AUTOCONFIG/shutup<0>
+	# !AS20 & !A<22> & A<21> & !A<23> & !DS20 & 
+	!RAMTOP/AUTOCONFIG/shutup<0> & A<1> & !A<0>
+;Imported pterms FB3_9
+	# !AS20 & !A<22> & A<21> & !A<23> & !DS20 & 
+	!RAMTOP/AUTOCONFIG/shutup<0> & !A<1> & SIZ<0> & SIZ<1>
+	# !AS20 & !A<22> & A<21> & !A<23> & !DS20 & 
+	!RAMTOP/AUTOCONFIG/shutup<0> & !A<1> & !SIZ<0> & !SIZ<1>
+	# !AS20 & !A<22> & A<21> & !A<23> & !DS20 & 
+	!RAMTOP/AUTOCONFIG/shutup<0> & !A<1> & !SIZ<0> & A<0>;
+   RAMCS<1>.CLK = CLKCPU;	// GCK
+   RAMCS<1>.AP = AS20;
+    RAMTOP/RAMCS<1>.EXP  =  !AS20 & A<22> & A<21> & A<19> & !A<16> & A<23> & 
+	!A<20> & !A<18> & !A<17> & !RAMTOP/AUTOCONFIG/config_out<1> & 
+	!RAMTOP/zii_dout<7>
+	# !AS20 & A<22> & A<21> & A<19> & !A<16> & A<23> & 
+	!A<20> & !A<18> & !A<17> & !RAMTOP/AUTOCONFIG/config_out<0> & 
+	!RAMTOP/zii_dout<7>
+GLOBALS | 1 | 2 | CLKCPU
+
+MACROCELL | 2 | 4 | RAMTOP/RAMCS<2>
+ATTRIBUTES | 8684418 | 0
+OUTPUTMC | 1 | 2 | 5
+INPUTS | 13 | AS20  | A<22>  | A<21>  | A<23>  | RW20  | DS20  | RAMTOP/AUTOCONFIG/shutup<0>  | A<1>  | A<0>  | SIZ<0>  | A<18>  | RAMTOP/gayle_dout  | RAMTOP/data_out<13>.EXP
+INPUTMC | 3 | 1 | 9 | 0 | 17 | 2 | 3
+INPUTP | 10 | 67 | 1 | 3 | 92 | 55 | 65 | 5 | 74 | 59 | 26
+EXPORTS | 1 | 2 | 5
+IMPORTS | 1 | 2 | 3
+EQ | 12 | 
+   !RAMCS<2>.D = !AS20 & !A<22> & A<21> & !A<23> & RW20 & !DS20 & 
+	!RAMTOP/AUTOCONFIG/shutup<0>
+	# !AS20 & !A<22> & A<21> & !A<23> & !DS20 & 
+	!RAMTOP/AUTOCONFIG/shutup<0> & !A<1> & !SIZ<0>
+	# !AS20 & !A<22> & A<21> & !A<23> & !DS20 & 
+	!RAMTOP/AUTOCONFIG/shutup<0> & !A<1> & A<0>
+;Imported pterms FB3_4
+	# !AS20 & !A<22> & A<21> & !A<23> & !DS20 & 
+	!RAMTOP/AUTOCONFIG/shutup<0> & !A<1> & SIZ<1>;
+   RAMCS<2>.CLK = CLKCPU;	// GCK
+   RAMCS<2>.AP = AS20;
+    RAMTOP/RAMCS<2>.EXP  =  A<18> & !RAMTOP/gayle_dout
+GLOBALS | 1 | 2 | CLKCPU
+
+MACROCELL | 0 | 11 | RAMTOP/RAMCS<3>
+ATTRIBUTES | 8684418 | 0
+INPUTS | 9 | AS20  | A<22>  | A<21>  | A<23>  | RW20  | DS20  | RAMTOP/AUTOCONFIG/shutup<0>  | A<1>  | A<0>
+INPUTMC | 1 | 1 | 9
+INPUTP | 8 | 67 | 1 | 3 | 92 | 55 | 65 | 5 | 74
+EQ | 6 | 
+   !RAMCS<3>.D = !AS20 & !A<22> & A<21> & !A<23> & RW20 & !DS20 & 
+	!RAMTOP/AUTOCONFIG/shutup<0>
+	# !AS20 & !A<22> & A<21> & !A<23> & !DS20 & 
+	!RAMTOP/AUTOCONFIG/shutup<0> & !A<1> & !A<0>;
+   RAMCS<3>.CLK = CLKCPU;	// GCK
+   RAMCS<3>.AP = AS20;
+GLOBALS | 1 | 2 | CLKCPU
+
+MACROCELL | 3 | 1 | RAMTOP/STERM_D
+ATTRIBUTES | 8684422 | 0
+INPUTS | 2 | RAMTOP/WAITSTATE  | AS20
+INPUTMC | 1 | 2 | 14
+INPUTP | 1 | 67
+EQ | 3 | 
+   STERM.D = RAMTOP/WAITSTATE;
+   STERM.CLK = CLKCPU;	// GCK
+   STERM.AP = AS20;
+GLOBALS | 1 | 2 | CLKCPU
+
+MACROCELL | 3 | 14 | INTCYCLE_OBUF
+ATTRIBUTES | 264962 | 0
+INPUTS | 5 | AS20  | A<22>  | A<21>  | A<23>  | RAMTOP/AUTOCONFIG/shutup<0>
+INPUTMC | 1 | 1 | 9
+INPUTP | 4 | 67 | 1 | 3 | 92
+EQ | 2 | 
+   !INTCYCLE = !AS20 & !A<22> & A<21> & !A<23> & 
+	!RAMTOP/AUTOCONFIG/shutup<0>;
+
+MACROCELL | 1 | 2 | RAMTOP/data_out<10>$BUF0
+ATTRIBUTES | 265986 | 0
+INPUTS | 2 | D<3>  | RAMTOP/intcycle_dout
+INPUTMC | 2 | 1 | 3 | 2 | 17
+EQ | 2 | 
+   D<2> = D<3>;
+   D<2>.OE = !RAMTOP/intcycle_dout;
+
+MACROCELL | 1 | 4 | RAMTOP/data_out<10>$BUF1
+ATTRIBUTES | 265986 | 0
+INPUTS | 2 | D<3>  | RAMTOP/intcycle_dout
+INPUTMC | 2 | 1 | 3 | 2 | 17
+EQ | 2 | 
+   D<1> = D<3>;
+   D<1>.OE = !RAMTOP/intcycle_dout;
+
+MACROCELL | 1 | 5 | RAMTOP/data_out<10>$BUF2
+ATTRIBUTES | 265986 | 0
+INPUTS | 2 | D<3>  | RAMTOP/intcycle_dout
+INPUTMC | 2 | 1 | 3 | 2 | 17
+EQ | 2 | 
+   D<0> = D<3>;
+   D<0>.OE = !RAMTOP/intcycle_dout;
+
+MACROCELL | 1 | 6 | RAMTOP/GAYLE/intlast
+ATTRIBUTES | 8553216 | 0
+OUTPUTMC | 1 | 0 | 14
+INPUTS | 1 | IDEINT
+INPUTP | 1 | 83
+EQ | 2 | 
+   RAMTOP/GAYLE/intlast.D = IDEINT;
+   RAMTOP/GAYLE/intlast.CLK = CLKCPU;	// GCK
+GLOBALS | 1 | 2 | CLKCPU
+
+MACROCELL | 3 | 4 | CIIN_OBUF
+ATTRIBUTES | 264962 | 0
+INPUTS | 6 | A<22>  | A<21>  | A<23>  | DS20  | RAMTOP/AUTOCONFIG/shutup<0>  | AS20
+INPUTMC | 1 | 1 | 9
+INPUTP | 5 | 1 | 3 | 92 | 65 | 67
+EQ | 3 | 
+   CIIN = AS20
+	# !A<22> & A<21> & !A<23> & !DS20 & 
+	!RAMTOP/AUTOCONFIG/shutup<0>;
+
+MACROCELL | 1 | 7 | ADDRESS_MAP<10>$BUF1
+ATTRIBUTES | 265986 | 0
+INPUTS | 2 | RAMTOP/GAYLE/INT_CHNG  | RAMTOP/GAYLE/intena
+INPUTMC | 2 | 0 | 14 | 0 | 13
+EQ | 2 | 
+   INT2 = Gnd;
+   INT2.OE = RAMTOP/GAYLE/INT_CHNG & RAMTOP/GAYLE/intena;
+
+MACROCELL | 3 | 11 | RAMTOP/RAMOE$BUF0
+ATTRIBUTES | 8684418 | 0
+INPUTS | 6 | AS20  | A<22>  | A<21>  | A<23>  | DS20  | RAMTOP/AUTOCONFIG/shutup<0>
+INPUTMC | 1 | 1 | 9
+INPUTP | 5 | 67 | 1 | 3 | 92 | 65
+EQ | 4 | 
+   !IDEWAIT.D = !AS20 & !A<22> & A<21> & !A<23> & !DS20 & 
+	!RAMTOP/AUTOCONFIG/shutup<0>;
+   IDEWAIT.CLK = CLKCPU;	// GCK
+   IDEWAIT.AP = AS20;
+GLOBALS | 1 | 2 | CLKCPU
+
+MACROCELL | 1 | 13 | ADDRESS_MAP<10>
+ATTRIBUTES | 264962 | 0
+OUTPUTMC | 1 | 1 | 14
+INPUTS | 9 | A<4>  | A<2>  | RAMTOP/AUTOCONFIG/config_out<1>  | RAMTOP/AUTOCONFIG/config_out<0>  | A<6>  | A<5>  | A<3>  | RAMTOP/zii_dout<5>  | A<1>
+INPUTMC | 3 | 0 | 10 | 0 | 12 | 1 | 14
+INPUTP | 6 | 15 | 12 | 17 | 16 | 13 | 5
+EXPORTS | 1 | 1 | 14
+EQ | 5 | 
+   SPI_MOSI = Gnd;
+    ADDRESS_MAP<10>.EXP  =  !A<4> & !A<2> & !RAMTOP/AUTOCONFIG/config_out<1> & 
+	RAMTOP/AUTOCONFIG/config_out<0> & !A<6> & !A<5> & !A<3>
+	# !A<4> & RAMTOP/AUTOCONFIG/config_out<1> & 
+	!RAMTOP/zii_dout<5> & !A<1> & !A<6> & !A<5> & !A<3>
+
+MACROCELL | 0 | 8 | ADDRESS_MAP<10>$BUF0
+ATTRIBUTES | 264962 | 0
+INPUTS | 0
+EQ | 1 | 
+   SPI_CLK = Gnd;
+
+MACROCELL | 0 | 1 | CBACK_OBUF
+ATTRIBUTES | 264962 | 0
+INPUTS | 0
+EQ | 1 | 
+   SPI_CS<1> = Vcc;
+
+MACROCELL | 1 | 16 | CBACK_OBUF$BUF0
+ATTRIBUTES | 264962 | 0
+OUTPUTMC | 1 | 1 | 15
+INPUTS | 8 | A<4>  | A<2>  | A<1>  | A<6>  | A<5>  | A<3>  | RAMTOP/AUTOCONFIG/config_out<1>  | RAMTOP/AUTOCONFIG/config_out<0>
+INPUTMC | 2 | 0 | 10 | 0 | 12
+INPUTP | 6 | 15 | 12 | 5 | 17 | 16 | 13
+EXPORTS | 1 | 1 | 15
+EQ | 6 | 
+   SPI_CS<0> = Vcc;
+    CBACK_OBUF$BUF0.EXP  =  !A<4> & !A<2> & !A<1> & !A<6> & !A<5> & A<3>
+	# !A<4> & !A<2> & !RAMTOP/AUTOCONFIG/config_out<1> & 
+	A<1> & !A<6> & !A<5> & !A<3>
+	# A<2> & !RAMTOP/AUTOCONFIG/config_out<1> & 
+	RAMTOP/AUTOCONFIG/config_out<0> & !A<1> & !A<6> & !A<5> & !A<3>
+
+MACROCELL | 3 | 10 | CBACK_OBUF$BUF1
+ATTRIBUTES | 264962 | 0
+INPUTS | 0
+EQ | 1 | 
+   CBACK = Vcc;
+
+MACROCELL | 2 | 15 | $OpTx$FX_DC$34
+ATTRIBUTES | 133888 | 0
+OUTPUTMC | 6 | 0 | 14 | 0 | 13 | 0 | 17 | 2 | 16 | 0 | 16 | 0 | 15
+INPUTS | 2 | A<15>  | A<18>
+INPUTP | 2 | 52 | 26
+EQ | 2 | 
+   $OpTx$FX_DC$34 = A<15>
+	$ A<18>;
+
+MACROCELL | 0 | 0 | EXP10_
+ATTRIBUTES | 2048 | 0
+OUTPUTMC | 1 | 0 | 17
+INPUTS | 7 | RAMTOP/GAYLE/intena  | A<18>  | A<13>  | RW20  | A<12>  | RAMTOP/gayle_dout  | IDEINT
+INPUTMC | 2 | 0 | 13 | 0 | 17
+INPUTP | 5 | 26 | 70 | 55 | 72 | 83
+EXPORTS | 1 | 0 | 17
+EQ | 5 | 
+       EXP10_.EXP  =  RAMTOP/GAYLE/intena & !A<18> & A<13> & RW20 & 
+	!A<12>
+	# !A<18> & A<13> & !RW20 & !A<12> & 
+	RAMTOP/gayle_dout
+	# !A<18> & !A<13> & RW20 & !A<12> & IDEINT
+
+MACROCELL | 1 | 17 | EXP11_
+ATTRIBUTES | 2048 | 0
+OUTPUTMC | 1 | 1 | 0
+INPUTS | 8 | A<4>  | A<2>  | A<1>  | A<6>  | A<5>  | A<3>  | RAMTOP/AUTOCONFIG/config_out<1>  | RAMTOP/zii_dout<4>
+INPUTMC | 2 | 0 | 10 | 1 | 0
+INPUTP | 6 | 15 | 12 | 5 | 17 | 16 | 13
+EXPORTS | 1 | 1 | 0
+EQ | 8 | 
+       EXP11_.EXP  =  !A<4> & A<2> & A<1> & !A<6> & !A<5> & !A<3>
+	# !A<4> & A<2> & !A<1> & !A<6> & A<5> & !A<3>
+	# !A<4> & RAMTOP/AUTOCONFIG/config_out<1> & 
+	!RAMTOP/zii_dout<4> & !A<6> & !A<5> & !A<3>
+	# !A<2> & RAMTOP/AUTOCONFIG/config_out<1> & 
+	!RAMTOP/zii_dout<4> & !A<6> & !A<5> & !A<3>
+	# !A<2> & !RAMTOP/AUTOCONFIG/config_out<1> & !A<1> & 
+	!A<6> & !A<5> & !A<3>
+
+MACROCELL | 2 | 6 | EXP12_
+ATTRIBUTES | 2048 | 0
+OUTPUTMC | 1 | 2 | 5
+INPUTS | 9 | AS20  | RAMTOP/gayle_dout  | A<20>  | A<17>  | A<16>  | RAMTOP/AUTOCONFIG/shutup<1>  | RAMTOP/AUTOCONFIG/config_out<1>  | RAMTOP/AUTOCONFIG/config_out<0>  | RAMTOP/RAMCS<1>.EXP
+INPUTMC | 5 | 0 | 17 | 1 | 8 | 0 | 10 | 0 | 12 | 2 | 7
+INPUTP | 4 | 67 | 24 | 27 | 49
+EXPORTS | 1 | 2 | 5
+IMPORTS | 1 | 2 | 7
+EQ | 14 | 
+       EXP12_.EXP  =  AS20 & !RAMTOP/gayle_dout
+	# A<20> & !RAMTOP/gayle_dout
+	# A<17> & !RAMTOP/gayle_dout
+	# A<16> & !RAMTOP/gayle_dout & 
+	RAMTOP/AUTOCONFIG/shutup<1>
+	# !A<16> & RAMTOP/AUTOCONFIG/config_out<1> & 
+	RAMTOP/AUTOCONFIG/config_out<0> & !RAMTOP/gayle_dout
+;Imported pterms FB3_8
+	# !AS20 & A<22> & A<21> & A<19> & !A<16> & A<23> & 
+	!A<20> & !A<18> & !A<17> & !RAMTOP/AUTOCONFIG/config_out<1> & 
+	!RAMTOP/zii_dout<7>
+	# !AS20 & A<22> & A<21> & A<19> & !A<16> & A<23> & 
+	!A<20> & !A<18> & !A<17> & !RAMTOP/AUTOCONFIG/config_out<0> & 
+	!RAMTOP/zii_dout<7>
+
+MACROCELL | 2 | 9 | EXP13_
+ATTRIBUTES | 2048 | 0
+OUTPUTMC | 1 | 2 | 8
+INPUTS | 10 | AS20  | A<22>  | A<21>  | A<23>  | DS20  | RAMTOP/AUTOCONFIG/shutup<0>  | A<1>  | SIZ<1>  | A<0>  | SIZ<0>
+INPUTMC | 1 | 1 | 9
+INPUTP | 9 | 67 | 1 | 3 | 92 | 65 | 5 | 54 | 74 | 59
+EXPORTS | 1 | 2 | 8
+EQ | 8 | 
+       EXP13_.EXP  =  !AS20 & !A<22> & A<21> & !A<23> & !DS20 & 
+	!RAMTOP/AUTOCONFIG/shutup<0> & A<1> & SIZ<1>
+	# !AS20 & !A<22> & A<21> & !A<23> & !DS20 & 
+	!RAMTOP/AUTOCONFIG/shutup<0> & A<1> & A<0>
+	# !AS20 & !A<22> & A<21> & !A<23> & !DS20 & 
+	!RAMTOP/AUTOCONFIG/shutup<0> & !SIZ<0> & !SIZ<1>
+	# !AS20 & !A<22> & A<21> & !A<23> & !DS20 & 
+	!RAMTOP/AUTOCONFIG/shutup<0> & SIZ<0> & SIZ<1> & A<0>
+
+PIN | CLKCPU | 8192 | 0 | N/A | 21 | 15 | 1 | 3 | 2 | 5 | 2 | 10 | 2 | 3 | 2 | 2 | 2 | 1 | 2 | 17 | 2 | 14 | 2 | 8 | 2 | 7 | 2 | 4 | 0 | 11 | 3 | 1 | 1 | 6 | 3 | 11
+PIN | AS20 | 64 | 0 | N/A | 67 | 25 | 1 | 3 | 3 | 11 | 2 | 10 | 2 | 3 | 2 | 2 | 0 | 14 | 0 | 13 | 2 | 1 | 0 | 10 | 2 | 17 | 0 | 12 | 0 | 17 | 2 | 16 | 0 | 16 | 0 | 15 | 2 | 14 | 2 | 8 | 2 | 7 | 2 | 4 | 0 | 11 | 3 | 1 | 3 | 14 | 3 | 4 | 2 | 6 | 2 | 9
+PIN | A<18> | 64 | 0 | N/A | 26 | 19 | 1 | 3 | 2 | 4 | 2 | 10 | 2 | 3 | 2 | 2 | 0 | 14 | 0 | 13 | 2 | 17 | 0 | 17 | 1 | 9 | 1 | 8 | 2 | 16 | 0 | 16 | 0 | 15 | 1 | 11 | 1 | 10 | 2 | 15 | 0 | 0 | 2 | 7
+PIN | A<21> | 64 | 0 | N/A | 3 | 26 | 1 | 3 | 2 | 5 | 2 | 10 | 2 | 3 | 2 | 2 | 0 | 14 | 0 | 13 | 2 | 1 | 2 | 17 | 0 | 17 | 1 | 9 | 1 | 8 | 2 | 16 | 0 | 16 | 0 | 15 | 1 | 11 | 1 | 10 | 2 | 14 | 2 | 8 | 2 | 7 | 2 | 4 | 0 | 11 | 3 | 14 | 3 | 4 | 3 | 11 | 2 | 9
+PIN | A<22> | 64 | 0 | N/A | 1 | 26 | 1 | 3 | 2 | 5 | 2 | 10 | 2 | 3 | 2 | 2 | 0 | 14 | 0 | 13 | 2 | 1 | 2 | 17 | 0 | 17 | 1 | 9 | 1 | 8 | 2 | 16 | 0 | 16 | 0 | 15 | 1 | 11 | 1 | 10 | 2 | 14 | 2 | 8 | 2 | 7 | 2 | 4 | 0 | 11 | 3 | 14 | 3 | 4 | 3 | 11 | 2 | 9
+PIN | A<23> | 64 | 0 | N/A | 92 | 26 | 1 | 3 | 2 | 5 | 2 | 10 | 2 | 3 | 2 | 2 | 0 | 14 | 0 | 13 | 2 | 1 | 2 | 17 | 0 | 17 | 1 | 9 | 1 | 8 | 2 | 16 | 0 | 16 | 0 | 15 | 1 | 11 | 1 | 10 | 2 | 14 | 2 | 8 | 2 | 7 | 2 | 4 | 0 | 11 | 3 | 14 | 3 | 4 | 3 | 11 | 2 | 9
+PIN | A<16> | 64 | 0 | N/A | 49 | 17 | 1 | 3 | 1 | 10 | 2 | 10 | 2 | 3 | 2 | 2 | 0 | 14 | 0 | 13 | 2 | 17 | 0 | 17 | 1 | 9 | 1 | 8 | 2 | 16 | 0 | 16 | 0 | 15 | 1 | 11 | 2 | 6 | 2 | 7
+PIN | A<17> | 64 | 0 | N/A | 27 | 17 | 1 | 3 | 1 | 10 | 2 | 10 | 2 | 3 | 2 | 2 | 0 | 14 | 0 | 13 | 2 | 17 | 0 | 17 | 1 | 9 | 1 | 8 | 2 | 16 | 0 | 16 | 0 | 15 | 1 | 11 | 2 | 6 | 2 | 7
+PIN | A<19> | 64 | 0 | N/A | 25 | 17 | 1 | 3 | 2 | 5 | 2 | 10 | 2 | 3 | 2 | 2 | 0 | 14 | 0 | 13 | 2 | 17 | 0 | 17 | 1 | 9 | 1 | 8 | 2 | 16 | 0 | 16 | 0 | 15 | 1 | 11 | 1 | 10 | 2 | 7
+PIN | A<20> | 64 | 0 | N/A | 24 | 17 | 1 | 3 | 1 | 10 | 2 | 10 | 2 | 3 | 2 | 2 | 0 | 14 | 0 | 13 | 2 | 17 | 0 | 17 | 1 | 9 | 1 | 8 | 2 | 16 | 0 | 16 | 0 | 15 | 1 | 11 | 2 | 6 | 2 | 7
+PIN | RESET | 64 | 0 | N/A | 87 | 16 | 0 | 14 | 0 | 13 | 0 | 10 | 0 | 12 | 0 | 17 | 1 | 0 | 1 | 12 | 1 | 9 | 1 | 8 | 2 | 16 | 0 | 16 | 0 | 15 | 1 | 14 | 1 | 15 | 1 | 11 | 1 | 10
+PIN | DS20 | 64 | 0 | N/A | 65 | 24 | 0 | 14 | 0 | 13 | 2 | 1 | 0 | 17 | 1 | 0 | 1 | 12 | 1 | 9 | 1 | 8 | 2 | 16 | 0 | 16 | 0 | 15 | 1 | 14 | 1 | 15 | 1 | 11 | 1 | 10 | 2 | 14 | 2 | 8 | 2 | 7 | 2 | 4 | 0 | 11 | 3 | 4 | 3 | 11 | 2 | 3 | 2 | 9
+PIN | IDEINT | 64 | 0 | N/A | 83 | 3 | 0 | 14 | 0 | 0 | 1 | 6
+PIN | RW20 | 64 | 0 | N/A | 55 | 16 | 0 | 14 | 0 | 13 | 2 | 17 | 0 | 17 | 1 | 9 | 1 | 8 | 2 | 16 | 0 | 16 | 0 | 15 | 1 | 11 | 1 | 10 | 2 | 8 | 2 | 7 | 2 | 4 | 0 | 11 | 0 | 0
+PIN | A<13> | 64 | 0 | N/A | 70 | 7 | 0 | 14 | 0 | 13 | 0 | 17 | 2 | 16 | 0 | 16 | 0 | 15 | 0 | 0
+PIN | A<12> | 64 | 0 | N/A | 72 | 7 | 0 | 14 | 0 | 13 | 0 | 17 | 2 | 16 | 0 | 16 | 0 | 15 | 0 | 0
+PIN | A<15> | 64 | 0 | N/A | 52 | 3 | 0 | 14 | 2 | 17 | 2 | 15
+PIN | A<4> | 64 | 0 | N/A | 15 | 11 | 1 | 0 | 1 | 12 | 1 | 9 | 1 | 8 | 1 | 14 | 1 | 15 | 1 | 11 | 1 | 10 | 1 | 13 | 1 | 16 | 1 | 17
+PIN | A<2> | 64 | 0 | N/A | 12 | 11 | 1 | 0 | 1 | 12 | 1 | 9 | 1 | 8 | 1 | 14 | 1 | 15 | 1 | 11 | 1 | 10 | 1 | 13 | 1 | 16 | 1 | 17
+PIN | A<5> | 64 | 0 | N/A | 16 | 11 | 1 | 0 | 1 | 12 | 1 | 9 | 1 | 8 | 1 | 14 | 1 | 15 | 1 | 11 | 1 | 10 | 1 | 13 | 1 | 16 | 1 | 17
+PIN | A<3> | 64 | 0 | N/A | 13 | 11 | 1 | 0 | 1 | 12 | 1 | 9 | 1 | 8 | 1 | 14 | 1 | 15 | 1 | 11 | 1 | 10 | 1 | 13 | 1 | 16 | 1 | 17
+PIN | A<6> | 64 | 0 | N/A | 17 | 11 | 1 | 0 | 1 | 12 | 1 | 9 | 1 | 8 | 1 | 14 | 1 | 15 | 1 | 11 | 1 | 10 | 1 | 13 | 1 | 16 | 1 | 17
+PIN | A<1> | 64 | 0 | N/A | 5 | 17 | 1 | 0 | 1 | 12 | 1 | 9 | 1 | 8 | 1 | 14 | 1 | 15 | 1 | 11 | 1 | 10 | 2 | 3 | 2 | 7 | 2 | 4 | 0 | 11 | 1 | 13 | 1 | 16 | 1 | 17 | 2 | 8 | 2 | 9
+PIN | SIZ<0> | 64 | 0 | N/A | 59 | 3 | 2 | 4 | 2 | 8 | 2 | 9
+PIN | SIZ<1> | 64 | 0 | N/A | 54 | 3 | 2 | 3 | 2 | 8 | 2 | 9
+PIN | A<0> | 64 | 0 | N/A | 74 | 5 | 0 | 11 | 2 | 7 | 2 | 4 | 2 | 8 | 2 | 9
+PIN | D<3> | 536871040 | 0 | N/A | 86
+PIN | D<4> | 536871040 | 0 | N/A | 46
+PIN | D<5> | 536871040 | 0 | N/A | 44
+PIN | D<6> | 536871040 | 0 | N/A | 43
+PIN | RAMOE | 536871040 | 0 | N/A | 29
+PIN | RAMCS<0> | 536871040 | 0 | N/A | 38
+PIN | RAMCS<1> | 536871040 | 0 | N/A | 33
+PIN | RAMCS<2> | 536871040 | 0 | N/A | 31
+PIN | RAMCS<3> | 536871040 | 0 | N/A | 30
+PIN | STERM | 536871040 | 0 | N/A | 62
+PIN | INTCYCLE | 536871040 | 0 | N/A | 82
+PIN | D<2> | 536871040 | 0 | N/A | 84
+PIN | D<1> | 536871040 | 0 | N/A | 88
+PIN | D<0> | 536871040 | 0 | N/A | 89
+PIN | CIIN | 536871040 | 0 | N/A | 63
+PIN | INT2 | 536871040 | 0 | N/A | 90
+PIN | IDEWAIT | 536871040 | 0 | N/A | 75
+PIN | SPI_MOSI | 536871040 | 0 | N/A | 7
+PIN | SPI_CLK | 536871040 | 0 | N/A | 20
+PIN | SPI_CS<1> | 536871040 | 0 | N/A | 11
+PIN | SPI_CS<0> | 536871040 | 0 | N/A | 10
+PIN | CBACK | 536871040 | 0 | N/A | 68
+PIN | D<7> | 536870976 | 0 | N/A | 47 | 2 | 0 | 14 | 0 | 13

@@ -1,0 +1,777 @@
+ 
+cpldfit:  version P.20131013                        Xilinx Inc.
+                                  Fitter Report
+Design Name: tf530r3_bus_top                     Date:  3-22-2026,  8:12PM
+Device Used: XC9572XL-10-VQ64
+Fitting Status: Successful
+
+*************************  Mapped Resource Summary  **************************
+
+Macrocells     Product Terms    Function Block   Registers      Pins           
+Used/Tot       Used/Tot         Inps Used/Tot    Used/Tot       Used/Tot       
+55 /72  ( 76%) 133 /360  ( 37%) 97 /216 ( 45%)   41 /72  ( 57%) 50 /52  ( 96%)
+
+** Function Block Resources **
+
+Function    Mcells      FB Inps     Pterms      IO          
+Block       Used/Tot    Used/Tot    Used/Tot    Used/Tot    
+FB1          18/18*      32/54       51/90      13/13*
+FB2          13/18       32/54       38/90      13/13*
+FB3          18/18*      28/54       36/90      13/14
+FB4           6/18        5/54        8/90      11/12
+             -----       -----       -----      -----    
+             55/72       97/216     133/360     50/52 
+
+* - Resource is exhausted
+
+** Global Control Resources **
+
+Signal 'CLK7M' mapped onto global clock net GCK1.
+Signal 'CLKCPU' mapped onto global clock net GCK2.
+Global output enable net(s) unused.
+Global set/reset net(s) unused.
+
+** Pin Resources **
+
+Signal Type    Required     Mapped  |  Pin Type            Used    Total 
+------------------------------------|------------------------------------
+Input         :   26          26    |  I/O              :    44      46
+Output        :   22          22    |  GCK/IO           :     3       3
+Bidirectional :    0           0    |  GTS/IO           :     2       2
+GCK           :    2           2    |  GSR/IO           :     1       1
+GTS           :    0           0    |
+GSR           :    0           0    |
+                 ----        ----
+        Total     50          50
+
+** Power Data **
+
+There are 55 macrocells in high performance mode (MCHP).
+There are 0 macrocells in low power mode (MCLP).
+End of Mapped Resource Summary
+**************************  Errors and Warnings  ***************************
+
+WARNING:Cpld - Unable to retrieve the path to the iSE Project Repository. Will
+   use the default filename of 'tf530r3_bus_top.ise'.
+WARNING:Cpld:1007 - Removing unused input(s) 'A<13>'.  The input(s) are unused
+   after optimization. Please verify functionality via simulation.
+*************************  Summary of Mapped Logic  ************************
+
+** 22 Outputs **
+
+Signal                                  Total Total Loc     Pin  Pin     Pin     Pwr  Slew Reg Init
+Name                                    Pts   Inps          No.  Type    Use     Mode Rate State
+LDS                                     12    25    FB1_2   8~   I/O     O       STD  FAST SET
+RW                                      10    21    FB1_5   9~   I/O     O       STD  FAST SET
+BG                                      1     1     FB1_8   11~  I/O     O       STD  FAST 
+RESET                                   0     0     FB1_10  18~  I/O     O       STD  FAST 
+HALT                                    0     0     FB1_14  17~  GCK/I/O O       STD  FAST 
+VMA                                     7     13    FB1_15  19~  I/O     O       STD  FAST SET
+INT2                                    0     0     FB2_2   60~  I/O     O       STD  FAST 
+IPL<2>                                  0     0     FB2_3   58~  I/O     O       STD  FAST 
+IDECS<1>                                1     10    FB2_5   61~  I/O     O       STD  FAST 
+CPCS                                    2     8     FB2_6   62~  I/O     O       STD  FAST SET
+AVEC                                    2     9     FB2_8   63~  I/O     O       STD  FAST SET
+DSACK<1>                                3     12    FB2_9   64~  GSR/I/O O       STD  FAST 
+IDECS<0>                                1     10    FB2_10  1~   I/O     O       STD  FAST 
+IOW                                     2     12    FB2_12  4~   I/O     O       STD  FAST SET
+IOR                                     2     12    FB2_14  5~   GTS/I/O O       STD  FAST SET
+AS                                      9     20    FB2_15  6~   I/O     O       STD  FAST SET
+UDS                                     12    23    FB2_17  7~   I/O     O       STD  FAST SET
+E                                       2     5     FB3_2   22~  I/O     O       STD  FAST RESET
+DSACK<0>                                0     0     FB3_6   34   I/O     O       STD  FAST 
+BERR                                    1     2     FB3_9   27~  I/O     O       STD  FAST 
+OVR                                     0     0     FB4_15  56~  I/O     O       STD  FAST 
+IPL<1>                                  0     0     FB4_17  57~  I/O     O       STD  FAST 
+
+** 33 Buried Nodes **
+
+Signal                                  Total Total Loc     Pwr  Reg Init
+Name                                    Pts   Inps          Mode State
+BUSTOP/M6800BUS/Q<2>                    1     2     FB1_1   STD  SET
+BUSTOP/M6800BUS/Q<0>                    0     0     FB1_3   STD  RESET
+BUSTOP/BGACK_INT                        1     1     FB1_4   STD  RESET
+BUSTOP/ATA/ASDLY                        1     1     FB1_6   STD  SET
+$OpTx$BIN_STEP$36                       1     9     FB1_7   STD  
+SLOWCYCLE_D<0>                          2     2     FB1_9   STD  RESET
+BUSTOP/M6800BUS/Q<3>                    2     4     FB1_11  STD  RESET
+BUSTOP/M6800BUS/Q<1>                    2     4     FB1_12  STD  RESET
+BUSTOP/CANSTART                         2     5     FB1_13  STD  SET
+BUSTOP/AS_INTD                          2     2     FB1_16  STD  SET
+BUSTOP/AS20DLY                          2     8     FB1_17  STD  SET
+BUSTOP/DTACK_S7D/BUSTOP/DTACK_S7D_SETF  5     13    FB1_18  STD  
+BUSTOP/ATA/ASDLY2                       2     2     FB2_1   STD  SET
+BUSTOP/DTACK_IDE                        2     11    FB2_4   STD  SET
+SLOWCYCLE_D<3>                          2     2     FB3_1   STD  RESET
+SLOWCYCLE_D<2>                          2     2     FB3_3   STD  RESET
+SLOWCYCLE_D<1>                          2     2     FB3_4   STD  RESET
+BUSTOP/DTACK_S7                         2     2     FB3_5   STD  RESET
+BUSTOP/DTACK_S6                         2     2     FB3_7   STD  RESET
+BUSTOP/DTACK_LATCHED                    2     3     FB3_8   STD  RESET
+BUSTOP/DSACK_INT<0>                     2     2     FB3_10  STD  RESET
+BUSTOP/DELAY/dtack_int<6>               2     2     FB3_11  STD  SET
+BUSTOP/DELAY/dtack_int<5>               2     2     FB3_12  STD  SET
+BUSTOP/DELAY/dtack_int<4>               2     2     FB3_13  STD  SET
+BUSTOP/DELAY/dtack_int<3>               2     2     FB3_14  STD  SET
+BUSTOP/DELAY/dtack_int<2>               2     2     FB3_15  STD  SET
+BUSTOP/DELAY/dtack_int<1>               2     2     FB3_16  STD  SET
+BUSTOP/BG_INT                           3     4     FB3_17  STD  RESET
+BUSTOP/DSACK1_SYNC                      4     7     FB3_18  STD  SET
+BUSTOP/DTACK_S7D                        2     2     FB4_13  STD  SET
+BUSTOP/DELAY/dtack_int<9>               2     2     FB4_14  STD  SET
+BUSTOP/DELAY/dtack_int<8>               2     2     FB4_16  STD  SET
+BUSTOP/DELAY/dtack_int<7>               2     2     FB4_18  STD  SET
+
+** 28 Inputs **
+
+Signal                                  Loc     Pin  Pin     Pin     
+Name                                            No.  Type    Use     
+BGACK                                   FB1_3   12~  I/O     I
+RW20                                    FB1_4   13~  I/O     I
+DTACK                                   FB1_6   10~  I/O     I
+CLK7M                                   FB1_9   15~  GCK/I/O GCK
+CLKCPU                                  FB1_11  16~  GCK/I/O GCK
+AS20                                    FB1_12  23~  I/O     I
+CPSENSE                                 FB1_17  20~  I/O     I
+INTCYCLE                                FB2_4   59~  I/O     I
+IDEWAIT                                 FB2_11  2~   GTS/I/O I
+FC<2>                                   FB3_3   31~  I/O     I
+BG20                                    FB3_4   32~  I/O     I
+DS20                                    FB3_5   24~  I/O     I
+VPA                                     FB3_8   25~  I/O     I
+A<0>                                    FB3_10  39~  I/O     I
+FC<0>                                   FB3_12  40~  I/O     I
+FC<1>                                   FB3_14  35~  I/O     I
+SIZ<0>                                  FB3_15  36~  I/O     I
+A<12>                                   FB3_16  42~  I/O     I
+SIZ<1>                                  FB3_17  38~  I/O     I
+A<17>                                   FB4_3   46~  I/O     I
+A<18>                                   FB4_4   47~  I/O     I
+A<15>                                   FB4_5   44~  I/O     I
+A<20>                                   FB4_6   49~  I/O     I
+A<16>                                   FB4_8   45~  I/O     I
+A<22>                                   FB4_10  51~  I/O     I
+A<19>                                   FB4_11  48~  I/O     I
+A<23>                                   FB4_12  52~  I/O     I
+A<21>                                   FB4_14  50~  I/O     I
+
+Legend:
+Pin No. - ~ - User Assigned
+**************************  Function Block Details  ************************
+Legend:
+Total Pt     - Total product terms used by the macrocell signal
+Imp Pt       - Product terms imported from other macrocells
+Exp Pt       - Product terms exported to other macrocells
+               in direction shown
+Unused Pt    - Unused local product terms remaining in macrocell
+Loc          - Location where logic was mapped in device
+Pin Type/Use - I  - Input             GCK - Global Clock
+               O  - Output            GTS - Global Output Enable
+              (b) - Buried macrocell  GSR - Global Set/Reset
+X            - Signal used as input to the macrocell logic.
+Pin No.      - ~  - User Assigned
+*********************************** FB1  ***********************************
+Number of function block inputs used/remaining:               32/22
+Number of signals used by logic mapping into function block:  32
+Signal              Total   Imp   Exp Unused  Loc     Pin   Pin     Pin
+Name                Pt      Pt    Pt  Pt               #    Type    Use
+BUSTOP/M6800BUS/Q<2>
+                      1       0   \/3   1     FB1_1         (b)     (b)
+LDS                  12       7<-   0   0     FB1_2   8~    I/O     O
+BUSTOP/M6800BUS/Q<0>
+                      0       0   /\4   1     FB1_3   12    I/O     I
+BUSTOP/BGACK_INT      1       0   \/2   2     FB1_4   13    I/O     I
+RW                   10       5<-   0   0     FB1_5   9~    I/O     O
+BUSTOP/ATA/ASDLY      1       0   /\3   1     FB1_6   10    I/O     I
+$OpTx$BIN_STEP$36     1       0     0   4     FB1_7         (b)     (b)
+BG                    1       0     0   4     FB1_8   11~   I/O     O
+SLOWCYCLE_D<0>        2       0     0   3     FB1_9   15    GCK/I/O GCK
+RESET                 0       0     0   5     FB1_10  18~   I/O     O
+BUSTOP/M6800BUS/Q<3>
+                      2       0     0   3     FB1_11  16    GCK/I/O GCK
+BUSTOP/M6800BUS/Q<1>
+                      2       0     0   3     FB1_12  23    I/O     I
+BUSTOP/CANSTART       2       0     0   3     FB1_13        (b)     (b)
+HALT                  0       0   \/1   4     FB1_14  17~   GCK/I/O O
+VMA                   7       2<-   0   0     FB1_15  19~   I/O     O
+BUSTOP/AS_INTD        2       0   /\1   2     FB1_16        (b)     (b)
+BUSTOP/AS20DLY        2       0     0   3     FB1_17  20    I/O     I
+BUSTOP/DTACK_S7D/BUSTOP/DTACK_S7D_SETF
+                      5       0     0   0     FB1_18        (b)     (b)
+
+Signals Used by Logic in Function Block
+  1: $OpTx$BIN_STEP$36  12: A<22>                 23: DS20 
+  2: AS                 13: A<23>                 24: FC<0> 
+  3: AS20               14: BGACK                 25: FC<1> 
+  4: A<0>               15: BUSTOP/AS20DLY        26: FC<2> 
+  5: A<15>              16: BUSTOP/BGACK_INT      27: INTCYCLE 
+  6: A<16>              17: BUSTOP/BG_INT         28: RW20 
+  7: A<17>              18: BUSTOP/CANSTART       29: SIZ<0> 
+  8: A<18>              19: BUSTOP/M6800BUS/Q<0>  30: SIZ<1> 
+  9: A<19>              20: BUSTOP/M6800BUS/Q<1>  31: VMA 
+ 10: A<20>              21: BUSTOP/M6800BUS/Q<2>  32: VPA 
+ 11: A<21>              22: BUSTOP/M6800BUS/Q<3> 
+
+Signal                        1         2         3         4 FB
+Name                0----+----0----+----0----+----0----+----0 Inputs
+BUSTOP/M6800BUS/Q<2> 
+                     ..................XX.................... 2
+LDS                  XXXXXXXXXXXXXXXX.X....XXXXXXXX.......... 25
+BUSTOP/M6800BUS/Q<0> 
+                     ........................................ 0
+BUSTOP/BGACK_INT     .............X.......................... 1
+RW                   XXX.XXXXXXXXXXXX.X.....XXXXX............ 21
+BUSTOP/ATA/ASDLY     ..X..................................... 1
+$OpTx$BIN_STEP$36    ....XXXXXXXXX........................... 9
+BG                   ................X....................... 1
+SLOWCYCLE_D<0>       ..X.......................X............. 2
+RESET                ........................................ 0
+BUSTOP/M6800BUS/Q<3> 
+                     ..................XXXX.................. 4
+BUSTOP/M6800BUS/Q<1> 
+                     ..................XXXX.................. 4
+BUSTOP/CANSTART      XX...........X.X..........X............. 5
+HALT                 ........................................ 0
+VMA                  X............X.X..XXXX.XXXX...XX........ 13
+BUSTOP/AS_INTD       .XX..................................... 2
+BUSTOP/AS20DLY       ..X..XXXX..............XXX.............. 8
+BUSTOP/DTACK_S7D/BUSTOP/DTACK_S7D_SETF 
+                     .X..XXXXXXXXXX.X..........X............. 13
+                    0----+----1----+----2----+----3----+----4
+                              0         0         0         0
+*********************************** FB2  ***********************************
+Number of function block inputs used/remaining:               32/22
+Number of signals used by logic mapping into function block:  32
+Signal              Total   Imp   Exp Unused  Loc     Pin   Pin     Pin
+Name                Pt      Pt    Pt  Pt               #    Type    Use
+BUSTOP/ATA/ASDLY2     2       0   /\2   1     FB2_1         (b)     (b)
+INT2                  0       0     0   5     FB2_2   60~   I/O     O
+IPL<2>                0       0     0   5     FB2_3   58~   I/O     O
+BUSTOP/DTACK_IDE      2       0     0   3     FB2_4   59    I/O     I
+IDECS<1>              1       0     0   4     FB2_5   61~   I/O     O
+CPCS                  2       0     0   3     FB2_6   62~   I/O     O
+(unused)              0       0     0   5     FB2_7         (b)     
+AVEC                  2       0     0   3     FB2_8   63~   I/O     O
+DSACK<1>              3       0     0   2     FB2_9   64~   GSR/I/O O
+IDECS<0>              1       0     0   4     FB2_10  1~    I/O     O
+(unused)              0       0     0   5     FB2_11  2     GTS/I/O I
+IOW                   2       0     0   3     FB2_12  4~    I/O     O
+(unused)              0       0     0   5     FB2_13        (b)     
+IOR                   2       0   \/2   1     FB2_14  5~    GTS/I/O O
+AS                    9       4<-   0   0     FB2_15  6~    I/O     O
+(unused)              0       0   /\2   3     FB2_16        (b)     (b)
+UDS                  12       7<-   0   0     FB2_17  7~    I/O     O
+(unused)              0       0   /\5   0     FB2_18        (b)     (b)
+
+Signals Used by Logic in Function Block
+  1: $OpTx$BIN_STEP$36  12: A<21>                23: BUSTOP/DTACK_IDE 
+  2: AS                 13: A<22>                24: DS20 
+  3: AS20               14: A<23>                25: FC<0> 
+  4: A<0>               15: BGACK                26: FC<1> 
+  5: A<12>              16: BUSTOP/AS20DLY       27: FC<2> 
+  6: A<15>              17: BUSTOP/ATA/ASDLY     28: IDEWAIT 
+  7: A<16>              18: BUSTOP/ATA/ASDLY2    29: INTCYCLE 
+  8: A<17>              19: BUSTOP/BGACK_INT     30: RW20 
+  9: A<18>              20: BUSTOP/CANSTART      31: SLOWCYCLE_D<3> 
+ 10: A<19>              21: BUSTOP/DSACK1_SYNC   32: VPA 
+ 11: A<20>              22: BUSTOP/DSACK_INT<0> 
+
+Signal                        1         2         3         4 FB
+Name                0----+----0----+----0----+----0----+----0 Inputs
+BUSTOP/ATA/ASDLY2    ..X.............X....................... 2
+INT2                 ........................................ 0
+IPL<2>               ........................................ 0
+BUSTOP/DTACK_IDE     ..X..XXXXXXXXX..X....................... 11
+IDECS<1>             ....XXXXXXXXXX.......................... 10
+CPCS                 ..X...XXXX..............XXX............. 8
+AVEC                 ..X...XXXX..............XXX....X........ 9
+DSACK<1>             ......XXXX..........XXX.XXXX..X......... 12
+IDECS<0>             ....XXXXXXXXXX.......................... 10
+IOW                  ..X..XXXXXXXXX...X...........X.......... 12
+IOR                  ..X..XXXXXXXXX..X............X.......... 12
+AS                   XXX..XXXXXXXXXXX..XX....XXX.X........... 20
+UDS                  XXXX.XXXXXXXXXXX..XX...XXXX.XX.......... 23
+                    0----+----1----+----2----+----3----+----4
+                              0         0         0         0
+*********************************** FB3  ***********************************
+Number of function block inputs used/remaining:               28/26
+Number of signals used by logic mapping into function block:  28
+Signal              Total   Imp   Exp Unused  Loc     Pin   Pin     Pin
+Name                Pt      Pt    Pt  Pt               #    Type    Use
+SLOWCYCLE_D<3>        2       0     0   3     FB3_1         (b)     (b)
+E                     2       0     0   3     FB3_2   22~   I/O     O
+SLOWCYCLE_D<2>        2       0     0   3     FB3_3   31    I/O     I
+SLOWCYCLE_D<1>        2       0     0   3     FB3_4   32    I/O     I
+BUSTOP/DTACK_S7       2       0     0   3     FB3_5   24    I/O     I
+DSACK<0>              0       0     0   5     FB3_6   34    I/O     O
+BUSTOP/DTACK_S6       2       0     0   3     FB3_7         (b)     (b)
+BUSTOP/DTACK_LATCHED
+                      2       0     0   3     FB3_8   25    I/O     I
+BERR                  1       0     0   4     FB3_9   27~   I/O     O
+BUSTOP/DSACK_INT<0>   2       0     0   3     FB3_10  39    I/O     I
+BUSTOP/DELAY/dtack_int<6>
+                      2       0     0   3     FB3_11  33    I/O     (b)
+BUSTOP/DELAY/dtack_int<5>
+                      2       0     0   3     FB3_12  40    I/O     I
+BUSTOP/DELAY/dtack_int<4>
+                      2       0     0   3     FB3_13        (b)     (b)
+BUSTOP/DELAY/dtack_int<3>
+                      2       0     0   3     FB3_14  35    I/O     I
+BUSTOP/DELAY/dtack_int<2>
+                      2       0     0   3     FB3_15  36    I/O     I
+BUSTOP/DELAY/dtack_int<1>
+                      2       0     0   3     FB3_16  42    I/O     I
+BUSTOP/BG_INT         3       0     0   2     FB3_17  38    I/O     I
+BUSTOP/DSACK1_SYNC    4       0     0   1     FB3_18        (b)     (b)
+
+Signals Used by Logic in Function Block
+  1: AS                         11: BUSTOP/DSACK1_SYNC                      20: BUSTOP/M6800BUS/Q<3> 
+  2: AS20                       12: BUSTOP/DTACK_LATCHED                    21: CPCS 
+  3: BG20                       13: BUSTOP/DTACK_S6                         22: CPSENSE 
+  4: BUSTOP/AS_INTD             14: BUSTOP/DTACK_S7                         23: DTACK 
+  5: BUSTOP/BG_INT              15: BUSTOP/DTACK_S7D                        24: E 
+  6: BUSTOP/DELAY/dtack_int<1>  16: BUSTOP/DTACK_S7D/BUSTOP/DTACK_S7D_SETF  25: SLOWCYCLE_D<0> 
+  7: BUSTOP/DELAY/dtack_int<2>  17: BUSTOP/M6800BUS/Q<0>                    26: SLOWCYCLE_D<1> 
+  8: BUSTOP/DELAY/dtack_int<3>  18: BUSTOP/M6800BUS/Q<1>                    27: SLOWCYCLE_D<2> 
+  9: BUSTOP/DELAY/dtack_int<4>  19: BUSTOP/M6800BUS/Q<2>                    28: VMA 
+ 10: BUSTOP/DELAY/dtack_int<5> 
+
+Signal                        1         2         3         4 FB
+Name                0----+----0----+----0----+----0----+----0 Inputs
+SLOWCYCLE_D<3>       .X........................X............. 2
+E                    ................XXXX...X................ 5
+SLOWCYCLE_D<2>       .X.......................X.............. 2
+SLOWCYCLE_D<1>       .X......................X............... 2
+BUSTOP/DTACK_S7      .X..........X........................... 2
+DSACK<0>             ........................................ 0
+BUSTOP/DTACK_S6      .X.........X............................ 2
+BUSTOP/DTACK_LATCHED 
+                     .X.X..................X................. 3
+BERR                 ....................XX.................. 2
+BUSTOP/DSACK_INT<0>  .X............X......................... 2
+BUSTOP/DELAY/dtack_int<6> 
+                     .........X.....X........................ 2
+BUSTOP/DELAY/dtack_int<5> 
+                     ........X......X........................ 2
+BUSTOP/DELAY/dtack_int<4> 
+                     .......X.......X........................ 2
+BUSTOP/DELAY/dtack_int<3> 
+                     ......X........X........................ 2
+BUSTOP/DELAY/dtack_int<2> 
+                     .....X.........X........................ 2
+BUSTOP/DELAY/dtack_int<1> 
+                     .............X.X........................ 2
+BUSTOP/BG_INT        XXX.X................................... 4
+BUSTOP/DSACK1_SYNC   .X........X.....XXXX.......X............ 7
+                    0----+----1----+----2----+----3----+----4
+                              0         0         0         0
+*********************************** FB4  ***********************************
+Number of function block inputs used/remaining:               5/49
+Number of signals used by logic mapping into function block:  5
+Signal              Total   Imp   Exp Unused  Loc     Pin   Pin     Pin
+Name                Pt      Pt    Pt  Pt               #    Type    Use
+(unused)              0       0     0   5     FB4_1         (b)     
+(unused)              0       0     0   5     FB4_2   43    I/O     
+(unused)              0       0     0   5     FB4_3   46    I/O     I
+(unused)              0       0     0   5     FB4_4   47    I/O     I
+(unused)              0       0     0   5     FB4_5   44    I/O     I
+(unused)              0       0     0   5     FB4_6   49    I/O     I
+(unused)              0       0     0   5     FB4_7         (b)     
+(unused)              0       0     0   5     FB4_8   45    I/O     I
+(unused)              0       0     0   5     FB4_9         (b)     
+(unused)              0       0     0   5     FB4_10  51    I/O     I
+(unused)              0       0     0   5     FB4_11  48    I/O     I
+(unused)              0       0     0   5     FB4_12  52    I/O     I
+BUSTOP/DTACK_S7D      2       0     0   3     FB4_13        (b)     (b)
+BUSTOP/DELAY/dtack_int<9>
+                      2       0     0   3     FB4_14  50    I/O     I
+OVR                   0       0     0   5     FB4_15  56~   I/O     O
+BUSTOP/DELAY/dtack_int<8>
+                      2       0     0   3     FB4_16        (b)     (b)
+IPL<1>                0       0     0   5     FB4_17  57~   I/O     O
+BUSTOP/DELAY/dtack_int<7>
+                      2       0     0   3     FB4_18        (b)     (b)
+
+Signals Used by Logic in Function Block
+  1: BUSTOP/DELAY/dtack_int<6>   3: BUSTOP/DELAY/dtack_int<8>   5: BUSTOP/DTACK_S7D/BUSTOP/DTACK_S7D_SETF 
+  2: BUSTOP/DELAY/dtack_int<7>   4: BUSTOP/DELAY/dtack_int<9> 
+
+Signal                        1         2         3         4 FB
+Name                0----+----0----+----0----+----0----+----0 Inputs
+BUSTOP/DTACK_S7D     ...XX................................... 2
+BUSTOP/DELAY/dtack_int<9> 
+                     ..X.X................................... 2
+OVR                  ........................................ 0
+BUSTOP/DELAY/dtack_int<8> 
+                     .X..X................................... 2
+IPL<1>               ........................................ 0
+BUSTOP/DELAY/dtack_int<7> 
+                     X...X................................... 2
+                    0----+----1----+----2----+----3----+----4
+                              0         0         0         0
+*******************************  Equations  ********************************
+
+********** Mapped Logic **********
+
+
+$OpTx$BIN_STEP$36 <= (A(19) AND NOT A(18) AND A(17) AND NOT A(16) AND A(22) AND A(20) AND 
+	A(23) AND NOT A(15) AND NOT A(21));
+
+FDCPE_AS: FDCPE port map (AS_I,AS,CLK7M,'0',AS20);
+AS <= ((NOT INTCYCLE)
+	OR (BUSTOP/AS20DLY)
+	OR (NOT BUSTOP/BGACK_INT)
+	OR (NOT BGACK)
+	OR (AS AND NOT BUSTOP/CANSTART)
+	OR (FC(2) AND FC(1) AND FC(0) AND NOT A(19) AND NOT A(18) AND A(17) AND 
+	NOT A(16))
+	OR (A(19) AND NOT A(18) AND A(17) AND NOT A(16) AND A(22) AND A(20) AND 
+	A(23) AND NOT A(15) AND NOT A(21)));
+AS <= AS_I when AS_OE = '1' else 'Z';
+AS_OE <= (INTCYCLE AND BGACK AND BUSTOP/BGACK_INT AND 
+	NOT $OpTx$BIN_STEP$36);
+
+FDCPE_AVEC: FDCPE port map (AVEC,AVEC_D,CLKCPU,'0',AS20);
+AVEC_D <= (FC(2) AND FC(1) AND FC(0) AND A(19) AND A(18) AND A(17) AND 
+	A(16) AND NOT VPA);
+
+
+BERR_I <= '0';
+BERR <= BERR_I when BERR_OE = '1' else 'Z';
+BERR_OE <= (NOT CPCS AND CPSENSE);
+
+
+BG_I <= '0';
+BG <= BG_I when BG_OE = '1' else 'Z';
+BG_OE <= NOT BUSTOP/BG_INT;
+
+FDCPE_BUSTOP/AS20DLY: FDCPE port map (BUSTOP/AS20DLY,BUSTOP/AS20DLY_D,CLKCPU,'0',AS20);
+BUSTOP/AS20DLY_D <= (FC(2) AND FC(1) AND FC(0) AND NOT A(19) AND NOT A(18) AND A(17) AND 
+	NOT A(16));
+
+FDCPE_BUSTOP/AS_INTD: FDCPE port map (BUSTOP/AS_INTD,AS,CLK7M,'0',AS20);
+
+FDCPE_BUSTOP/ATA/ASDLY: FDCPE port map (BUSTOP/ATA/ASDLY,'0',CLKCPU,'0',AS20);
+
+FDCPE_BUSTOP/ATA/ASDLY2: FDCPE port map (BUSTOP/ATA/ASDLY2,BUSTOP/ATA/ASDLY,CLKCPU,'0',AS20);
+
+FDCPE_BUSTOP/BGACK_INT: FDCPE port map (BUSTOP/BGACK_INT,BGACK,CLKCPU,'0','0');
+
+FDCPE_BUSTOP/BG_INT: FDCPE port map (BUSTOP/BG_INT,BUSTOP/BG_INT_D,CLKCPU,'0',BG20);
+BUSTOP/BG_INT_D <= ((AS20 AND NOT AS AND BUSTOP/BG_INT)
+	OR (NOT AS20 AND AS AND BUSTOP/BG_INT));
+
+FDCPE_BUSTOP/CANSTART: FDCPE port map (BUSTOP/CANSTART,BUSTOP/CANSTART_D,NOT CLK7M,BUSTOP/CANSTART_CLR,'0');
+BUSTOP/CANSTART_D <= (BGACK AND BUSTOP/BGACK_INT);
+BUSTOP/CANSTART_CLR <= (NOT AS AND INTCYCLE AND BGACK AND BUSTOP/BGACK_INT AND 
+	NOT $OpTx$BIN_STEP$36);
+
+FDCPE_BUSTOP/DELAY/dtack_int1: FDCPE port map (BUSTOP/DELAY/dtack_int(1),'0',NOT BUSTOP/DTACK_S7,'0',BUSTOP/DTACK_S7D/BUSTOP/DTACK_S7D_SETF);
+
+FDCPE_BUSTOP/DELAY/dtack_int2: FDCPE port map (BUSTOP/DELAY/dtack_int(2),'0',NOT BUSTOP/DELAY/dtack_int(1),'0',BUSTOP/DTACK_S7D/BUSTOP/DTACK_S7D_SETF);
+
+FDCPE_BUSTOP/DELAY/dtack_int3: FDCPE port map (BUSTOP/DELAY/dtack_int(3),'0',NOT BUSTOP/DELAY/dtack_int(2),'0',BUSTOP/DTACK_S7D/BUSTOP/DTACK_S7D_SETF);
+
+FDCPE_BUSTOP/DELAY/dtack_int4: FDCPE port map (BUSTOP/DELAY/dtack_int(4),'0',NOT BUSTOP/DELAY/dtack_int(3),'0',BUSTOP/DTACK_S7D/BUSTOP/DTACK_S7D_SETF);
+
+FDCPE_BUSTOP/DELAY/dtack_int5: FDCPE port map (BUSTOP/DELAY/dtack_int(5),'0',NOT BUSTOP/DELAY/dtack_int(4),'0',BUSTOP/DTACK_S7D/BUSTOP/DTACK_S7D_SETF);
+
+FDCPE_BUSTOP/DELAY/dtack_int6: FDCPE port map (BUSTOP/DELAY/dtack_int(6),'0',NOT BUSTOP/DELAY/dtack_int(5),'0',BUSTOP/DTACK_S7D/BUSTOP/DTACK_S7D_SETF);
+
+FDCPE_BUSTOP/DELAY/dtack_int7: FDCPE port map (BUSTOP/DELAY/dtack_int(7),'0',NOT BUSTOP/DELAY/dtack_int(6),'0',BUSTOP/DTACK_S7D/BUSTOP/DTACK_S7D_SETF);
+
+FDCPE_BUSTOP/DELAY/dtack_int8: FDCPE port map (BUSTOP/DELAY/dtack_int(8),'0',NOT BUSTOP/DELAY/dtack_int(7),'0',BUSTOP/DTACK_S7D/BUSTOP/DTACK_S7D_SETF);
+
+FDCPE_BUSTOP/DELAY/dtack_int9: FDCPE port map (BUSTOP/DELAY/dtack_int(9),'0',NOT BUSTOP/DELAY/dtack_int(8),'0',BUSTOP/DTACK_S7D/BUSTOP/DTACK_S7D_SETF);
+
+FTCPE_BUSTOP/DSACK1_SYNC: FTCPE port map (BUSTOP/DSACK1_SYNC,BUSTOP/DSACK1_SYNC_T,CLK7M,'0',AS20);
+BUSTOP/DSACK1_SYNC_T <= ((VMA AND NOT BUSTOP/DSACK1_SYNC AND NOT BUSTOP/M6800BUS/Q(1) AND 
+	NOT BUSTOP/M6800BUS/Q(2) AND BUSTOP/M6800BUS/Q(3))
+	OR (NOT BUSTOP/DSACK1_SYNC AND BUSTOP/M6800BUS/Q(0) AND 
+	NOT BUSTOP/M6800BUS/Q(1) AND NOT BUSTOP/M6800BUS/Q(2) AND BUSTOP/M6800BUS/Q(3))
+	OR (NOT VMA AND BUSTOP/DSACK1_SYNC AND NOT BUSTOP/M6800BUS/Q(0) AND 
+	NOT BUSTOP/M6800BUS/Q(1) AND NOT BUSTOP/M6800BUS/Q(2) AND BUSTOP/M6800BUS/Q(3)));
+
+FDCPE_BUSTOP/DSACK_INT0: FDCPE port map (BUSTOP/DSACK_INT(0),BUSTOP/DTACK_S7D,CLKCPU,'0',AS20);
+
+FDCPE_BUSTOP/DTACK_IDE: FDCPE port map (BUSTOP/DTACK_IDE,BUSTOP/DTACK_IDE_D,NOT CLKCPU,'0',AS20);
+BUSTOP/DTACK_IDE_D <= (A(19) AND NOT A(18) AND A(17) AND NOT A(16) AND A(22) AND A(20) AND 
+	A(23) AND NOT A(15) AND NOT A(21) AND NOT BUSTOP/ATA/ASDLY);
+
+FDCPE_BUSTOP/DTACK_LATCHED: FDCPE port map (BUSTOP/DTACK_LATCHED,BUSTOP/DTACK_LATCHED_D,NOT CLK7M,'0',AS20);
+BUSTOP/DTACK_LATCHED_D <= (NOT BUSTOP/AS_INTD AND NOT DTACK);
+
+FDCPE_BUSTOP/DTACK_S6: FDCPE port map (BUSTOP/DTACK_S6,BUSTOP/DTACK_LATCHED,CLK7M,'0',AS20);
+
+FDCPE_BUSTOP/DTACK_S7: FDCPE port map (BUSTOP/DTACK_S7,BUSTOP/DTACK_S6,NOT CLK7M,'0',AS20);
+
+FDCPE_BUSTOP/DTACK_S7D: FDCPE port map (BUSTOP/DTACK_S7D,'0',NOT BUSTOP/DELAY/dtack_int(9),'0',BUSTOP/DTACK_S7D/BUSTOP/DTACK_S7D_SETF);
+
+
+BUSTOP/DTACK_S7D/BUSTOP/DTACK_S7D_SETF <= ((AS)
+	OR (NOT INTCYCLE)
+	OR (NOT BGACK)
+	OR (NOT BUSTOP/BGACK_INT)
+	OR (A(19) AND NOT A(18) AND A(17) AND NOT A(16) AND A(22) AND A(20) AND 
+	A(23) AND NOT A(15) AND NOT A(21)));
+
+FTCPE_BUSTOP/M6800BUS/Q0: FTCPE port map (BUSTOP/M6800BUS/Q(0),'1',CLK7M,'0','0');
+
+FTCPE_BUSTOP/M6800BUS/Q1: FTCPE port map (BUSTOP/M6800BUS/Q(1),BUSTOP/M6800BUS/Q_T(1),CLK7M,'0','0');
+BUSTOP/M6800BUS/Q_T(1) <= ((NOT BUSTOP/M6800BUS/Q(0))
+	OR (NOT BUSTOP/M6800BUS/Q(1) AND NOT BUSTOP/M6800BUS/Q(2) AND 
+	BUSTOP/M6800BUS/Q(3)));
+
+FTCPE_BUSTOP/M6800BUS/Q2: FTCPE port map (BUSTOP/M6800BUS/Q(2),BUSTOP/M6800BUS/Q_T(2),CLK7M,'0','0');
+BUSTOP/M6800BUS/Q_T(2) <= (BUSTOP/M6800BUS/Q(0) AND BUSTOP/M6800BUS/Q(1));
+
+FTCPE_BUSTOP/M6800BUS/Q3: FTCPE port map (BUSTOP/M6800BUS/Q(3),BUSTOP/M6800BUS/Q_T(3),CLK7M,'0','0');
+BUSTOP/M6800BUS/Q_T(3) <= ((BUSTOP/M6800BUS/Q(0) AND BUSTOP/M6800BUS/Q(1) AND 
+	BUSTOP/M6800BUS/Q(2))
+	OR (BUSTOP/M6800BUS/Q(0) AND NOT BUSTOP/M6800BUS/Q(1) AND 
+	NOT BUSTOP/M6800BUS/Q(2) AND BUSTOP/M6800BUS/Q(3)));
+
+FDCPE_CPCS: FDCPE port map (CPCS,CPCS_D,CLKCPU,'0',AS20);
+CPCS_D <= (FC(2) AND FC(1) AND FC(0) AND NOT A(19) AND NOT A(18) AND A(17) AND 
+	NOT A(16));
+
+
+DSACK_I(0) <= '0';
+DSACK(0) <= DSACK_I(0) when DSACK_OE(0) = '1' else 'Z';
+DSACK_OE(0) <= '0';
+
+
+DSACK(1) <= ((BUSTOP/DSACK1_SYNC AND BUSTOP/DSACK_INT(0) AND 
+	BUSTOP/DTACK_IDE AND SLOWCYCLE_D(3))
+	OR (BUSTOP/DSACK1_SYNC AND BUSTOP/DTACK_IDE AND 
+	SLOWCYCLE_D(3) AND NOT IDEWAIT)
+	OR (FC(2) AND FC(1) AND FC(0) AND NOT A(19) AND NOT A(18) AND A(17) AND 
+	NOT A(16)));
+
+FTCPE_E: FTCPE port map (E,E_T,CLK7M,'0','0');
+E_T <= ((E AND NOT BUSTOP/M6800BUS/Q(0) AND NOT BUSTOP/M6800BUS/Q(1) AND 
+	NOT BUSTOP/M6800BUS/Q(2) AND BUSTOP/M6800BUS/Q(3))
+	OR (NOT E AND NOT BUSTOP/M6800BUS/Q(0) AND NOT BUSTOP/M6800BUS/Q(1) AND 
+	BUSTOP/M6800BUS/Q(2) AND NOT BUSTOP/M6800BUS/Q(3)));
+
+
+
+
+
+
+HALT_I <= '0';
+HALT <= HALT_I when HALT_OE = '1' else 'Z';
+HALT_OE <= '0';
+
+
+IDECS(0) <= NOT ((A(19) AND NOT A(18) AND A(17) AND NOT A(16) AND A(22) AND A(20) AND 
+	A(23) AND NOT A(15) AND NOT A(21) AND NOT A(12)));
+
+
+IDECS(1) <= NOT ((A(19) AND NOT A(18) AND A(17) AND NOT A(16) AND A(22) AND A(20) AND 
+	A(23) AND NOT A(15) AND NOT A(21) AND A(12)));
+
+
+INT2_I <= '0';
+INT2 <= INT2_I when INT2_OE = '1' else 'Z';
+INT2_OE <= '0';
+
+FDCPE_IOR: FDCPE port map (IOR,IOR_D,NOT CLKCPU,'0',AS20);
+IOR_D <= (A(19) AND NOT A(18) AND A(17) AND NOT A(16) AND RW20 AND A(22) AND 
+	A(20) AND A(23) AND NOT A(15) AND NOT A(21) AND NOT BUSTOP/ATA/ASDLY);
+
+FDCPE_IOW: FDCPE port map (IOW,IOW_D,NOT CLKCPU,'0',AS20);
+IOW_D <= (A(19) AND NOT A(18) AND A(17) AND NOT A(16) AND NOT RW20 AND A(22) AND 
+	A(20) AND A(23) AND NOT A(15) AND NOT A(21) AND NOT BUSTOP/ATA/ASDLY2);
+
+
+IPL_I(1) <= '0';
+IPL(1) <= IPL_I(1) when IPL_OE(1) = '1' else 'Z';
+IPL_OE(1) <= '0';
+
+
+IPL_I(2) <= '0';
+IPL(2) <= IPL_I(2) when IPL_OE(2) = '1' else 'Z';
+IPL_OE(2) <= '0';
+
+FDCPE_LDS: FDCPE port map (LDS_I,LDS,CLK7M,'0',AS20);
+LDS <= ((DS20)
+	OR (NOT INTCYCLE)
+	OR (BUSTOP/AS20DLY)
+	OR (NOT BGACK)
+	OR (NOT BUSTOP/BGACK_INT)
+	OR (AS AND NOT BUSTOP/CANSTART)
+	OR (AS AND NOT RW20)
+	OR (NOT A(0) AND SIZ(0) AND NOT SIZ(1))
+	OR (FC(2) AND FC(1) AND FC(0) AND NOT A(19) AND NOT A(18) AND A(17) AND 
+	NOT A(16))
+	OR (A(19) AND NOT A(18) AND A(17) AND NOT A(16) AND A(22) AND A(20) AND 
+	A(23) AND NOT A(15) AND NOT A(21)));
+LDS <= LDS_I when LDS_OE = '1' else 'Z';
+LDS_OE <= (INTCYCLE AND BGACK AND BUSTOP/BGACK_INT AND 
+	NOT $OpTx$BIN_STEP$36);
+
+
+OVR_I <= '0';
+OVR <= OVR_I when OVR_OE = '1' else 'Z';
+OVR_OE <= '0';
+
+
+RESET_I <= '0';
+RESET <= RESET_I when RESET_OE = '1' else 'Z';
+RESET_OE <= '0';
+
+FDCPE_RW: FDCPE port map (RW_I,RW,CLK7M,'0',AS20);
+RW <= ((RW20)
+	OR (NOT INTCYCLE)
+	OR (BUSTOP/AS20DLY)
+	OR (NOT BGACK)
+	OR (NOT BUSTOP/BGACK_INT)
+	OR (AS AND NOT BUSTOP/CANSTART)
+	OR (FC(2) AND FC(1) AND FC(0) AND NOT A(19) AND NOT A(18) AND A(17) AND 
+	NOT A(16))
+	OR (A(19) AND NOT A(18) AND A(17) AND NOT A(16) AND A(22) AND A(20) AND 
+	A(23) AND NOT A(15) AND NOT A(21)));
+RW <= RW_I when RW_OE = '1' else 'Z';
+RW_OE <= (INTCYCLE AND BGACK AND BUSTOP/BGACK_INT AND 
+	NOT $OpTx$BIN_STEP$36);
+
+FDCPE_SLOWCYCLE_D0: FDCPE port map (SLOWCYCLE_D(0),INTCYCLE,CLK7M,'0',AS20);
+
+FDCPE_SLOWCYCLE_D1: FDCPE port map (SLOWCYCLE_D(1),SLOWCYCLE_D(0),CLK7M,'0',AS20);
+
+FDCPE_SLOWCYCLE_D2: FDCPE port map (SLOWCYCLE_D(2),SLOWCYCLE_D(1),CLK7M,'0',AS20);
+
+FDCPE_SLOWCYCLE_D3: FDCPE port map (SLOWCYCLE_D(3),SLOWCYCLE_D(2),CLK7M,'0',AS20);
+
+FDCPE_UDS: FDCPE port map (UDS_I,UDS,CLK7M,'0',AS20);
+UDS <= ((A(0))
+	OR (NOT INTCYCLE)
+	OR (BUSTOP/AS20DLY)
+	OR (DS20)
+	OR (NOT BGACK)
+	OR (NOT BUSTOP/BGACK_INT)
+	OR (BUSTOP/ATA/ASDLY2.EXP)
+	OR (AS AND NOT RW20)
+	OR (AS AND NOT BUSTOP/CANSTART));
+UDS <= UDS_I when UDS_OE = '1' else 'Z';
+UDS_OE <= (INTCYCLE AND BGACK AND BUSTOP/BGACK_INT AND 
+	NOT $OpTx$BIN_STEP$36);
+
+FTCPE_VMA: FTCPE port map (VMA_I,VMA_T,CLK7M,'0',VPA);
+VMA_T <= ((NOT FC(2) AND VMA AND NOT BUSTOP/M6800BUS/Q(0) AND 
+	BUSTOP/M6800BUS/Q(1) AND NOT BUSTOP/M6800BUS/Q(2) AND NOT BUSTOP/M6800BUS/Q(3))
+	OR (FC(2) AND FC(1) AND FC(0) AND NOT VMA AND 
+	NOT BUSTOP/M6800BUS/Q(0) AND BUSTOP/M6800BUS/Q(1) AND NOT BUSTOP/M6800BUS/Q(2) AND 
+	NOT BUSTOP/M6800BUS/Q(3))
+	OR (NOT VMA AND BUSTOP/M6800BUS/Q(0) AND 
+	NOT BUSTOP/M6800BUS/Q(1) AND NOT BUSTOP/M6800BUS/Q(2) AND BUSTOP/M6800BUS/Q(3))
+	OR (NOT FC(1) AND VMA AND NOT BUSTOP/M6800BUS/Q(0) AND 
+	BUSTOP/M6800BUS/Q(1) AND NOT BUSTOP/M6800BUS/Q(2) AND NOT BUSTOP/M6800BUS/Q(3))
+	OR (NOT FC(0) AND VMA AND NOT BUSTOP/M6800BUS/Q(0) AND 
+	BUSTOP/M6800BUS/Q(1) AND NOT BUSTOP/M6800BUS/Q(2) AND NOT BUSTOP/M6800BUS/Q(3)));
+VMA <= VMA_I when VMA_OE = '1' else 'Z';
+VMA_OE <= (INTCYCLE AND BGACK AND BUSTOP/BGACK_INT AND 
+	NOT $OpTx$BIN_STEP$36);
+
+Register Legend:
+ FDCPE (Q,D,C,CLR,PRE,CE); 
+ FTCPE (Q,D,C,CLR,PRE,CE); 
+ LDCP  (Q,D,G,CLR,PRE); 
+
+******************************  Device Pin Out *****************************
+
+Device : XC9572XL-10-VQ64
+
+
+   -----------------------------------------------  
+  /48 47 46 45 44 43 42 41 40 39 38 37 36 35 34 33 \
+ | 49                                           32 | 
+ | 50                                           31 | 
+ | 51                                           30 | 
+ | 52                                           29 | 
+ | 53                                           28 | 
+ | 54                                           27 | 
+ | 55                                           26 | 
+ | 56              XC9572XL-10-VQ64             25 | 
+ | 57                                           24 | 
+ | 58                                           23 | 
+ | 59                                           22 | 
+ | 60                                           21 | 
+ | 61                                           20 | 
+ | 62                                           19 | 
+ | 63                                           18 | 
+ | 64                                           17 | 
+ \ 1  2  3  4  5  6  7  8  9  10 11 12 13 14 15 16 /
+   -----------------------------------------------  
+
+
+Pin Signal                         Pin Signal                        
+No. Name                           No. Name                          
+  1 IDECS<0>                         33 KPR                           
+  2 IDEWAIT                          34 DSACK<0>                      
+  3 VCC                              35 FC<1>                         
+  4 IOW                              36 SIZ<0>                        
+  5 IOR                              37 VCC                           
+  6 AS                               38 SIZ<1>                        
+  7 UDS                              39 A<0>                          
+  8 LDS                              40 FC<0>                         
+  9 RW                               41 GND                           
+ 10 DTACK                            42 A<12>                         
+ 11 BG                               43 KPR                           
+ 12 BGACK                            44 A<15>                         
+ 13 RW20                             45 A<16>                         
+ 14 GND                              46 A<17>                         
+ 15 CLK7M                            47 A<18>                         
+ 16 CLKCPU                           48 A<19>                         
+ 17 HALT                             49 A<20>                         
+ 18 RESET                            50 A<21>                         
+ 19 VMA                              51 A<22>                         
+ 20 CPSENSE                          52 A<23>                         
+ 21 GND                              53 TDO                           
+ 22 E                                54 GND                           
+ 23 AS20                             55 VCC                           
+ 24 DS20                             56 OVR                           
+ 25 VPA                              57 IPL<1>                        
+ 26 VCC                              58 IPL<2>                        
+ 27 BERR                             59 INTCYCLE                      
+ 28 TDI                              60 INT2                          
+ 29 TMS                              61 IDECS<1>                      
+ 30 TCK                              62 CPCS                          
+ 31 FC<2>                            63 AVEC                          
+ 32 BG20                             64 DSACK<1>                      
+
+
+Legend :  NC  = Not Connected, unbonded pin
+         PGND = Unused I/O configured as additional Ground pin
+         TIE  = Unused I/O floating -- must tie to VCC, GND or other signal
+         KPR  = Unused I/O with weak keeper (leave unconnected)
+         VCC  = Dedicated Power Pin
+         GND  = Dedicated Ground Pin
+         TDI  = Test Data In, JTAG pin
+         TDO  = Test Data Out, JTAG pin
+         TCK  = Test Clock, JTAG pin
+         TMS  = Test Mode Select, JTAG pin
+  PROHIBITED  = User reserved pin
+****************************  Compiler Options  ****************************
+
+Following is a list of all global compiler options used by the fitter run.
+
+Device(s) Specified                         : xc9572xl-10-VQ64
+Optimization Method                         : SPEED
+Multi-Level Logic Optimization              : ON
+Ignore Timing Specifications                : OFF
+Default Register Power Up Value             : LOW
+Keep User Location Constraints              : ON
+What-You-See-Is-What-You-Get                : OFF
+Exhaustive Fitting                          : OFF
+Keep Unused Inputs                          : OFF
+Slew Rate                                   : FAST
+Power Mode                                  : STD
+Ground on Unused IOs                        : OFF
+Set I/O Pin Termination                     : KEEPER
+Global Clock Optimization                   : ON
+Global Set/Reset Optimization               : ON
+Global Ouput Enable Optimization            : ON
+Input Limit                                 : 54
+Pterm Limit                                 : 25

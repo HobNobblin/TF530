@@ -54,20 +54,19 @@ wire Z2_ACCESS = ({A[23:16]} != {8'hE8}) | (&config_out);
 wire Z2_WRITE = (Z2_ACCESS | RW20);
 wire [5:0] zaddr = {A[6:1]};
 
+// config_out updates on AS20 - reflects current configured/shutup state
 always @(posedge AS20 or negedge RESET) begin
 
     if (RESET == 1'b0) begin
-
         config_out <= 'd0;
-
     end else begin
-
-        config_out <= configured | shutup;
-
+        // Skip SPI card (not present) - jump straight from RAM done to all done
+        config_out <= configured | (configured[0] ? 2'b10 : 2'b00);
     end
 
 end
 
+// configured and shutup: reset on RESET, updated on DS20 writes
 always @(negedge DS20 or negedge RESET) begin
 
     if (RESET == 1'b0) begin
@@ -78,23 +77,24 @@ always @(negedge DS20 or negedge RESET) begin
 
     end else begin
 
-            if (Z2_WRITE == 1'b0) begin
+        if (Z2_WRITE == 1'b0) begin
 
-                case (zaddr)
-                    'h24: begin //configure logic
-                        if (config_out == 2'b00) configured[0] <= 1'b1;
-                        if (config_out == 2'b01) configured[1] <= 1'b1;
-                    end
-                    'h26: begin // shutup logic
-                        if (config_out == 2'b00) shutup[0] <= 1'b1;
-                        if (config_out == 2'b01) shutup[1] <= 1'b1;
-                    end
-                endcase
+            case (zaddr)
+                'h24: begin //configure logic
+                    if (config_out == 2'b00) configured[0] <= 1'b1;
+                    if (config_out == 2'b01) configured[1] <= 1'b1;
+                end
+                'h26: begin // shutup logic
+                    if (config_out == 2'b00) shutup[0] <= 1'b1;
+                    if (config_out == 2'b01) shutup[1] <= 1'b1;
+                end
+            endcase
 
-            end
+        end
 
-            // autoconfig ROMs
-             case (zaddr)
+        // autoconfig ROM - update data_out on every DS20 for Z2 reads
+        if (Z2_ACCESS == 1'b0) begin
+            case (zaddr)
                 6'h00: begin
                     if (config_out == CONFIGURING_SPI) data_out[7:4] <= 4'hc;
                     if (config_out == CONFIGURING_RAM) data_out[7:4] <= 4'he;
@@ -119,7 +119,8 @@ always @(negedge DS20 or negedge RESET) begin
                 6'h13: data_out[7:4] <= 4'hd;
                 default: data_out[7:4] <= 4'hf;
             endcase
-            
+        end
+
     end
 end
 

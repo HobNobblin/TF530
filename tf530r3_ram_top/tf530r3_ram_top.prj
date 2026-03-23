@@ -1,5 +1,0 @@
-verilog work "../files/tf530r3_ram_top.v"
-verilog work "../files/ram_top.v"
-verilog work "../files/gayle.v"
-verilog work "../files/fastram.v"
-verilog work "../files/autoconfig_zii.v"

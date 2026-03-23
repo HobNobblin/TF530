@@ -59,8 +59,8 @@ assign RAMCS = {4{ACCESS}} | ({ RAMCS3n, RAMCS2n, RAMCS1n , RAMCS0n} & {4{~RW20}
 
 assign CIIN = AS20 | ~ACCESS;
 
-reg BURSTING = 1'b0;
-reg [1:0] BCOUNT = 2'b11;
+reg BURSTING;
+reg [1:0] BCOUNT;
 
 // a read cycle at a tag aligned addres. 
 wire CAN_BURST = ({A[3:2]} != 2'b00) | CBREQ | ACCESS | ~RW20;

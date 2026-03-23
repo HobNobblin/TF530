@@ -42,7 +42,11 @@ wire GAYLE_ACCESS = (GAYLE_ID & GAYLE_REGS);
 
 reg data_out = 1'b0;
 
-reg [3:0] gayleid = GAYLE_ID_VAL;
+// INIT=s on gayleid produces PrldHigh macrocells for bits 2 and 3, which is
+// required to initialize cpldfit's NDS xPUP database (SpPtermInputNode).
+// Without at least one PrldHigh macrocell, cpldfit segfaults in WriteEquations.
+// RESET asserts on Amiga power-on, so the gayleid value is correct after reset.
+reg [3:0] gayleid = 4'hD;
 
 reg intena = 1'b0;
 reg intlast = 1'b0;
@@ -68,14 +72,18 @@ wire INT_CHNG_ACCESS = {(GAYLE_ACCESS | AS20),A[18],{A[13:12]},RW} != {1'b0,GAYL
 
 wire DS = DS20 | GAYLE_ACCESS | AS20;
 
-FDCPE #(.INIT(1'b1))
+// FDCP: CE folded into D (Q feedback when not writing) so XST does not
+// decompose to FDCP+X_ONE and strip the CLR pin. CLR=~RESET becomes RSTF
+// in cpldfit output; without RSTF the SETF SpPtermInputNode has a null
+// database pointer and cpldfit segfaults in WriteEquations.
+// INIT=1 (PrldHigh) ensures correct power-up state; RESET clears on boot.
+FDCP #(.INIT(1'b1))
       INT_CHNG_FF (
-          .Q(INT_CHNG), // Data output
-          .C(~DS), // Clock input
-          .CE(~INT_CHNG_ACCESS), // CLOCK ENABLE
-          .CLR(~RESET), // Asynchronous clear input
-          .D(DIN & INT_CHNG), // Data input
-          .PRE(({IDE_INT, intlast} == 2'b10) & intena) // Asynchronous set input
+          .Q(INT_CHNG),
+          .C(~DS),
+          .D(INT_CHNG_ACCESS ? INT_CHNG : DIN), // CE via D mux: hold when not writing
+          .CLR(~RESET),
+          .PRE(({IDE_INT, intlast} == 2'b10) & intena)
       );
 
 

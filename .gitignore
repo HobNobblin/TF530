@@ -17,3 +17,11 @@
 *.csv
 *.ref
 *.bin
+**/_ngo/
+**/tf530r3_bus_top_html/
+**/xlnx_auto_0_xdb/
+**/_xmsgs/
+**/xst/
+**/ram_top_html/
+**/tf530r3_ram_top_html/
+

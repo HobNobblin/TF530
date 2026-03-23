@@ -1,5 +1,0 @@
-MO bus_delay NULL ../files/bus_delay.v vlg48/bus__delay.bin 1774240164
-MO ata NULL ../files/ata.v vlg1E/ata.bin 1774240164
-MO tf530r3_bus_top NULL ../files/tf530r3_bus_top.v vlg2E/tf530r3__bus__top.bin 1774240164
-MO m6800 NULL ../files/m6800.v vlg13/m6800.bin 1774240164
-MO bus_top NULL ../files/bus_top.v vlg40/bus__top.bin 1774240164

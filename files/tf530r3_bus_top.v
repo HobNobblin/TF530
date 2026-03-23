@@ -41,7 +41,7 @@ module tf530r3_bus_top(
 
            input 	BGACK,
            input 	VPA,
-           input 	DTACK,
+           inout 	DTACK,
            output    INT2,
 
            output 	BG,

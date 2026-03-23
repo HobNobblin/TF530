@@ -68,8 +68,8 @@ module ram_top(
 
        );
 
-reg STERM_D = 1'b1;
-reg STERM_D2 = 1'b1;
+reg STERM_D;
+reg STERM_D2;
 wire ROM_ACCESS = (A[23:19] != {4'hF, 1'b1}) | AS20;
 
 // produce an internal data strobe
@@ -199,31 +199,14 @@ always @(posedge CLKCPU) begin
 	
 	CLKB2 <= ~CLKB2;
 	
+    // Use combinatorial zii_decode instead of registered zii_access to avoid race
     data_out[15:12] <= spi_access ? (zii_decode ? {gayle_dout,3'b000} : zii_dout ) : spi_dout[7:4];
     data_out[11:8] <= spi_access ? 4'd0 : spi_dout[3:0];
     data_out[7:0] <=  8'hFF;
 
 end
 
-/* zxmmc SPIPORT (
-
-   .CLOCK  ( CLKB2     ),
-   .nRESET ( RESET      ),
-   .CLKEN  ( 1'b1       ),
-   .ENABLE ( ~(spi_access | DS20) ),
-   .RS     ( A[2]       ),
-   .nWR    ( RW20       ),
-   .DI     ( D[15:8]    ),
-   .DO     ( spi_dout   ),
-
-   .SD_CS0 ( SPI_CS[0]  ),
-   .SD_CS1 ( SPI_CS[1]  ),
-   .SD_WCS ( SPI_WCS    ),
-   .SD_CLK ( SPI_CLK    ),
-   .SD_MOSI( SPI_MOSI   ),
-   .SD_MISO( SPI_MISO   )
-
-); */
+// SPI not populated on tf530r3
 assign SPI_CS[0] = 1'b1;
 assign SPI_CS[1] = 1'b1;
 assign SPI_CLK   = 1'b0;
@@ -232,6 +215,8 @@ assign spi_dout  = 8'hFF;
 
 reg AS20_D;
 reg INTCYCLE_INT = 1'b1;
+// INIT=1 produces PrldHigh, which (with gayleid) ensures the NDS xPUP database
+// is initialized. No feedback in this register so cpldfit won't T-FF optimize it.
 reg intcycle_dout = 1'b1;
 
 reg SLOWCYCLE_D;
@@ -283,15 +268,27 @@ always @(posedge CLKCPU or posedge AS20) begin
 
     if (AS20 == 1'b1) begin
 
+        intcycle_dout <= 1'b1;
+
+    end else begin
+
+        intcycle_dout <= db_access | ~RW20 ;
+
+    end
+
+end
+
+always @(posedge CLKCPU) begin
+
+    if (AS20 == 1'b1) begin
+
         AS20_D <= 1'b1;
         SLOWCYCLE_D <= 1'b1;
-        intcycle_dout <= 1'b1;
-        
+
     end else begin
 
         AS20_D <= AS20;
         SLOWCYCLE_D <= AS20_D | db_access;
-        intcycle_dout <= db_access | ~RW20 ;
 
     end
 
@@ -300,6 +297,8 @@ end
 // this triggers the internal override (TF_OVR) signal.
 assign SLOWCYCLE = SLOWCYCLE_D  & INT2_STERM;
 
+// INTCYCLE: assert for fast RAM cycles AND AutoConfig/Gayle cycles
+// BUS CPLD uses SLOWCYCLE (derived from INTCYCLE) to time DSACK1
 assign INTCYCLE = ram_access & INT2_INTCYCLE;
 assign IDEWAIT = (INT2_IDEWAIT & RAMOE) ? 1'b1: 1'b0;
 

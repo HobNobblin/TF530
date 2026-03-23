@@ -1,5 +1,0 @@
-verilog work "../files/m6800.v"
-verilog work "../files/bus_delay.v"
-verilog work "../files/ata.v"
-verilog work "../files/bus_top.v"
-verilog work "../files/tf530r3_bus_top.v"

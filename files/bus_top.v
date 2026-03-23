@@ -39,7 +39,7 @@ module bus_top(
 
            input 	BGACK,
            input 	VPA,
-           input 	DTACK,
+           inout 	DTACK,
 
            output 	BG,
            output 	LDS,
@@ -341,6 +341,12 @@ assign AS =   HIGHZ ? 1'bz : AS_INT;
 assign UDS =  HIGHZ ? 1'bz : UDS_INT;
 assign LDS =  HIGHZ ? 1'bz : LDS_INT;
 assign VMA =  HIGHZ ? 1'bz : VMA_INT;
+
+// Drive DTACK for Z2 AutoConfig space (Gary does not respond here)
+// BUS CPLD generates DTACK after AS_INTD+DS20 assert, DTACK pipeline then generates DSACK1
+wire Z2_AUTOCONFIG = AS_INTD | DS20 | ~SLOWCYCLE | ~DTACK_IDE
+    | ~A[23] | ~A[22] | ~A[21] | A[20] | ~A[19];
+assign DTACK = Z2_AUTOCONFIG ? 1'bz : 1'b0;
 
 assign DSACK1 = FPUOP | (~IDEWAIT | DSACK_INT[0]) & DSACK1_SYNC & DTACK_IDE & SLOWCYCLE;
 

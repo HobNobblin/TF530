@@ -12,7 +12,7 @@ Parameter xsthdpdir set to xst
 
 
 Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.02 secs
+Total CPU time to Xst completion: 0.03 secs
  
 --> 
 Reading design: tf530r3_ram_top.prj
@@ -425,13 +425,13 @@ Cell Usage :
 =========================================================================
 
 
-Total REAL time to Xst completion: 3.00 secs
-Total CPU time to Xst completion: 2.02 secs
+Total REAL time to Xst completion: 2.00 secs
+Total CPU time to Xst completion: 1.78 secs
  
 --> 
 
 
-Total memory usage is 609812 kilobytes
+Total memory usage is 504524 kilobytes
 
 Number of errors   :    0 (   0 filtered)
 Number of warnings :   56 (   0 filtered)

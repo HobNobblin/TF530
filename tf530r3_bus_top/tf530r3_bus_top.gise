@@ -59,15 +59,15 @@
   </files>
 
   <transforms xmlns="http://www.xilinx.com/XMLSchema">
-    <transform xil_pn:end_ts="1774210310" xil_pn:name="TRAN_copyInitialToXSTAbstractSynthesis" xil_pn:start_ts="1774210310">
+    <transform xil_pn:end_ts="1774240162" xil_pn:name="TRAN_copyInitialToXSTAbstractSynthesis" xil_pn:start_ts="1774240162">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
     </transform>
-    <transform xil_pn:end_ts="1774210310" xil_pn:name="TRAN_schematicsToHdl" xil_pn:prop_ck="372771561538835897" xil_pn:start_ts="1774210310">
+    <transform xil_pn:end_ts="1774240162" xil_pn:name="TRAN_schematicsToHdl" xil_pn:prop_ck="372771561538835897" xil_pn:start_ts="1774240162">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
     </transform>
-    <transform xil_pn:end_ts="1774235080" xil_pn:in_ck="-8364404881345762164" xil_pn:name="TRANEXT_xstsynthesize_xc9500xl" xil_pn:prop_ck="-3393663225112134408" xil_pn:start_ts="1774235075">
+    <transform xil_pn:end_ts="1774240165" xil_pn:in_ck="-8364404881345762164" xil_pn:name="TRANEXT_xstsynthesize_xc9500xl" xil_pn:prop_ck="-3393663225112134408" xil_pn:start_ts="1774240162">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="WarningsGenerated"/>
       <status xil_pn:value="ReadyToRun"/>
@@ -87,7 +87,7 @@
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
     </transform>
-    <transform xil_pn:end_ts="1774235247" xil_pn:in_ck="-7178446237850538447" xil_pn:name="TRAN_ngdbuild" xil_pn:prop_ck="-2081320714713457669" xil_pn:start_ts="1774235243">
+    <transform xil_pn:end_ts="1774240168" xil_pn:in_ck="-7178446237850538447" xil_pn:name="TRAN_ngdbuild" xil_pn:prop_ck="-2081320714713457669" xil_pn:start_ts="1774240165">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="WarningsGenerated"/>
       <status xil_pn:value="ReadyToRun"/>
@@ -97,7 +97,7 @@
       <outfile xil_pn:name="tf530r3_bus_top.ngd"/>
       <outfile xil_pn:name="tf530r3_bus_top_ngdbuild.xrpt"/>
     </transform>
-    <transform xil_pn:end_ts="1774235254" xil_pn:in_ck="7550953641863250137" xil_pn:name="TRANEXT_vm6File_xc9500xl" xil_pn:prop_ck="-7803592096684451546" xil_pn:start_ts="1774235247">
+    <transform xil_pn:end_ts="1774240171" xil_pn:in_ck="7550953641863250137" xil_pn:name="TRANEXT_vm6File_xc9500xl" xil_pn:prop_ck="-7803592096684451546" xil_pn:start_ts="1774240168">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="WarningsGenerated"/>
       <status xil_pn:value="ReadyToRun"/>
@@ -115,7 +115,7 @@
       <outfile xil_pn:name="tf530r3_bus_top_html"/>
       <outfile xil_pn:name="tf530r3_bus_top_pad.csv"/>
     </transform>
-    <transform xil_pn:end_ts="1774235257" xil_pn:in_ck="7550953641863259001" xil_pn:name="TRANEXT_crtProg_xc9500" xil_pn:prop_ck="-6294026017969277533" xil_pn:start_ts="1774235254">
+    <transform xil_pn:end_ts="1774240172" xil_pn:in_ck="7550953641863259001" xil_pn:name="TRANEXT_crtProg_xc9500" xil_pn:prop_ck="-6294026017969277533" xil_pn:start_ts="1774240171">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
       <outfile xil_pn:name="tf530r3_bus_top.jed"/>

@@ -138,3 +138,5 @@ assign ACK = 1'b1;
 assign IDEWAIT = 1'b1;
 
 endmodule
+
+// Dummy/Fake intreqr - hardware not populated on tf530r3

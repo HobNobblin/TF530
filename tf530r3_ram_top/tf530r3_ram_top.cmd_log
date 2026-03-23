@@ -50,3 +50,118 @@ cpldfit -intstyle ise -p xc9572xl-10-VQ64 -ofmt vhdl -optimize speed -htmlrpt -l
 XSLTProcess tf530r3_ram_top_build.xml 
 tsim -intstyle ise tf530r3_ram_top tf530r3_ram_top.nga 
 hprep6 -s IEEE1149 -n tf530r3_ram_top -i tf530r3_ram_top 
+xst -intstyle ise -ifn "/home/ise/Development/TF530/tf530r3_ram_top/tf530r3_ram_top.xst" -ofn "/home/ise/Development/TF530/tf530r3_ram_top/tf530r3_ram_top.syr" 
+ngdbuild -intstyle ise -dd _ngo -uc /home/ise/Development/TF530/files/tf530r3_ram.ucf -p xc9572xl-VQ64-10 tf530r3_ram_top.ngc tf530r3_ram_top.ngd  
+cpldfit -intstyle ise -p xc9572xl-10-VQ64 -ofmt vhdl -optimize speed -htmlrpt -loc on -slew fast -init low -inputs 54 -pterms 90 -unused float -power std -terminate keeper tf530r3_ram_top.ngd 
+XSLTProcess tf530r3_ram_top_build.xml 
+tsim -intstyle ise tf530r3_ram_top tf530r3_ram_top.nga 
+hprep6 -s IEEE1149 -n tf530r3_ram_top -i tf530r3_ram_top 
+xst -intstyle ise -ifn "/home/ise/Development/TF530/tf530r3_ram_top/tf530r3_ram_top.xst" -ofn "/home/ise/Development/TF530/tf530r3_ram_top/tf530r3_ram_top.syr" 
+xst -intstyle ise -ifn "/home/ise/Development/TF530/tf530r3_ram_top/tf530r3_ram_top.xst" -ofn "/home/ise/Development/TF530/tf530r3_ram_top/tf530r3_ram_top.syr" 
+ngdbuild -intstyle ise -dd _ngo -uc /home/ise/Development/TF530/files/tf530r3_ram.ucf -p xc9572xl-VQ64-10 tf530r3_ram_top.ngc tf530r3_ram_top.ngd  
+cpldfit -intstyle ise -p xc9572xl-10-VQ64 -ofmt vhdl -optimize speed -htmlrpt -loc on -slew fast -init low -inputs 54 -pterms 90 -unused float -power std -terminate keeper tf530r3_ram_top.ngd 
+xst -intstyle ise -ifn "/home/ise/Development/TF530/tf530r3_ram_top/tf530r3_ram_top.xst" -ofn "/home/ise/Development/TF530/tf530r3_ram_top/tf530r3_ram_top.syr" 
+ngdbuild -intstyle ise -dd _ngo -uc /home/ise/Development/TF530/files/tf530r3_ram.ucf -p xc9572xl-VQ64-10 tf530r3_ram_top.ngc tf530r3_ram_top.ngd  
+cpldfit -intstyle ise -p xc9572xl-10-VQ64 -ofmt vhdl -optimize speed -htmlrpt -loc on -slew fast -init low -inputs 54 -pterms 90 -unused float -power std -terminate keeper tf530r3_ram_top.ngd 
+xst -intstyle ise -ifn "/home/ise/Development/TF530/tf530r3_ram_top/tf530r3_ram_top.xst" -ofn "/home/ise/Development/TF530/tf530r3_ram_top/tf530r3_ram_top.syr" 
+xst -intstyle ise -ifn "/home/ise/Development/TF530/tf530r3_ram_top/tf530r3_ram_top.xst" -ofn "/home/ise/Development/TF530/tf530r3_ram_top/tf530r3_ram_top.syr" 
+xst -intstyle ise -ifn "/home/ise/Development/TF530/tf530r3_ram_top/tf530r3_ram_top.xst" -ofn "/home/ise/Development/TF530/tf530r3_ram_top/tf530r3_ram_top.syr" 
+ngdbuild -intstyle ise -dd _ngo -uc /home/ise/Development/TF530/files/tf530r3_ram.ucf -p xc9572xl-VQ64-10 tf530r3_ram_top.ngc tf530r3_ram_top.ngd  
+cpldfit -intstyle ise -p xc9572xl-10-VQ64 -ofmt vhdl -optimize speed -htmlrpt -loc on -slew fast -init low -inputs 54 -pterms 90 -unused float -power std -terminate keeper tf530r3_ram_top.ngd 
+xst -intstyle ise -ifn "/home/ise/Development/TF530/tf530r3_ram_top/tf530r3_ram_top.xst" -ofn "/home/ise/Development/TF530/tf530r3_ram_top/tf530r3_ram_top.syr" 
+ngdbuild -intstyle ise -dd _ngo -uc /home/ise/Development/TF530/files/tf530r3_ram.ucf -p xc9572xl-VQ64-10 tf530r3_ram_top.ngc tf530r3_ram_top.ngd  
+cpldfit -intstyle ise -p xc9572xl-10-VQ64 -ofmt vhdl -optimize speed -htmlrpt -loc on -slew fast -init low -inputs 54 -pterms 90 -unused float -power std -terminate keeper tf530r3_ram_top.ngd 
+xst -intstyle ise -ifn "/home/ise/Development/TF530/tf530r3_ram_top/tf530r3_ram_top.xst" -ofn "/home/ise/Development/TF530/tf530r3_ram_top/tf530r3_ram_top.syr" 
+ngdbuild -intstyle ise -dd _ngo -uc /home/ise/Development/TF530/files/tf530r3_ram.ucf -p xc9572xl-VQ64-10 tf530r3_ram_top.ngc tf530r3_ram_top.ngd  
+cpldfit -intstyle ise -p xc9572xl-10-VQ64 -ofmt vhdl -optimize speed -htmlrpt -loc on -slew fast -init low -inputs 54 -pterms 90 -unused float -power std -terminate keeper tf530r3_ram_top.ngd 
+tsim -intstyle ise tf530r3_ram_top tf530r3_ram_top.nga 
+hprep6 -s IEEE1149 -n tf530r3_ram_top -i tf530r3_ram_top 
+xst -intstyle ise -ifn "/home/ise/Development/TF530/tf530r3_ram_top/tf530r3_ram_top.xst" -ofn "/home/ise/Development/TF530/tf530r3_ram_top/tf530r3_ram_top.syr" 
+ngdbuild -intstyle ise -dd _ngo -uc /home/ise/Development/TF530/files/tf530r3_ram.ucf -p xc9572xl-VQ64-10 tf530r3_ram_top.ngc tf530r3_ram_top.ngd  
+cpldfit -intstyle ise -p xc9572xl-10-VQ64 -ofmt vhdl -optimize speed -htmlrpt -loc on -slew fast -init low -inputs 54 -pterms 90 -unused float -power std -terminate keeper tf530r3_ram_top.ngd 
+xst -intstyle ise -ifn "/home/ise/Development/TF530/tf530r3_ram_top/tf530r3_ram_top.xst" -ofn "/home/ise/Development/TF530/tf530r3_ram_top/tf530r3_ram_top.syr" 
+ngdbuild -intstyle ise -dd _ngo -uc /home/ise/Development/TF530/files/tf530r3_ram.ucf -p xc9572xl-VQ64-10 tf530r3_ram_top.ngc tf530r3_ram_top.ngd  
+cpldfit -intstyle ise -p xc9572xl-10-VQ64 -ofmt vhdl -optimize speed -htmlrpt -loc on -slew fast -init low -inputs 54 -pterms 90 -unused float -power std -terminate keeper tf530r3_ram_top.ngd 
+xst -intstyle ise -ifn "/home/ise/Development/TF530/tf530r3_ram_top/tf530r3_ram_top.xst" -ofn "/home/ise/Development/TF530/tf530r3_ram_top/tf530r3_ram_top.syr" 
+ngdbuild -intstyle ise -dd _ngo -uc /home/ise/Development/TF530/files/tf530r3_ram.ucf -p xc9572xl-VQ64-10 tf530r3_ram_top.ngc tf530r3_ram_top.ngd  
+cpldfit -intstyle ise -p xc9572xl-10-VQ64 -ofmt vhdl -optimize speed -htmlrpt -loc on -slew fast -init low -inputs 54 -pterms 90 -unused float -power std -terminate keeper tf530r3_ram_top.ngd 
+xst -intstyle ise -ifn "/home/ise/Development/TF530/tf530r3_ram_top/tf530r3_ram_top.xst" -ofn "/home/ise/Development/TF530/tf530r3_ram_top/tf530r3_ram_top.syr" 
+xst -intstyle ise -ifn "/home/ise/Development/TF530/tf530r3_ram_top/tf530r3_ram_top.xst" -ofn "/home/ise/Development/TF530/tf530r3_ram_top/tf530r3_ram_top.syr" 
+xst -intstyle ise -ifn "/home/ise/Development/TF530/tf530r3_ram_top/tf530r3_ram_top.xst" -ofn "/home/ise/Development/TF530/tf530r3_ram_top/tf530r3_ram_top.syr" 
+xst -intstyle ise -ifn "/home/ise/Development/TF530/tf530r3_ram_top/tf530r3_ram_top.xst" -ofn "/home/ise/Development/TF530/tf530r3_ram_top/tf530r3_ram_top.syr" 
+ngdbuild -intstyle ise -dd _ngo -uc /home/ise/Development/TF530/files/tf530r3_ram.ucf -p xc9572xl-VQ64-10 tf530r3_ram_top.ngc tf530r3_ram_top.ngd  
+cpldfit -intstyle ise -p xc9572xl-10-VQ64 -ofmt vhdl -optimize speed -htmlrpt -loc on -slew fast -init low -inputs 54 -pterms 90 -unused float -power std -terminate keeper tf530r3_ram_top.ngd 
+cpldfit -intstyle ise -p xc9572xl-10-VQ64 -ofmt vhdl -optimize speed -htmlrpt -loc on -slew fast -init low -inputs 54 -pterms 90 -unused float -power std -terminate keeper tf530r3_ram_top.ngd 
+xst -intstyle ise -ifn "/home/ise/Development/TF530/tf530r3_ram_top/tf530r3_ram_top.xst" -ofn "/home/ise/Development/TF530/tf530r3_ram_top/tf530r3_ram_top.syr" 
+ngdbuild -intstyle ise -dd _ngo -i -p xc9572xl-VQ64-10 tf530r3_ram_top.ngc tf530r3_ram_top.ngd  
+cpldfit -intstyle ise -p xc9572xl-10-VQ64 -ofmt vhdl -optimize speed -htmlrpt -loc on -slew fast -init low -inputs 54 -pterms 90 -unused float -power std -terminate keeper tf530r3_ram_top.ngd 
+XSLTProcess tf530r3_ram_top_build.xml 
+tsim -intstyle ise tf530r3_ram_top tf530r3_ram_top.nga 
+taengine -intstyle ise -f tf530r3_ram_top -w --format html1 -l tf530r3_ram_top_html/tim/timing_report.htm 
+hprep6 -s IEEE1149 -n tf530r3_ram_top -i tf530r3_ram_top 
+xst -intstyle ise -ifn "/home/ise/Development/TF530/tf530r3_ram_top/tf530r3_ram_top.xst" -ofn "/home/ise/Development/TF530/tf530r3_ram_top/tf530r3_ram_top.syr" 
+xst -intstyle ise -ifn "/home/ise/Development/TF530/tf530r3_ram_top/tf530r3_ram_top.xst" -ofn "/home/ise/Development/TF530/tf530r3_ram_top/tf530r3_ram_top.syr" 
+xst -intstyle ise -ifn "/home/ise/Development/TF530/tf530r3_ram_top/tf530r3_ram_top.xst" -ofn "/home/ise/Development/TF530/tf530r3_ram_top/tf530r3_ram_top.syr" 
+ngdbuild -intstyle ise -dd _ngo -i -p xc9572xl-VQ64-10 tf530r3_ram_top.ngc tf530r3_ram_top.ngd  
+cpldfit -intstyle ise -p xc9572xl-10-VQ64 -ofmt vhdl -optimize speed -htmlrpt -loc on -slew fast -init low -inputs 54 -pterms 90 -unused float -power std -terminate keeper tf530r3_ram_top.ngd 
+xst -intstyle ise -ifn "/home/ise/Development/TF530/tf530r3_ram_top/tf530r3_ram_top.xst" -ofn "/home/ise/Development/TF530/tf530r3_ram_top/tf530r3_ram_top.syr" 
+ngdbuild -intstyle ise -dd _ngo -uc /home/ise/Development/TF530/files/tf530r3_ram.ucf -p xc9572xl-VQ64-10 tf530r3_ram_top.ngc tf530r3_ram_top.ngd  
+cpldfit -intstyle ise -p xc9572xl-10-VQ64 -ofmt vhdl -optimize speed -htmlrpt -loc on -slew fast -init low -inputs 54 -pterms 90 -unused float -power std -terminate keeper tf530r3_ram_top.ngd 
+xst -intstyle ise -ifn "/home/ise/Development/TF530/tf530r3_ram_top/tf530r3_ram_top.xst" -ofn "/home/ise/Development/TF530/tf530r3_ram_top/tf530r3_ram_top.syr" 
+ngdbuild -intstyle ise -dd _ngo -uc /home/ise/Development/TF530/files/tf530r3_ram.ucf -p xc9572xl-VQ64-10 tf530r3_ram_top.ngc tf530r3_ram_top.ngd  
+cpldfit -intstyle ise -p xc9572xl-10-VQ64 -ofmt vhdl -optimize speed -htmlrpt -loc on -slew fast -init low -inputs 54 -pterms 90 -unused float -power std -terminate keeper tf530r3_ram_top.ngd 
+xst -intstyle ise -ifn "/home/ise/Development/TF530/tf530r3_ram_top/tf530r3_ram_top.xst" -ofn "/home/ise/Development/TF530/tf530r3_ram_top/tf530r3_ram_top.syr" 
+ngdbuild -intstyle ise -dd _ngo -uc /home/ise/Development/TF530/files/tf530r3_ram.ucf -p xc9572xl-VQ64-10 tf530r3_ram_top.ngc tf530r3_ram_top.ngd  
+cpldfit -intstyle ise -p xc9572xl-10-VQ64 -ofmt vhdl -optimize speed -htmlrpt -loc on -slew fast -init low -inputs 54 -pterms 90 -unused float -power std -terminate keeper tf530r3_ram_top.ngd 
+xst -intstyle ise -ifn "/home/ise/Development/TF530/tf530r3_ram_top/tf530r3_ram_top.xst" -ofn "/home/ise/Development/TF530/tf530r3_ram_top/tf530r3_ram_top.syr" 
+ngdbuild -intstyle ise -dd _ngo -uc /home/ise/Development/TF530/files/tf530r3_ram.ucf -p xc9572xl-VQ64-10 tf530r3_ram_top.ngc tf530r3_ram_top.ngd  
+cpldfit -intstyle ise -p xc9572xl-10-VQ64 -ofmt vhdl -optimize speed -htmlrpt -loc on -slew fast -init low -inputs 54 -pterms 90 -unused float -power std -terminate keeper tf530r3_ram_top.ngd 
+xst -intstyle ise -ifn "/home/ise/Development/TF530/tf530r3_ram_top/tf530r3_ram_top.xst" -ofn "/home/ise/Development/TF530/tf530r3_ram_top/tf530r3_ram_top.syr" 
+ngdbuild -intstyle ise -dd _ngo -uc /home/ise/Development/TF530/files/tf530r3_ram.ucf -p xc9572xl-VQ64-10 tf530r3_ram_top.ngc tf530r3_ram_top.ngd  
+cpldfit -intstyle ise -p xc9572xl-10-VQ64 -ofmt vhdl -optimize speed -htmlrpt -loc on -slew fast -init low -inputs 54 -pterms 90 -unused float -power std -terminate keeper tf530r3_ram_top.ngd 
+cpldfit -intstyle ise -p xc9572xl-10-VQ64 -ofmt vhdl -optimize speed -htmlrpt -loc on -slew fast -init low -inputs 54 -pterms 90 -unused float -power std -terminate keeper tf530r3_ram_top.ngd 
+ngdbuild -intstyle ise -dd _ngo -uc /home/ise/Development/TF530/files/tf530r3_ram.ucf -p xc9572xl-VQ64-10 tf530r3_ram_top.ngc tf530r3_ram_top.ngd  
+cpldfit -intstyle ise -p xc9572xl-10-VQ64 -ofmt vhdl -optimize speed -htmlrpt -loc on -slew fast -init low -inputs 54 -pterms 90 -unused float -power std -terminate keeper tf530r3_ram_top.ngd 
+cpldfit -intstyle ise -p xc9572xl-10-VQ64 -ofmt vhdl -optimize speed -htmlrpt -loc on -slew fast -init low -inputs 54 -pterms 90 -unused float -power std -terminate keeper tf530r3_ram_top.ngd 
+cpldfit -intstyle ise -p xc9572xl-10-VQ64 -ofmt vhdl -optimize speed -htmlrpt -loc on -slew fast -init low -inputs 54 -pterms 90 -unused float -power std -terminate keeper tf530r3_ram_top.ngd -ofmt verilog
+cpldfit -intstyle ise -p xc9572xl-10-VQ64 -ofmt verilog -optimize speed -htmlrpt -loc on -slew fast -init low -inputs 54 -pterms 90 -unused float -power std -terminate keeper tf530r3_ram_top.ngd 
+cpldfit -intstyle ise -p xc9572xl-10-VQ64 -ofmt vhdl -optimize speed -htmlrpt -loc on -slew fast -init low -inputs 54 -pterms 90 -unused float -power std -terminate keeper tf530r3_ram_top.ngd 
+cpldfit -intstyle ise -p xc9572xl-10-VQ64 -optimize speed -htmlrpt -loc on -slew fast -init low -inputs 54 -pterms 90 -unused float -power std -terminate keeper tf530r3_ram_top.ngd 
+tsim -intstyle ise tf530r3_ram_top tf530r3_ram_top.nga 
+xst -intstyle ise -ifn "/home/ise/Development/TF530/tf530r3_ram_top/tf530r3_ram_top.xst" -ofn "/home/ise/Development/TF530/tf530r3_ram_top/tf530r3_ram_top.syr" 
+ngdbuild -intstyle ise -dd _ngo -uc /home/ise/Development/TF530/files/tf530r3_ram.ucf -p xc9572xl-VQ64-10 tf530r3_ram_top.ngc tf530r3_ram_top.ngd  
+cpldfit -intstyle ise -p xc9572xl-10-VQ64 -optimize speed -htmlrpt -loc on -slew fast -init low -inputs 54 -pterms 90 -unused float -power std -terminate keeper tf530r3_ram_top.ngd 
+tsim -intstyle ise tf530r3_ram_top tf530r3_ram_top.nga 
+hprep6 -s IEEE1149 -n tf530r3_ram_top -i tf530r3_ram_top 
+xst -intstyle ise -ifn "/home/ise/Development/TF530/tf530r3_ram_top/tf530r3_ram_top.xst" -ofn "/home/ise/Development/TF530/tf530r3_ram_top/tf530r3_ram_top.syr" 
+ngdbuild -intstyle ise -dd _ngo -uc /home/ise/Development/TF530/files/tf530r3_ram.ucf -p xc9572xl-VQ64-10 tf530r3_ram_top.ngc tf530r3_ram_top.ngd  
+cpldfit -intstyle ise -p xc9572xl-10-VQ64 -optimize speed -htmlrpt -loc on -slew fast -init low -inputs 54 -pterms 90 -unused float -power std -terminate keeper tf530r3_ram_top.ngd 
+tsim -intstyle ise tf530r3_ram_top tf530r3_ram_top.nga 
+hprep6 -s IEEE1149 -n tf530r3_ram_top -i tf530r3_ram_top 
+xst -intstyle ise -ifn "/home/ise/Development/TF530/tf530r3_ram_top/tf530r3_ram_top.xst" -ofn "/home/ise/Development/TF530/tf530r3_ram_top/tf530r3_ram_top.syr" 
+ngdbuild -intstyle ise -dd _ngo -uc /home/ise/Development/TF530/files/tf530r3_ram.ucf -p xc9572xl-VQ64-10 tf530r3_ram_top.ngc tf530r3_ram_top.ngd  
+cpldfit -intstyle ise -p xc9572xl-10-VQ64 -optimize speed -htmlrpt -loc on -slew fast -init low -inputs 54 -pterms 90 -unused float -power std -terminate keeper tf530r3_ram_top.ngd 
+tsim -intstyle ise tf530r3_ram_top tf530r3_ram_top.nga 
+hprep6 -s IEEE1149 -n tf530r3_ram_top -i tf530r3_ram_top 
+xst -intstyle ise -ifn "/home/ise/Development/TF530/tf530r3_ram_top/tf530r3_ram_top.xst" -ofn "/home/ise/Development/TF530/tf530r3_ram_top/tf530r3_ram_top.syr" 
+ngdbuild -intstyle ise -dd _ngo -uc /home/ise/Development/TF530/files/tf530r3_ram.ucf -p xc9572xl-VQ64-10 tf530r3_ram_top.ngc tf530r3_ram_top.ngd  
+cpldfit -intstyle ise -p xc9572xl-10-VQ64 -optimize speed -htmlrpt -loc on -slew fast -init low -inputs 54 -pterms 90 -unused float -power std -terminate keeper tf530r3_ram_top.ngd 
+XSLTProcess tf530r3_ram_top_build.xml 
+tsim -intstyle ise tf530r3_ram_top tf530r3_ram_top.nga 
+hprep6 -s IEEE1149 -n tf530r3_ram_top -i tf530r3_ram_top 
+xst -intstyle ise -ifn "/home/ise/Development/TF530/tf530r3_ram_top/tf530r3_ram_top.xst" -ofn "/home/ise/Development/TF530/tf530r3_ram_top/tf530r3_ram_top.syr" 
+ngdbuild -intstyle ise -dd _ngo -uc /home/ise/Development/TF530/files/tf530r3_ram.ucf -p xc9572xl-VQ64-10 tf530r3_ram_top.ngc tf530r3_ram_top.ngd  
+cpldfit -intstyle ise -p xc9572xl-10-VQ64 -optimize speed -htmlrpt -loc on -slew fast -init low -inputs 54 -pterms 90 -unused float -power std -terminate keeper tf530r3_ram_top.ngd 
+XSLTProcess tf530r3_ram_top_build.xml 
+tsim -intstyle ise tf530r3_ram_top tf530r3_ram_top.nga 
+hprep6 -s IEEE1149 -n tf530r3_ram_top -i tf530r3_ram_top 
+xst -intstyle ise -ifn "/home/ise/Development/TF530/tf530r3_ram_top/tf530r3_ram_top.xst" -ofn "/home/ise/Development/TF530/tf530r3_ram_top/tf530r3_ram_top.syr" 
+ngdbuild -intstyle ise -dd _ngo -uc /home/ise/Development/TF530/files/tf530r3_ram.ucf -p xc9572xl-VQ64-10 tf530r3_ram_top.ngc tf530r3_ram_top.ngd  
+cpldfit -intstyle ise -p xc9572xl-10-VQ64 -optimize speed -htmlrpt -loc on -slew fast -init low -inputs 54 -pterms 90 -unused float -power std -terminate keeper tf530r3_ram_top.ngd 
+tsim -intstyle ise tf530r3_ram_top tf530r3_ram_top.nga 
+hprep6 -s IEEE1149 -n tf530r3_ram_top -i tf530r3_ram_top 
+xst -intstyle ise -ifn "/home/ise/Development/TF530/tf530r3_ram_top/tf530r3_ram_top.xst" -ofn "/home/ise/Development/TF530/tf530r3_ram_top/tf530r3_ram_top.syr" 
+ngdbuild -intstyle ise -dd _ngo -uc /home/ise/Development/TF530/files/tf530r3_ram.ucf -p xc9572xl-VQ64-10 tf530r3_ram_top.ngc tf530r3_ram_top.ngd  
+cpldfit -intstyle ise -p xc9572xl-10-VQ64 -optimize speed -htmlrpt -loc on -slew fast -init low -inputs 54 -pterms 90 -unused float -power std -terminate keeper tf530r3_ram_top.ngd 
+tsim -intstyle ise tf530r3_ram_top tf530r3_ram_top.nga 
+hprep6 -s IEEE1149 -n tf530r3_ram_top -i tf530r3_ram_top 

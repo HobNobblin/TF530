@@ -5,14 +5,14 @@ Parameter TMPDIR set to xst/projnav.tmp
 
 
 Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.03 secs
+Total CPU time to Xst completion: 0.04 secs
  
 --> 
 Parameter xsthdpdir set to xst
 
 
 Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.03 secs
+Total CPU time to Xst completion: 0.04 secs
  
 --> 
 Reading design: tf530r3_ram_top.prj
@@ -129,7 +129,7 @@ Analyzing top module <tf530r3_ram_top>.
 Module <tf530r3_ram_top> is correct for synthesis.
  
 Analyzing module <ram_top> in library <work>.
-WARNING:Xst:905 - "../files/ram_top.v" line 221: One or more signals are missing in the sensitivity list of always block. To enable synthesis of FPGA/CPLD hardware, XST will assume that all necessary signals are present in the sensitivity list. Please note that the result of the synthesis may differ from the initial design specification. The missing signals are:
+WARNING:Xst:905 - "../files/ram_top.v" line 239: One or more signals are missing in the sensitivity list of always block. To enable synthesis of FPGA/CPLD hardware, XST will assume that all necessary signals are present in the sensitivity list. Please note that the result of the synthesis may differ from the initial design specification. The missing signals are:
    <zii_decode>, <spi_decode>, <gayle_decode>, <ram_decode>
 Module <ram_top> is correct for synthesis.
  
@@ -402,14 +402,14 @@ Design Statistics
 # IOs                              : 57
 
 Cell Usage :
-# BELS                             : 317
-#      AND2                        : 91
+# BELS                             : 304
+#      AND2                        : 86
 #      AND3                        : 20
 #      AND4                        : 8
 #      GND                         : 2
-#      INV                         : 126
-#      OR2                         : 65
-#      OR3                         : 3
+#      INV                         : 118
+#      OR2                         : 66
+#      OR3                         : 2
 #      VCC                         : 2
 # FlipFlops/Latches                : 30
 #      FD                          : 6
@@ -425,13 +425,13 @@ Cell Usage :
 =========================================================================
 
 
-Total REAL time to Xst completion: 3.00 secs
-Total CPU time to Xst completion: 2.07 secs
+Total REAL time to Xst completion: 2.00 secs
+Total CPU time to Xst completion: 2.09 secs
  
 --> 
 
 
-Total memory usage is 609864 kilobytes
+Total memory usage is 609812 kilobytes
 
 Number of errors   :    0 (   0 filtered)
 Number of warnings :   56 (   0 filtered)

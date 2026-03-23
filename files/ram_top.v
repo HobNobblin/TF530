@@ -199,13 +199,31 @@ always @(posedge CLKCPU) begin
 	
 	CLKB2 <= ~CLKB2;
 	
-    data_out[15:12] <= spi_access ? (zii_access ? {gayle_dout,3'b000} : zii_dout ) : spi_dout[7:4];
+    data_out[15:12] <= spi_access ? (zii_decode ? {gayle_dout,3'b000} : zii_dout ) : spi_dout[7:4];
     data_out[11:8] <= spi_access ? 4'd0 : spi_dout[3:0];
     data_out[7:0] <=  8'hFF;
 
 end
 
-// SPI not populated on tf530r3 - stub out
+/* zxmmc SPIPORT (
+
+   .CLOCK  ( CLKB2     ),
+   .nRESET ( RESET      ),
+   .CLKEN  ( 1'b1       ),
+   .ENABLE ( ~(spi_access | DS20) ),
+   .RS     ( A[2]       ),
+   .nWR    ( RW20       ),
+   .DI     ( D[15:8]    ),
+   .DO     ( spi_dout   ),
+
+   .SD_CS0 ( SPI_CS[0]  ),
+   .SD_CS1 ( SPI_CS[1]  ),
+   .SD_WCS ( SPI_WCS    ),
+   .SD_CLK ( SPI_CLK    ),
+   .SD_MOSI( SPI_MOSI   ),
+   .SD_MISO( SPI_MISO   )
+
+); */
 assign SPI_CS[0] = 1'b1;
 assign SPI_CS[1] = 1'b1;
 assign SPI_CLK   = 1'b0;

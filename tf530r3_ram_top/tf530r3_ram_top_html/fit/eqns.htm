@@ -3,8 +3,8 @@
 <script src="paths.js"></script><script src="eqns.js"></script><script>
       var design = "tf530r3_ram_top";
       var device = "XC9572XL";
-      signals = new Array("CBACK","CIIN","D0_SPECSIG","D1_SPECSIG","D2_SPECSIG","D3_SPECSIG","D4_SPECSIG","D5_SPECSIG","D6_SPECSIG","D7_SPECSIG","IDEWAIT","INT2","INTCYCLE","OpTxFX_DC34_SPECSIG","RAMCS0_SPECSIG","RAMCS1_SPECSIG","RAMCS2_SPECSIG","RAMCS3_SPECSIG","RAMOE","RAMTOPAUTOCONFIGconfig_out0_SPECSIG","RAMTOPAUTOCONFIGconfig_out1_SPECSIG","RAMTOPAUTOCONFIGconfigured0_SPECSIG","RAMTOPAUTOCONFIGconfigured1_SPECSIG","RAMTOPAUTOCONFIGshutup0_SPECSIG","RAMTOPAUTOCONFIGshutup1_SPECSIG","RAMTOPGAYLEINT_CHNG_SPECSIG","RAMTOPGAYLEgayleid1_SPECSIG","RAMTOPGAYLEgayleid2_SPECSIG","RAMTOPGAYLEgayleid3_SPECSIG","RAMTOPGAYLEintena_SPECSIG","RAMTOPGAYLEintlast_SPECSIG","RAMTOPWAITSTATE_SPECSIG","RAMTOPgayle_dout_SPECSIG","RAMTOPintcycle_dout_SPECSIG","RAMTOPzii_dout4_SPECSIG","RAMTOPzii_dout5_SPECSIG","RAMTOPzii_dout6_SPECSIG","RAMTOPzii_dout7_SPECSIG","SPI_CLK","SPI_CS0_SPECSIG","SPI_CS1_SPECSIG","SPI_MOSI","STERM");
-      sigNegs = new Array("OFF","OFF","OFF","OFF","OFF","OFF","OFF","OFF","OFF","ON","ON","OFF","ON","OFF","ON","ON","ON","ON","ON","ON","ON","OFF","OFF","OFF","OFF","OFF","OFF","OFF","OFF","OFF","OFF","ON","OFF","ON","ON","ON","ON","ON","OFF","OFF","OFF","OFF","OFF");
+      signals = new Array("CBACK","CIIN","D0_SPECSIG","D1_SPECSIG","D2_SPECSIG","D3_SPECSIG","D4_SPECSIG","D5_SPECSIG","D6_SPECSIG","D7_SPECSIG","IDEWAIT","INT2","INTCYCLE","OpTxFX_DC32_SPECSIG","RAMCS0_SPECSIG","RAMCS1_SPECSIG","RAMCS2_SPECSIG","RAMCS3_SPECSIG","RAMOE","RAMTOPAUTOCONFIGconfig_out0_SPECSIG","RAMTOPAUTOCONFIGconfig_out1_SPECSIG","RAMTOPAUTOCONFIGconfigured0_SPECSIG","RAMTOPAUTOCONFIGconfigured1_SPECSIG","RAMTOPAUTOCONFIGshutup0_SPECSIG","RAMTOPAUTOCONFIGshutup1_SPECSIG","RAMTOPGAYLEINT_CHNG_SPECSIG","RAMTOPGAYLEgayleid1_SPECSIG","RAMTOPGAYLEgayleid2_SPECSIG","RAMTOPGAYLEgayleid3_SPECSIG","RAMTOPGAYLEintena_SPECSIG","RAMTOPGAYLEintlast_SPECSIG","RAMTOPWAITSTATE_SPECSIG","RAMTOPgayle_dout_SPECSIG","RAMTOPintcycle_dout_SPECSIG","RAMTOPzii_dout4_SPECSIG","RAMTOPzii_dout5_SPECSIG","RAMTOPzii_dout6_SPECSIG","RAMTOPzii_dout7_SPECSIG","SPI_CLK","SPI_CS0_SPECSIG","SPI_CS1_SPECSIG","SPI_MOSI","STERM");
+      sigNegs = new Array("OFF","OFF","OFF","OFF","OFF","OFF","OFF","OFF","OFF","OFF","ON","OFF","ON","OFF","ON","ON","ON","ON","ON","ON","ON","OFF","OFF","OFF","OFF","OFF","OFF","OFF","OFF","OFF","OFF","ON","OFF","ON","ON","ON","ON","ON","OFF","OFF","OFF","OFF","OFF");
       sigTypes = new Array("","","","","","D","D","D","D","D","D","","","","D","D","D","D","D","D","D","D","D","D","D","T","T","T","T","D","D","D","D","D","D","D","D","D","","","","","D");
 
       
@@ -100,7 +100,7 @@
       
         specSig["RAMTOPgayle_dout_SPECSIG"]=new Array("RAMTOP/gayle_dout");
       
-        specSig["OpTxFX_DC34_SPECSIG"]=new Array("$OpTx$FX_DC$34");
+        specSig["OpTxFX_DC32_SPECSIG"]=new Array("$OpTx$FX_DC$32");
       
         specSig["RAMTOPAUTOCONFIGconfigured0_SPECSIG"]=new Array("RAMTOP/AUTOCONFIG/configured<0>");
       
@@ -150,7 +150,7 @@
           
             pterms["FB1_14_2"]=new Array("/RESET");
           
-            pterms["FB1_14_3"]=new Array("/AS20","A22_SPECSIG","/A21_SPECSIG","A19_SPECSIG","/A16_SPECSIG","A23_SPECSIG","A20_SPECSIG","A17_SPECSIG","/DS20","OpTxFX_DC34_SPECSIG");
+            pterms["FB1_14_3"]=new Array("/AS20","A22_SPECSIG","/A21_SPECSIG","A19_SPECSIG","/A16_SPECSIG","A23_SPECSIG","A20_SPECSIG","A17_SPECSIG","/DS20","OpTxFX_DC32_SPECSIG");
           
             pterms["FB1_14_4"]=new Array("/A18_SPECSIG","A13_SPECSIG","/RW20","/A12_SPECSIG");
           
@@ -160,7 +160,7 @@
           
             pterms["FB1_15_3"]=new Array("RAMTOPGAYLEintena_SPECSIG","IDEINT","/RAMTOPGAYLEintlast_SPECSIG");
           
-            pterms["FB1_15_4"]=new Array("/AS20","A22_SPECSIG","/A21_SPECSIG","A19_SPECSIG","/A16_SPECSIG","A23_SPECSIG","A20_SPECSIG","A17_SPECSIG","/DS20","OpTxFX_DC34_SPECSIG");
+            pterms["FB1_15_4"]=new Array("/AS20","A22_SPECSIG","/A21_SPECSIG","A19_SPECSIG","/A16_SPECSIG","A23_SPECSIG","A20_SPECSIG","A17_SPECSIG","/DS20","OpTxFX_DC32_SPECSIG");
           
             pterms["FB1_16_1"]=new Array("A18_SPECSIG","/A13_SPECSIG","/RW20","A12_SPECSIG","/RAMTOPGAYLEgayleid3_SPECSIG");
           
@@ -170,7 +170,7 @@
           
             pterms["FB1_16_4"]=new Array("/RESET");
           
-            pterms["FB1_16_5"]=new Array("/AS20","A22_SPECSIG","/A21_SPECSIG","A19_SPECSIG","/A16_SPECSIG","A23_SPECSIG","A20_SPECSIG","A17_SPECSIG","/DS20","OpTxFX_DC34_SPECSIG");
+            pterms["FB1_16_5"]=new Array("/AS20","A22_SPECSIG","/A21_SPECSIG","A19_SPECSIG","/A16_SPECSIG","A23_SPECSIG","A20_SPECSIG","A17_SPECSIG","/DS20","OpTxFX_DC32_SPECSIG");
           
             pterms["FB1_17_1"]=new Array("A18_SPECSIG","/A13_SPECSIG","/RW20","A12_SPECSIG","/RAMTOPGAYLEgayleid2_SPECSIG");
           
@@ -180,7 +180,7 @@
           
             pterms["FB1_17_4"]=new Array("/RESET");
           
-            pterms["FB1_17_5"]=new Array("/AS20","A22_SPECSIG","/A21_SPECSIG","A19_SPECSIG","/A16_SPECSIG","A23_SPECSIG","A20_SPECSIG","A17_SPECSIG","/DS20","OpTxFX_DC34_SPECSIG");
+            pterms["FB1_17_5"]=new Array("/AS20","A22_SPECSIG","/A21_SPECSIG","A19_SPECSIG","/A16_SPECSIG","A23_SPECSIG","A20_SPECSIG","A17_SPECSIG","/DS20","OpTxFX_DC32_SPECSIG");
           
             pterms["FB1_18_1"]=new Array("RAMTOPGAYLEINT_CHNG_SPECSIG","/A18_SPECSIG","/A13_SPECSIG","RW20","A12_SPECSIG");
           
@@ -188,7 +188,7 @@
           
             pterms["FB1_18_3"]=new Array("A18_SPECSIG","/A13_SPECSIG","/RW20","A12_SPECSIG","RAMTOPgayle_dout_SPECSIG");
           
-            pterms["FB1_18_4"]=new Array("/AS20","A22_SPECSIG","/A21_SPECSIG","A19_SPECSIG","/A16_SPECSIG","A23_SPECSIG","A20_SPECSIG","A17_SPECSIG","/DS20","OpTxFX_DC34_SPECSIG");
+            pterms["FB1_18_4"]=new Array("/AS20","A22_SPECSIG","/A21_SPECSIG","A19_SPECSIG","/A16_SPECSIG","A23_SPECSIG","A20_SPECSIG","A17_SPECSIG","/DS20","OpTxFX_DC32_SPECSIG");
           
             pterms["FB1_18_5"]=new Array("RESET");
           
@@ -304,17 +304,17 @@
           
             pterms["FB3_3_1"]=new Array("/AS20","A22_SPECSIG","A21_SPECSIG","A19_SPECSIG","A16_SPECSIG","A23_SPECSIG","/A20_SPECSIG","/A18_SPECSIG","/A17_SPECSIG","/RAMTOPAUTOCONFIGshutup1_SPECSIG");
           
-            pterms["FB3_3_2"]=new Array("/AS20","A22_SPECSIG","A21_SPECSIG","A19_SPECSIG","/A16_SPECSIG","A23_SPECSIG","/A20_SPECSIG","/A18_SPECSIG","/A17_SPECSIG","/RAMTOPAUTOCONFIGconfig_out1_SPECSIG","RAMTOPzii_dout6_SPECSIG");
+            pterms["FB3_3_2"]=new Array("A22_SPECSIG","A21_SPECSIG","A19_SPECSIG","/A16_SPECSIG","A23_SPECSIG","/A20_SPECSIG","/A18_SPECSIG","/A17_SPECSIG","/RAMTOPAUTOCONFIGconfig_out1_SPECSIG","RAMTOPzii_dout6_SPECSIG");
           
-            pterms["FB3_3_3"]=new Array("/AS20","A22_SPECSIG","A21_SPECSIG","A19_SPECSIG","/A16_SPECSIG","A23_SPECSIG","/A20_SPECSIG","/A18_SPECSIG","/A17_SPECSIG","/RAMTOPAUTOCONFIGconfig_out0_SPECSIG","RAMTOPzii_dout6_SPECSIG");
+            pterms["FB3_3_3"]=new Array("A22_SPECSIG","A21_SPECSIG","A19_SPECSIG","/A16_SPECSIG","A23_SPECSIG","/A20_SPECSIG","/A18_SPECSIG","/A17_SPECSIG","/RAMTOPAUTOCONFIGconfig_out0_SPECSIG","RAMTOPzii_dout6_SPECSIG");
           
             pterms["FB3_3_4"]=new Array("/RAMTOPintcycle_dout_SPECSIG");
           
             pterms["FB3_4_1"]=new Array("/AS20","A22_SPECSIG","A21_SPECSIG","A19_SPECSIG","A16_SPECSIG","A23_SPECSIG","/A20_SPECSIG","/A18_SPECSIG","/A17_SPECSIG","/RAMTOPAUTOCONFIGshutup1_SPECSIG");
           
-            pterms["FB3_4_2"]=new Array("/AS20","A22_SPECSIG","A21_SPECSIG","A19_SPECSIG","/A16_SPECSIG","A23_SPECSIG","/A20_SPECSIG","/A18_SPECSIG","/A17_SPECSIG","/RAMTOPAUTOCONFIGconfig_out1_SPECSIG","RAMTOPzii_dout5_SPECSIG");
+            pterms["FB3_4_2"]=new Array("A22_SPECSIG","A21_SPECSIG","A19_SPECSIG","/A16_SPECSIG","A23_SPECSIG","/A20_SPECSIG","/A18_SPECSIG","/A17_SPECSIG","/RAMTOPAUTOCONFIGconfig_out1_SPECSIG","RAMTOPzii_dout5_SPECSIG");
           
-            pterms["FB3_4_3"]=new Array("/AS20","A22_SPECSIG","A21_SPECSIG","A19_SPECSIG","/A16_SPECSIG","A23_SPECSIG","/A20_SPECSIG","/A18_SPECSIG","/A17_SPECSIG","/RAMTOPAUTOCONFIGconfig_out0_SPECSIG","RAMTOPzii_dout5_SPECSIG");
+            pterms["FB3_4_3"]=new Array("A22_SPECSIG","A21_SPECSIG","A19_SPECSIG","/A16_SPECSIG","A23_SPECSIG","/A20_SPECSIG","/A18_SPECSIG","/A17_SPECSIG","/RAMTOPAUTOCONFIGconfig_out0_SPECSIG","RAMTOPzii_dout5_SPECSIG");
           
             pterms["FB3_4_4"]=new Array("/RAMTOPintcycle_dout_SPECSIG");
           
@@ -328,27 +328,27 @@
           
             pterms["FB3_5_4"]=new Array("AS20");
           
-            pterms["FB3_5_5"]=new Array("A18_SPECSIG","/RAMTOPgayle_dout_SPECSIG");
+            pterms["FB3_5_5"]=new Array("A18_SPECSIG","RAMTOPgayle_dout_SPECSIG");
           
-            pterms["FB3_6_1"]=new Array("/A22_SPECSIG","/RAMTOPgayle_dout_SPECSIG");
+            pterms["FB3_6_1"]=new Array("/A22_SPECSIG","RAMTOPgayle_dout_SPECSIG");
           
-            pterms["FB3_6_2"]=new Array("/A21_SPECSIG","/RAMTOPgayle_dout_SPECSIG");
+            pterms["FB3_6_2"]=new Array("/A21_SPECSIG","RAMTOPgayle_dout_SPECSIG");
           
-            pterms["FB3_6_3"]=new Array("/A19_SPECSIG","/RAMTOPgayle_dout_SPECSIG");
+            pterms["FB3_6_3"]=new Array("/A19_SPECSIG","RAMTOPgayle_dout_SPECSIG");
           
-            pterms["FB3_6_4"]=new Array("/A23_SPECSIG","/RAMTOPgayle_dout_SPECSIG");
+            pterms["FB3_6_4"]=new Array("/A23_SPECSIG","RAMTOPgayle_dout_SPECSIG");
           
             pterms["FB3_6_5"]=new Array("/RAMTOPintcycle_dout_SPECSIG");
           
-            pterms["FB3_7_1"]=new Array("AS20","/RAMTOPgayle_dout_SPECSIG");
+            pterms["FB3_7_1"]=new Array("A16_SPECSIG","RAMTOPgayle_dout_SPECSIG");
           
-            pterms["FB3_7_2"]=new Array("A20_SPECSIG","/RAMTOPgayle_dout_SPECSIG");
+            pterms["FB3_7_2"]=new Array("A20_SPECSIG","RAMTOPgayle_dout_SPECSIG");
           
-            pterms["FB3_7_3"]=new Array("A17_SPECSIG","/RAMTOPgayle_dout_SPECSIG");
+            pterms["FB3_7_3"]=new Array("A17_SPECSIG","RAMTOPgayle_dout_SPECSIG");
           
-            pterms["FB3_7_4"]=new Array("A16_SPECSIG","/RAMTOPgayle_dout_SPECSIG","RAMTOPAUTOCONFIGshutup1_SPECSIG");
+            pterms["FB3_7_4"]=new Array("RAMTOPAUTOCONFIGconfig_out1_SPECSIG","RAMTOPAUTOCONFIGconfig_out0_SPECSIG","RAMTOPgayle_dout_SPECSIG");
           
-            pterms["FB3_7_5"]=new Array("/A16_SPECSIG","RAMTOPAUTOCONFIGconfig_out1_SPECSIG","RAMTOPAUTOCONFIGconfig_out0_SPECSIG","/RAMTOPgayle_dout_SPECSIG");
+            pterms["FB3_7_5"]=new Array("A22_SPECSIG","A21_SPECSIG","A19_SPECSIG","/A16_SPECSIG","A23_SPECSIG","/A20_SPECSIG","/A18_SPECSIG","/A17_SPECSIG","/RAMTOPAUTOCONFIGconfig_out1_SPECSIG","RAMTOPzii_dout7_SPECSIG");
           
             pterms["FB3_8_1"]=new Array("/AS20","/A22_SPECSIG","A21_SPECSIG","/A23_SPECSIG","RW20","/DS20","/RAMTOPAUTOCONFIGshutup0_SPECSIG");
           
@@ -356,9 +356,9 @@
           
             pterms["FB3_8_3"]=new Array("AS20");
           
-            pterms["FB3_8_4"]=new Array("/AS20","A22_SPECSIG","A21_SPECSIG","A19_SPECSIG","/A16_SPECSIG","A23_SPECSIG","/A20_SPECSIG","/A18_SPECSIG","/A17_SPECSIG","/RAMTOPAUTOCONFIGconfig_out1_SPECSIG","/RAMTOPzii_dout7_SPECSIG");
+            pterms["FB3_8_4"]=new Array("/AS20","A22_SPECSIG","A21_SPECSIG","A19_SPECSIG","A16_SPECSIG","A23_SPECSIG","/A20_SPECSIG","/A18_SPECSIG","/A17_SPECSIG","/RAMTOPAUTOCONFIGshutup1_SPECSIG");
           
-            pterms["FB3_8_5"]=new Array("/AS20","A22_SPECSIG","A21_SPECSIG","A19_SPECSIG","/A16_SPECSIG","A23_SPECSIG","/A20_SPECSIG","/A18_SPECSIG","/A17_SPECSIG","/RAMTOPAUTOCONFIGconfig_out0_SPECSIG","/RAMTOPzii_dout7_SPECSIG");
+            pterms["FB3_8_5"]=new Array("A22_SPECSIG","A21_SPECSIG","A19_SPECSIG","/A16_SPECSIG","A23_SPECSIG","/A20_SPECSIG","/A18_SPECSIG","/A17_SPECSIG","/RAMTOPAUTOCONFIGconfig_out0_SPECSIG","RAMTOPzii_dout7_SPECSIG");
           
             pterms["FB3_9_1"]=new Array("/AS20","/A22_SPECSIG","A21_SPECSIG","/A23_SPECSIG","RW20","/DS20","/RAMTOPAUTOCONFIGshutup0_SPECSIG");
           
@@ -380,9 +380,9 @@
           
             pterms["FB3_11_1"]=new Array("/AS20","A22_SPECSIG","A21_SPECSIG","A19_SPECSIG","A16_SPECSIG","A23_SPECSIG","/A20_SPECSIG","/A18_SPECSIG","/A17_SPECSIG","/RAMTOPAUTOCONFIGshutup1_SPECSIG");
           
-            pterms["FB3_11_2"]=new Array("/AS20","A22_SPECSIG","A21_SPECSIG","A19_SPECSIG","/A16_SPECSIG","A23_SPECSIG","/A20_SPECSIG","/A18_SPECSIG","/A17_SPECSIG","/RAMTOPAUTOCONFIGconfig_out1_SPECSIG","RAMTOPzii_dout4_SPECSIG");
+            pterms["FB3_11_2"]=new Array("A22_SPECSIG","A21_SPECSIG","A19_SPECSIG","/A16_SPECSIG","A23_SPECSIG","/A20_SPECSIG","/A18_SPECSIG","/A17_SPECSIG","/RAMTOPAUTOCONFIGconfig_out1_SPECSIG","RAMTOPzii_dout4_SPECSIG");
           
-            pterms["FB3_11_3"]=new Array("/AS20","A22_SPECSIG","A21_SPECSIG","A19_SPECSIG","/A16_SPECSIG","A23_SPECSIG","/A20_SPECSIG","/A18_SPECSIG","/A17_SPECSIG","/RAMTOPAUTOCONFIGconfig_out0_SPECSIG","RAMTOPzii_dout4_SPECSIG");
+            pterms["FB3_11_3"]=new Array("A22_SPECSIG","A21_SPECSIG","A19_SPECSIG","/A16_SPECSIG","A23_SPECSIG","/A20_SPECSIG","/A18_SPECSIG","/A17_SPECSIG","/RAMTOPAUTOCONFIGconfig_out0_SPECSIG","RAMTOPzii_dout4_SPECSIG");
           
             pterms["FB3_11_4"]=new Array("/RAMTOPintcycle_dout_SPECSIG");
           
@@ -400,7 +400,7 @@
           
             pterms["FB3_17_3"]=new Array("/RESET");
           
-            pterms["FB3_17_4"]=new Array("/AS20","A22_SPECSIG","/A21_SPECSIG","A19_SPECSIG","/A16_SPECSIG","A23_SPECSIG","A20_SPECSIG","A17_SPECSIG","/DS20","OpTxFX_DC34_SPECSIG");
+            pterms["FB3_17_4"]=new Array("/AS20","A22_SPECSIG","/A21_SPECSIG","A19_SPECSIG","/A16_SPECSIG","A23_SPECSIG","A20_SPECSIG","A17_SPECSIG","/DS20","OpTxFX_DC32_SPECSIG");
           
             pterms["FB3_17_5"]=new Array("/AS20","A22_SPECSIG","A21_SPECSIG","A19_SPECSIG","/A16_SPECSIG","A23_SPECSIG","/A20_SPECSIG","/A18_SPECSIG","/A17_SPECSIG","RW20","/RAMTOPAUTOCONFIGconfig_out0_SPECSIG");
           
@@ -796,13 +796,13 @@
               
                 setimp["RAMTOPWAITSTATE_SPECSIG"]=new Array("1");
               prld["RAMTOPWAITSTATE_SPECSIG"]="GND";
-          d1["OpTxFX_DC34_SPECSIG"]=new Array("FB3_16_1");
+          d1["OpTxFX_DC32_SPECSIG"]=new Array("FB3_16_1");
           
-            d1imp["OpTxFX_DC34_SPECSIG"]=new Array("1");
+            d1imp["OpTxFX_DC32_SPECSIG"]=new Array("1");
           
-          d2["OpTxFX_DC34_SPECSIG"]=new Array("FB3_16_2");
+          d2["OpTxFX_DC32_SPECSIG"]=new Array("FB3_16_2");
           
-            d2imp["OpTxFX_DC34_SPECSIG"]=new Array("1");
+            d2imp["OpTxFX_DC32_SPECSIG"]=new Array("1");
           
           d2["RAMTOPGAYLEgayleid1_SPECSIG"]=new Array("FB3_17_1","FB3_17_2");
           

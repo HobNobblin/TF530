@@ -5,331 +5,339 @@
 </td></tr><tr><td>
 ********** Mapped Logic **********
 </td></tr><tr><td>
+$OpTx$FX_DC$32 = A<15>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	$ A<18>;    
 </td></tr><tr><td>
-$OpTx$FX_DC$34 <= A(15)
-<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	 XOR 
-<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$OpTx$FX_DC$34 <= A(18);
+CBACK = Vcc;    
 </td></tr><tr><td>
+CIIN = AS20
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	# !A<22> & A<21> & !A<23> & !DS20 & 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	!RAMTOP/AUTOCONFIG/shutup<0>;    
 </td></tr><tr><td>
-CBACK <= '1';
+D<0> = D<3>;
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;   D<0>.OE = !RAMTOP/intcycle_dout;    
 </td></tr><tr><td>
+D<1> = D<3>;
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;   D<1>.OE = !RAMTOP/intcycle_dout;    
 </td></tr><tr><td>
-CIIN <= ((AS20)
-<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (NOT A(22) AND A(21) AND NOT A(23) AND NOT DS20 AND 
-<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT RAMTOP/AUTOCONFIG/shutup(0)));
+D<2> = D<3>;
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;   D<2>.OE = !RAMTOP/intcycle_dout;    
 </td></tr><tr><td>
+D<3>.D = !AS20 & A<22> & A<21> & A<19> & A<16> & A<23> & 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	!A<20> & !A<18> & !A<17> & !RAMTOP/AUTOCONFIG/shutup<1>;
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;   D<3>.CLK = CLKCPU;	// GCK
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;   D<3>.OE = !RAMTOP/intcycle_dout;    
 </td></tr><tr><td>
-D_I(0) <= D(3);
-<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;D(0) <= D_I(0) when D_OE(0) = '1' else 'Z';
-<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;D_OE(0) <= NOT RAMTOP/intcycle_dout;
+D<4>.D = !AS20 & A<22> & A<21> & A<19> & A<16> & A<23> & 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	!A<20> & !A<18> & !A<17> & !RAMTOP/AUTOCONFIG/shutup<1>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	# A<22> & A<21> & A<19> & !A<16> & A<23> & !A<20> & 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	!A<18> & !A<17> & !RAMTOP/AUTOCONFIG/config_out<1> & 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	RAMTOP/zii_dout<4>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	# A<22> & A<21> & A<19> & !A<16> & A<23> & !A<20> & 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	!A<18> & !A<17> & !RAMTOP/AUTOCONFIG/config_out<0> & 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	RAMTOP/zii_dout<4>;
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;   D<4>.CLK = CLKCPU;	// GCK
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;   D<4>.OE = !RAMTOP/intcycle_dout;    
 </td></tr><tr><td>
+D<5>.D = !AS20 & A<22> & A<21> & A<19> & A<16> & A<23> & 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	!A<20> & !A<18> & !A<17> & !RAMTOP/AUTOCONFIG/shutup<1>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	# A<22> & A<21> & A<19> & !A<16> & A<23> & !A<20> & 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	!A<18> & !A<17> & !RAMTOP/AUTOCONFIG/config_out<1> & 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	RAMTOP/zii_dout<5>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	# A<22> & A<21> & A<19> & !A<16> & A<23> & !A<20> & 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	!A<18> & !A<17> & !RAMTOP/AUTOCONFIG/config_out<0> & 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	RAMTOP/zii_dout<5>;
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;   D<5>.CLK = CLKCPU;	// GCK
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;   D<5>.OE = !RAMTOP/intcycle_dout;    
 </td></tr><tr><td>
-D_I(1) <= D(3);
-<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;D(1) <= D_I(1) when D_OE(1) = '1' else 'Z';
-<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;D_OE(1) <= NOT RAMTOP/intcycle_dout;
+D<6>.D = !AS20 & A<22> & A<21> & A<19> & A<16> & A<23> & 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	!A<20> & !A<18> & !A<17> & !RAMTOP/AUTOCONFIG/shutup<1>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	# A<22> & A<21> & A<19> & !A<16> & A<23> & !A<20> & 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	!A<18> & !A<17> & !RAMTOP/AUTOCONFIG/config_out<1> & 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	RAMTOP/zii_dout<6>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	# A<22> & A<21> & A<19> & !A<16> & A<23> & !A<20> & 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	!A<18> & !A<17> & !RAMTOP/AUTOCONFIG/config_out<0> & 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	RAMTOP/zii_dout<6>;
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;   D<6>.CLK = CLKCPU;	// GCK
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;   D<6>.OE = !RAMTOP/intcycle_dout;    
 </td></tr><tr><td>
+D<7>.D = !A<22> & RAMTOP/gayle_dout
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	# !A<21> & RAMTOP/gayle_dout
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	# !A<19> & RAMTOP/gayle_dout
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	# !A<23> & RAMTOP/gayle_dout
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;;Imported pterms FB3_5
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	# A<18> & RAMTOP/gayle_dout
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;;Imported pterms FB3_7
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	# A<16> & RAMTOP/gayle_dout
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	# A<20> & RAMTOP/gayle_dout
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	# A<17> & RAMTOP/gayle_dout
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	# RAMTOP/AUTOCONFIG/config_out<1> & 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	RAMTOP/AUTOCONFIG/config_out<0> & RAMTOP/gayle_dout
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	# A<22> & A<21> & A<19> & !A<16> & A<23> & !A<20> & 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	!A<18> & !A<17> & !RAMTOP/AUTOCONFIG/config_out<1> & 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	RAMTOP/zii_dout<7>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;;Imported pterms FB3_8
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	# !AS20 & A<22> & A<21> & A<19> & A<16> & A<23> & 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	!A<20> & !A<18> & !A<17> & !RAMTOP/AUTOCONFIG/shutup<1>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	# A<22> & A<21> & A<19> & !A<16> & A<23> & !A<20> & 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	!A<18> & !A<17> & !RAMTOP/AUTOCONFIG/config_out<0> & 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	RAMTOP/zii_dout<7>;
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;   D<7>.CLK = CLKCPU;	// GCK
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;   D<7>.OE = !RAMTOP/intcycle_dout;    
 </td></tr><tr><td>
-D_I(2) <= D(3);
-<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;D(2) <= D_I(2) when D_OE(2) = '1' else 'Z';
-<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;D_OE(2) <= NOT RAMTOP/intcycle_dout;
+!IDEWAIT.D = !AS20 & !A<22> & A<21> & !A<23> & !DS20 & 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	!RAMTOP/AUTOCONFIG/shutup<0>;
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;   IDEWAIT.CLK = CLKCPU;	// GCK
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;   IDEWAIT.AP = AS20;    
 </td></tr><tr><td>
-FDCPE_D3: FDCPE port map (D_I(3),D(3),CLKCPU,'0','0');
-<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;D(3) <= (NOT AS20 AND A(22) AND A(21) AND A(19) AND A(16) AND A(23) AND 
-<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT A(20) AND NOT A(18) AND NOT A(17) AND NOT RAMTOP/AUTOCONFIG/shutup(1));
-<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;D(3) <= D_I(3) when D_OE(3) = '1' else 'Z';
-<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;D_OE(3) <= NOT RAMTOP/intcycle_dout;
+INT2 = Gnd;
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;   INT2.OE = RAMTOP/GAYLE/INT_CHNG & RAMTOP/GAYLE/intena;    
 </td></tr><tr><td>
-FDCPE_D4: FDCPE port map (D_I(4),D(4),CLKCPU,'0','0');
-<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;D(4) <= ((NOT AS20 AND A(22) AND A(21) AND A(19) AND A(16) AND A(23) AND 
-<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT A(20) AND NOT A(18) AND NOT A(17) AND NOT RAMTOP/AUTOCONFIG/shutup(1))
-<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (NOT AS20 AND A(22) AND A(21) AND A(19) AND NOT A(16) AND A(23) AND 
-<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT A(20) AND NOT A(18) AND NOT A(17) AND NOT RAMTOP/AUTOCONFIG/config_out(1) AND 
-<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	RAMTOP/zii_dout(4))
-<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (NOT AS20 AND A(22) AND A(21) AND A(19) AND NOT A(16) AND A(23) AND 
-<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT A(20) AND NOT A(18) AND NOT A(17) AND NOT RAMTOP/AUTOCONFIG/config_out(0) AND 
-<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	RAMTOP/zii_dout(4)));
-<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;D(4) <= D_I(4) when D_OE(4) = '1' else 'Z';
-<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;D_OE(4) <= NOT RAMTOP/intcycle_dout;
+!INTCYCLE = !AS20 & !A<22> & A<21> & !A<23> & 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	!RAMTOP/AUTOCONFIG/shutup<0>;    
 </td></tr><tr><td>
-FDCPE_D5: FDCPE port map (D_I(5),D(5),CLKCPU,'0','0');
-<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;D(5) <= ((NOT AS20 AND A(22) AND A(21) AND A(19) AND A(16) AND A(23) AND 
-<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT A(20) AND NOT A(18) AND NOT A(17) AND NOT RAMTOP/AUTOCONFIG/shutup(1))
-<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (NOT AS20 AND A(22) AND A(21) AND A(19) AND NOT A(16) AND A(23) AND 
-<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT A(20) AND NOT A(18) AND NOT A(17) AND NOT RAMTOP/AUTOCONFIG/config_out(1) AND 
-<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	RAMTOP/zii_dout(5))
-<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (NOT AS20 AND A(22) AND A(21) AND A(19) AND NOT A(16) AND A(23) AND 
-<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT A(20) AND NOT A(18) AND NOT A(17) AND NOT RAMTOP/AUTOCONFIG/config_out(0) AND 
-<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	RAMTOP/zii_dout(5)));
-<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;D(5) <= D_I(5) when D_OE(5) = '1' else 'Z';
-<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;D_OE(5) <= NOT RAMTOP/intcycle_dout;
+!RAMCS<0>.D = !AS20 & !A<22> & A<21> & !A<23> & RW20 & !DS20 & 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	!RAMTOP/AUTOCONFIG/shutup<0>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;;Imported pterms FB3_10
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	# !AS20 & !A<22> & A<21> & !A<23> & !DS20 & 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	!RAMTOP/AUTOCONFIG/shutup<0> & A<1> & SIZ<1>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	# !AS20 & !A<22> & A<21> & !A<23> & !DS20 & 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	!RAMTOP/AUTOCONFIG/shutup<0> & A<1> & A<0>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	# !AS20 & !A<22> & A<21> & !A<23> & !DS20 & 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	!RAMTOP/AUTOCONFIG/shutup<0> & !SIZ<0> & !SIZ<1>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	# !AS20 & !A<22> & A<21> & !A<23> & !DS20 & 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	!RAMTOP/AUTOCONFIG/shutup<0> & SIZ<0> & SIZ<1> & A<0>;
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;   RAMCS<0>.CLK = CLKCPU;	// GCK
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;   RAMCS<0>.AP = AS20;    
 </td></tr><tr><td>
-FDCPE_D6: FDCPE port map (D_I(6),D(6),CLKCPU,'0','0');
-<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;D(6) <= ((NOT AS20 AND A(22) AND A(21) AND A(19) AND A(16) AND A(23) AND 
-<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT A(20) AND NOT A(18) AND NOT A(17) AND NOT RAMTOP/AUTOCONFIG/shutup(1))
-<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (NOT AS20 AND A(22) AND A(21) AND A(19) AND NOT A(16) AND A(23) AND 
-<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT A(20) AND NOT A(18) AND NOT A(17) AND NOT RAMTOP/AUTOCONFIG/config_out(1) AND 
-<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	RAMTOP/zii_dout(6))
-<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (NOT AS20 AND A(22) AND A(21) AND A(19) AND NOT A(16) AND A(23) AND 
-<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT A(20) AND NOT A(18) AND NOT A(17) AND NOT RAMTOP/AUTOCONFIG/config_out(0) AND 
-<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	RAMTOP/zii_dout(6)));
-<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;D(6) <= D_I(6) when D_OE(6) = '1' else 'Z';
-<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;D_OE(6) <= NOT RAMTOP/intcycle_dout;
+!RAMCS<1>.D = !AS20 & !A<22> & A<21> & !A<23> & RW20 & !DS20 & 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	!RAMTOP/AUTOCONFIG/shutup<0>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	# !AS20 & !A<22> & A<21> & !A<23> & !DS20 & 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	!RAMTOP/AUTOCONFIG/shutup<0> & A<1> & !A<0>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;;Imported pterms FB3_9
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	# !AS20 & !A<22> & A<21> & !A<23> & !DS20 & 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	!RAMTOP/AUTOCONFIG/shutup<0> & !A<1> & SIZ<0> & SIZ<1>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	# !AS20 & !A<22> & A<21> & !A<23> & !DS20 & 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	!RAMTOP/AUTOCONFIG/shutup<0> & !A<1> & !SIZ<0> & !SIZ<1>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	# !AS20 & !A<22> & A<21> & !A<23> & !DS20 & 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	!RAMTOP/AUTOCONFIG/shutup<0> & !A<1> & !SIZ<0> & A<0>;
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;   RAMCS<1>.CLK = CLKCPU;	// GCK
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;   RAMCS<1>.AP = AS20;    
 </td></tr><tr><td>
-FDCPE_D7: FDCPE port map (D_I(7),D(7),CLKCPU,'0','0');
-<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;D(7) <= ((A(18) AND NOT RAMTOP/gayle_dout)
-<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (RAMTOP/RAMCS(1).EXP)
-<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (AS20 AND NOT RAMTOP/gayle_dout)
-<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (A(20) AND NOT RAMTOP/gayle_dout)
-<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (A(17) AND NOT RAMTOP/gayle_dout)
-<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (A(16) AND NOT RAMTOP/gayle_dout AND 
-<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	RAMTOP/AUTOCONFIG/shutup(1))
-<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (NOT A(16) AND RAMTOP/AUTOCONFIG/config_out(1) AND 
-<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	RAMTOP/AUTOCONFIG/config_out(0) AND NOT RAMTOP/gayle_dout)
-<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (NOT A(22) AND NOT RAMTOP/gayle_dout)
-<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (NOT A(21) AND NOT RAMTOP/gayle_dout)
-<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (NOT A(19) AND NOT RAMTOP/gayle_dout)
-<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (NOT A(23) AND NOT RAMTOP/gayle_dout));
-<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;D(7) <= D_I(7) when D_OE(7) = '1' else 'Z';
-<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;D_OE(7) <= NOT RAMTOP/intcycle_dout;
+!RAMCS<2>.D = !AS20 & !A<22> & A<21> & !A<23> & RW20 & !DS20 & 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	!RAMTOP/AUTOCONFIG/shutup<0>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	# !AS20 & !A<22> & A<21> & !A<23> & !DS20 & 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	!RAMTOP/AUTOCONFIG/shutup<0> & !A<1> & !SIZ<0>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	# !AS20 & !A<22> & A<21> & !A<23> & !DS20 & 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	!RAMTOP/AUTOCONFIG/shutup<0> & !A<1> & A<0>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;;Imported pterms FB3_4
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	# !AS20 & !A<22> & A<21> & !A<23> & !DS20 & 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	!RAMTOP/AUTOCONFIG/shutup<0> & !A<1> & SIZ<1>;
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;   RAMCS<2>.CLK = CLKCPU;	// GCK
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;   RAMCS<2>.AP = AS20;    
 </td></tr><tr><td>
+!RAMCS<3>.D = !AS20 & !A<22> & A<21> & !A<23> & RW20 & !DS20 & 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	!RAMTOP/AUTOCONFIG/shutup<0>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	# !AS20 & !A<22> & A<21> & !A<23> & !DS20 & 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	!RAMTOP/AUTOCONFIG/shutup<0> & !A<1> & !A<0>;
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;   RAMCS<3>.CLK = CLKCPU;	// GCK
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;   RAMCS<3>.AP = AS20;    
 </td></tr><tr><td>
+!RAMOE.D = !AS20 & !A<22> & A<21> & !A<23> & !DS20 & 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	!RAMTOP/AUTOCONFIG/shutup<0>;
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;   RAMOE.CLK = CLKCPU;	// GCK
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;   RAMOE.AP = AS20;    
 </td></tr><tr><td>
+!RAMTOP/AUTOCONFIG/config_out<0>.D = !RAMTOP/AUTOCONFIG/shutup<0> & 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	!RAMTOP/AUTOCONFIG/configured<0>;
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;   RAMTOP/AUTOCONFIG/config_out<0>.CLK = AS20;
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;   RAMTOP/AUTOCONFIG/config_out<0>.AR = !RESET;    
 </td></tr><tr><td>
+!RAMTOP/AUTOCONFIG/config_out<1>.D = !RAMTOP/AUTOCONFIG/shutup<1> & 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	!RAMTOP/AUTOCONFIG/configured<1>;
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;   RAMTOP/AUTOCONFIG/config_out<1>.CLK = AS20;
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;   RAMTOP/AUTOCONFIG/config_out<1>.AR = !RESET;    
 </td></tr><tr><td>
+RAMTOP/AUTOCONFIG/configured<0>.D = Vcc;
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;   RAMTOP/AUTOCONFIG/configured<0>.CLK = !DS20;
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;   RAMTOP/AUTOCONFIG/configured<0>.AR = !RESET;
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;   RAMTOP/AUTOCONFIG/configured<0>.CE = A<22> & A<21> & A<19> & !A<16> & A<23> & !A<20> & 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	!A<18> & !A<17> & !A<4> & !A<2> & !RW20 & 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	!RAMTOP/AUTOCONFIG/config_out<1> & !RAMTOP/AUTOCONFIG/config_out<0> & !A<1> & A<6> & 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	!A<5> & A<3>;    
 </td></tr><tr><td>
+RAMTOP/AUTOCONFIG/configured<1>.D = Vcc;
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;   RAMTOP/AUTOCONFIG/configured<1>.CLK = !DS20;
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;   RAMTOP/AUTOCONFIG/configured<1>.AR = !RESET;
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;   RAMTOP/AUTOCONFIG/configured<1>.CE = A<22> & A<21> & A<19> & !A<16> & A<23> & !A<20> & 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	!A<18> & !A<17> & !A<4> & !A<2> & !RW20 & 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	!RAMTOP/AUTOCONFIG/config_out<1> & RAMTOP/AUTOCONFIG/config_out<0> & !A<1> & A<6> & 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	!A<5> & A<3>;    
 </td></tr><tr><td>
+RAMTOP/AUTOCONFIG/shutup<0>.D = Vcc;
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;   RAMTOP/AUTOCONFIG/shutup<0>.CLK = !DS20;
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;   RAMTOP/AUTOCONFIG/shutup<0>.AR = !RESET;
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;   RAMTOP/AUTOCONFIG/shutup<0>.CE = A<22> & A<21> & A<19> & !A<16> & A<23> & !A<20> & 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	!A<18> & !A<17> & !A<4> & A<2> & !RW20 & 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	!RAMTOP/AUTOCONFIG/config_out<1> & !RAMTOP/AUTOCONFIG/config_out<0> & !A<1> & A<6> & 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	!A<5> & A<3>;    
 </td></tr><tr><td>
+RAMTOP/AUTOCONFIG/shutup<1>.D = Vcc;
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;   RAMTOP/AUTOCONFIG/shutup<1>.CLK = !DS20;
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;   RAMTOP/AUTOCONFIG/shutup<1>.AR = !RESET;
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;   RAMTOP/AUTOCONFIG/shutup<1>.CE = A<22> & A<21> & A<19> & !A<16> & A<23> & !A<20> & 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	!A<18> & !A<17> & !A<4> & A<2> & !RW20 & 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	!RAMTOP/AUTOCONFIG/config_out<1> & RAMTOP/AUTOCONFIG/config_out<0> & !A<1> & A<6> & 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	!A<5> & A<3>;    
 </td></tr><tr><td>
-FDCPE_IDEWAIT: FDCPE port map (IDEWAIT,IDEWAIT_D,CLKCPU,'0',AS20);
-<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;IDEWAIT_D <= (NOT AS20 AND NOT A(22) AND A(21) AND NOT A(23) AND NOT DS20 AND 
-<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT RAMTOP/AUTOCONFIG/shutup(0));
+RAMTOP/GAYLE/INT_CHNG.T = !AS20 & RAMTOP/GAYLE/INT_CHNG & !D<7>.PIN & A<22> & 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	!A<21> & A<19> & !A<16> & A<23> & A<20> & !A<18> & A<17> & 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	A<15> & !A<13> & !RW20 & A<12>;
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;   RAMTOP/GAYLE/INT_CHNG.CLK = !AS20 & A<22> & !A<21> & A<19> & !A<16> & A<23> & 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	A<20> & A<17> & !DS20 & $OpTx$FX_DC$32;
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;   RAMTOP/GAYLE/INT_CHNG.AP = RAMTOP/GAYLE/intena & IDEINT & 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	!RAMTOP/GAYLE/intlast;
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;   RAMTOP/GAYLE/INT_CHNG.AR = !RESET;    
 </td></tr><tr><td>
+RAMTOP/GAYLE/gayleid<1>.T = A<18> & !A<13> & RW20 & A<12> & 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	!RAMTOP/GAYLE/gayleid<1>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	# A<18> & !A<13> & !RW20 & A<12> & 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	RAMTOP/GAYLE/gayleid<1>;
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;   RAMTOP/GAYLE/gayleid<1>.CLK = !AS20 & A<22> & !A<21> & A<19> & !A<16> & A<23> & 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	A<20> & A<17> & !DS20 & $OpTx$FX_DC$32;
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;   RAMTOP/GAYLE/gayleid<1>.AR = !RESET;    
 </td></tr><tr><td>
-INT2_I <= '0';
-<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;INT2 <= INT2_I when INT2_OE = '1' else 'Z';
-<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;INT2_OE <= (RAMTOP/GAYLE/INT_CHNG AND RAMTOP/GAYLE/intena);
+RAMTOP/GAYLE/gayleid<2>.T = A<18> & !A<13> & !RW20 & A<12> & 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	!RAMTOP/GAYLE/gayleid<2>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	# A<18> & !A<13> & A<12> & RAMTOP/GAYLE/gayleid<1> & 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	!RAMTOP/GAYLE/gayleid<2>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	# A<18> & !A<13> & RW20 & A<12> & 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	!RAMTOP/GAYLE/gayleid<1> & RAMTOP/GAYLE/gayleid<2>;
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;   RAMTOP/GAYLE/gayleid<2>.CLK = !AS20 & A<22> & !A<21> & A<19> & !A<16> & A<23> & 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	A<20> & A<17> & !DS20 & $OpTx$FX_DC$32;
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;   RAMTOP/GAYLE/gayleid<2>.AP = !RESET;    
 </td></tr><tr><td>
+RAMTOP/GAYLE/gayleid<3>.T = A<18> & !A<13> & !RW20 & A<12> & 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	!RAMTOP/GAYLE/gayleid<3>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	# A<18> & !A<13> & A<12> & RAMTOP/GAYLE/gayleid<2> & 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	!RAMTOP/GAYLE/gayleid<3>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	# A<18> & !A<13> & RW20 & A<12> & 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	!RAMTOP/GAYLE/gayleid<2> & RAMTOP/GAYLE/gayleid<3>;
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;   RAMTOP/GAYLE/gayleid<3>.CLK = !AS20 & A<22> & !A<21> & A<19> & !A<16> & A<23> & 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	A<20> & A<17> & !DS20 & $OpTx$FX_DC$32;
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;   RAMTOP/GAYLE/gayleid<3>.AP = !RESET;    
 </td></tr><tr><td>
-INTCYCLE <= NOT ((NOT AS20 AND NOT A(22) AND A(21) AND NOT A(23) AND 
-<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT RAMTOP/AUTOCONFIG/shutup(0)));
+RAMTOP/GAYLE/intena.D = D<7>.PIN;
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;   RAMTOP/GAYLE/intena.CLK = !AS20 & A<22> & !A<21> & A<19> & !A<16> & A<23> & 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	A<20> & A<17> & !DS20 & $OpTx$FX_DC$32;
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;   RAMTOP/GAYLE/intena.AR = !RESET;
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;   RAMTOP/GAYLE/intena.CE = !A<18> & A<13> & !RW20 & !A<12>;    
 </td></tr><tr><td>
-FDCPE_RAMCS0: FDCPE port map (RAMCS(0),RAMCS_D(0),CLKCPU,'0',AS20);
-<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;RAMCS_D(0) <= ((NOT AS20 AND NOT A(22) AND A(21) AND NOT A(23) AND NOT DS20 AND 
-<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT RAMTOP/AUTOCONFIG/shutup(0) AND A(1) AND SIZ(1))
-<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (NOT AS20 AND NOT A(22) AND A(21) AND NOT A(23) AND NOT DS20 AND 
-<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT RAMTOP/AUTOCONFIG/shutup(0) AND A(1) AND A(0))
-<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (NOT AS20 AND NOT A(22) AND A(21) AND NOT A(23) AND NOT DS20 AND 
-<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT RAMTOP/AUTOCONFIG/shutup(0) AND NOT SIZ(0) AND NOT SIZ(1))
-<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (NOT AS20 AND NOT A(22) AND A(21) AND NOT A(23) AND NOT DS20 AND 
-<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT RAMTOP/AUTOCONFIG/shutup(0) AND SIZ(0) AND SIZ(1) AND A(0))
-<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (NOT AS20 AND NOT A(22) AND A(21) AND NOT A(23) AND RW20 AND NOT DS20 AND 
-<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT RAMTOP/AUTOCONFIG/shutup(0)));
+RAMTOP/GAYLE/intlast.D = IDEINT;
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;   RAMTOP/GAYLE/intlast.CLK = CLKCPU;	// GCK    
 </td></tr><tr><td>
-FDCPE_RAMCS1: FDCPE port map (RAMCS(1),RAMCS_D(1),CLKCPU,'0',AS20);
-<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;RAMCS_D(1) <= ((NOT AS20 AND NOT A(22) AND A(21) AND NOT A(23) AND NOT DS20 AND 
-<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT RAMTOP/AUTOCONFIG/shutup(0) AND NOT A(1) AND SIZ(0) AND SIZ(1))
-<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (NOT AS20 AND NOT A(22) AND A(21) AND NOT A(23) AND NOT DS20 AND 
-<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT RAMTOP/AUTOCONFIG/shutup(0) AND NOT A(1) AND NOT SIZ(0) AND NOT SIZ(1))
-<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (NOT AS20 AND NOT A(22) AND A(21) AND NOT A(23) AND NOT DS20 AND 
-<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT RAMTOP/AUTOCONFIG/shutup(0) AND NOT A(1) AND NOT SIZ(0) AND A(0))
-<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (NOT AS20 AND NOT A(22) AND A(21) AND NOT A(23) AND RW20 AND NOT DS20 AND 
-<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT RAMTOP/AUTOCONFIG/shutup(0))
-<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (NOT AS20 AND NOT A(22) AND A(21) AND NOT A(23) AND NOT DS20 AND 
-<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT RAMTOP/AUTOCONFIG/shutup(0) AND A(1) AND NOT A(0)));
+!RAMTOP/WAITSTATE.D = !AS20 & !A<22> & A<21> & !A<23> & !DS20 & 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	!RAMTOP/AUTOCONFIG/shutup<0>;
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;   RAMTOP/WAITSTATE.CLK = CLKCPU;	// GCK
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;   RAMTOP/WAITSTATE.AP = AS20;    
 </td></tr><tr><td>
-FDCPE_RAMCS2: FDCPE port map (RAMCS(2),RAMCS_D(2),CLKCPU,'0',AS20);
-<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;RAMCS_D(2) <= ((NOT AS20 AND NOT A(22) AND A(21) AND NOT A(23) AND NOT DS20 AND 
-<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT RAMTOP/AUTOCONFIG/shutup(0) AND NOT A(1) AND SIZ(1))
-<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (NOT AS20 AND NOT A(22) AND A(21) AND NOT A(23) AND RW20 AND NOT DS20 AND 
-<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT RAMTOP/AUTOCONFIG/shutup(0))
-<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (NOT AS20 AND NOT A(22) AND A(21) AND NOT A(23) AND NOT DS20 AND 
-<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT RAMTOP/AUTOCONFIG/shutup(0) AND NOT A(1) AND NOT SIZ(0))
-<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (NOT AS20 AND NOT A(22) AND A(21) AND NOT A(23) AND NOT DS20 AND 
-<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT RAMTOP/AUTOCONFIG/shutup(0) AND NOT A(1) AND A(0)));
+RAMTOP/gayle_dout.D = RAMTOP/GAYLE/INT_CHNG & !A<18> & !A<13> & RW20 & 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	A<12>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	# A<18> & !A<13> & RW20 & A<12> & 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	RAMTOP/GAYLE/gayleid<3>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	# A<18> & !A<13> & !RW20 & A<12> & 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	RAMTOP/gayle_dout
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;;Imported pterms FB1_1
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	# RAMTOP/GAYLE/intena & !A<18> & A<13> & RW20 & 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	!A<12>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	# !A<18> & A<13> & !RW20 & !A<12> & 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	RAMTOP/gayle_dout
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	# !A<18> & !A<13> & RW20 & !A<12> & IDEINT;
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;   RAMTOP/gayle_dout.CLK = !AS20 & A<22> & !A<21> & A<19> & !A<16> & A<23> & 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	A<20> & A<17> & !DS20 & $OpTx$FX_DC$32;
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;   RAMTOP/gayle_dout.CE = RESET;    
 </td></tr><tr><td>
-FDCPE_RAMCS3: FDCPE port map (RAMCS(3),RAMCS_D(3),CLKCPU,'0',AS20);
-<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;RAMCS_D(3) <= ((NOT AS20 AND NOT A(22) AND A(21) AND NOT A(23) AND RW20 AND NOT DS20 AND 
-<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT RAMTOP/AUTOCONFIG/shutup(0))
-<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (NOT AS20 AND NOT A(22) AND A(21) AND NOT A(23) AND NOT DS20 AND 
-<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT RAMTOP/AUTOCONFIG/shutup(0) AND NOT A(1) AND NOT A(0)));
+!RAMTOP/intcycle_dout.D = !AS20 & A<22> & A<21> & A<19> & A<16> & A<23> & 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	!A<20> & !A<18> & !A<17> & RW20 & 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	!RAMTOP/AUTOCONFIG/shutup<1>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	# !AS20 & A<22> & A<21> & A<19> & !A<16> & A<23> & 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	!A<20> & !A<18> & !A<17> & RW20 & 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	!RAMTOP/AUTOCONFIG/config_out<1>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	# !AS20 & A<22> & !A<21> & A<19> & !A<16> & A<23> & 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	A<20> & A<18> & A<17> & !A<15> & RW20
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	# !AS20 & A<22> & !A<21> & A<19> & !A<16> & A<23> & 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	A<20> & !A<18> & A<17> & A<15> & RW20
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;;Imported pterms FB3_17
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	# !AS20 & A<22> & A<21> & A<19> & !A<16> & A<23> & 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	!A<20> & !A<18> & !A<17> & RW20 & 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	!RAMTOP/AUTOCONFIG/config_out<0>;
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;   RAMTOP/intcycle_dout.CLK = CLKCPU;	// GCK
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;   RAMTOP/intcycle_dout.AP = AS20;    
 </td></tr><tr><td>
-FDCPE_RAMOE: FDCPE port map (RAMOE,RAMOE_D,CLKCPU,'0',AS20);
-<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;RAMOE_D <= (NOT AS20 AND NOT A(22) AND A(21) AND NOT A(23) AND NOT DS20 AND 
-<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT RAMTOP/AUTOCONFIG/shutup(0));
+!RAMTOP/zii_dout<4>.D = A<4> & !A<2> & !A<6> & !A<5> & !A<3>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	# A<4> & !A<1> & !A<6> & !A<5> & !A<3>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	# !A<2> & !RAMTOP/AUTOCONFIG/config_out<1> & 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	!RAMTOP/AUTOCONFIG/config_out<0> & !A<6> & !A<5> & !A<3>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;;Imported pterms FB2_18
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	# !A<4> & A<2> & A<1> & !A<6> & !A<5> & !A<3>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	# !A<4> & A<2> & !A<1> & !A<6> & A<5> & !A<3>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	# !A<4> & RAMTOP/AUTOCONFIG/config_out<1> & 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	!RAMTOP/zii_dout<4> & !A<6> & !A<5> & !A<3>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	# !A<2> & RAMTOP/AUTOCONFIG/config_out<1> & 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	!RAMTOP/zii_dout<4> & !A<6> & !A<5> & !A<3>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	# !A<2> & !RAMTOP/AUTOCONFIG/config_out<1> & !A<1> & 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	!A<6> & !A<5> & !A<3>;
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;   RAMTOP/zii_dout<4>.CLK = !DS20;
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;   RAMTOP/zii_dout<4>.AP = !RESET;    
 </td></tr><tr><td>
-FDCPE_RAMTOP/AUTOCONFIG/config_out0: FDCPE port map (RAMTOP/AUTOCONFIG/config_out(0),RAMTOP/AUTOCONFIG/config_out_D(0),AS20,NOT RESET,'0');
-<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;RAMTOP/AUTOCONFIG/config_out_D(0) <= (NOT RAMTOP/AUTOCONFIG/shutup(0) AND 
-<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT RAMTOP/AUTOCONFIG/configured(0));
+!RAMTOP/zii_dout<5>.D = !A<4> & A<1> & !A<6> & A<5> & !A<3>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	# A<4> & !A<2> & A<1> & !A<6> & !A<5> & !A<3>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	# !A<2> & RAMTOP/AUTOCONFIG/config_out<1> & 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	!RAMTOP/zii_dout<5> & A<1> & !A<6> & !A<5> & !A<3>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;;Imported pterms FB2_14
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	# !A<4> & !A<2> & !RAMTOP/AUTOCONFIG/config_out<1> & 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	RAMTOP/AUTOCONFIG/config_out<0> & !A<6> & !A<5> & !A<3>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	# !A<4> & RAMTOP/AUTOCONFIG/config_out<1> & 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	!RAMTOP/zii_dout<5> & !A<1> & !A<6> & !A<5> & !A<3>;
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;   RAMTOP/zii_dout<5>.CLK = !DS20;
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;   RAMTOP/zii_dout<5>.AP = !RESET;    
 </td></tr><tr><td>
-FDCPE_RAMTOP/AUTOCONFIG/config_out1: FDCPE port map (RAMTOP/AUTOCONFIG/config_out(1),RAMTOP/AUTOCONFIG/config_out_D(1),AS20,NOT RESET,'0');
-<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;RAMTOP/AUTOCONFIG/config_out_D(1) <= (NOT RAMTOP/AUTOCONFIG/shutup(1) AND 
-<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT RAMTOP/AUTOCONFIG/configured(1));
+!RAMTOP/zii_dout<6>.D = A<4> & A<2> & !A<1> & !A<6> & !A<5> & !A<3>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	# !A<4> & !A<2> & RAMTOP/AUTOCONFIG/config_out<1> & 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	!RAMTOP/zii_dout<6> & !A<6> & !A<5> & !A<3>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	# !A<4> & RAMTOP/AUTOCONFIG/config_out<1> & 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	!RAMTOP/zii_dout<6> & !A<1> & !A<6> & !A<5> & !A<3>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;;Imported pterms FB2_12
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	# !A<4> & !A<2> & !RAMTOP/AUTOCONFIG/config_out<1> & 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	RAMTOP/AUTOCONFIG/config_out<0> & A<1> & !A<6> & !A<5> & !A<3>;
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;   RAMTOP/zii_dout<6>.CLK = !DS20;
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;   RAMTOP/zii_dout<6>.AP = !RESET;    
 </td></tr><tr><td>
-FDCPE_RAMTOP/AUTOCONFIG/configured0: FDCPE port map (RAMTOP/AUTOCONFIG/configured(0),'1',NOT DS20,NOT RESET,'0',RAMTOP/AUTOCONFIG/configured_CE(0));
-<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;RAMTOP/AUTOCONFIG/configured_CE(0) <= (A(22) AND A(21) AND A(19) AND NOT A(16) AND A(23) AND NOT A(20) AND 
-<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT A(18) AND NOT A(17) AND NOT A(4) AND NOT A(2) AND NOT RW20 AND 
-<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT RAMTOP/AUTOCONFIG/config_out(1) AND NOT RAMTOP/AUTOCONFIG/config_out(0) AND NOT A(1) AND A(6) AND 
-<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT A(5) AND A(3));
+!RAMTOP/zii_dout<7>.D = A<4> & A<2> & !A<6> & !A<5> & !A<3>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	# !A<4> & !A<2> & !RAMTOP/zii_dout<7> & A<1> & !A<6> & 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	!A<5> & !A<3>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	# !A<4> & RAMTOP/AUTOCONFIG/config_out<1> & 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	!RAMTOP/zii_dout<7> & !A<1> & !A<6> & !A<5> & !A<3>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;;Imported pterms FB2_17
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	# !A<4> & !A<2> & !A<1> & !A<6> & !A<5> & A<3>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	# !A<4> & !A<2> & !RAMTOP/AUTOCONFIG/config_out<1> & 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	A<1> & !A<6> & !A<5> & !A<3>
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	# A<2> & !RAMTOP/AUTOCONFIG/config_out<1> & 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	RAMTOP/AUTOCONFIG/config_out<0> & !A<1> & !A<6> & !A<5> & !A<3>;
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;   RAMTOP/zii_dout<7>.CLK = !DS20;
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;   RAMTOP/zii_dout<7>.AP = !RESET;    
 </td></tr><tr><td>
-FDCPE_RAMTOP/AUTOCONFIG/configured1: FDCPE port map (RAMTOP/AUTOCONFIG/configured(1),'1',NOT DS20,NOT RESET,'0',RAMTOP/AUTOCONFIG/configured_CE(1));
-<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;RAMTOP/AUTOCONFIG/configured_CE(1) <= (A(22) AND A(21) AND A(19) AND NOT A(16) AND A(23) AND NOT A(20) AND 
-<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT A(18) AND NOT A(17) AND NOT A(4) AND NOT A(2) AND NOT RW20 AND 
-<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT RAMTOP/AUTOCONFIG/config_out(1) AND RAMTOP/AUTOCONFIG/config_out(0) AND NOT A(1) AND A(6) AND 
-<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT A(5) AND A(3));
+SPI_CLK = Gnd;    
 </td></tr><tr><td>
-FDCPE_RAMTOP/AUTOCONFIG/shutup0: FDCPE port map (RAMTOP/AUTOCONFIG/shutup(0),'1',NOT DS20,NOT RESET,'0',RAMTOP/AUTOCONFIG/shutup_CE(0));
-<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;RAMTOP/AUTOCONFIG/shutup_CE(0) <= (A(22) AND A(21) AND A(19) AND NOT A(16) AND A(23) AND NOT A(20) AND 
-<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT A(18) AND NOT A(17) AND NOT A(4) AND A(2) AND NOT RW20 AND 
-<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT RAMTOP/AUTOCONFIG/config_out(1) AND NOT RAMTOP/AUTOCONFIG/config_out(0) AND NOT A(1) AND A(6) AND 
-<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT A(5) AND A(3));
+SPI_CS<0> = Vcc;    
 </td></tr><tr><td>
-FDCPE_RAMTOP/AUTOCONFIG/shutup1: FDCPE port map (RAMTOP/AUTOCONFIG/shutup(1),'1',NOT DS20,NOT RESET,'0',RAMTOP/AUTOCONFIG/shutup_CE(1));
-<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;RAMTOP/AUTOCONFIG/shutup_CE(1) <= (A(22) AND A(21) AND A(19) AND NOT A(16) AND A(23) AND NOT A(20) AND 
-<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT A(18) AND NOT A(17) AND NOT A(4) AND A(2) AND NOT RW20 AND 
-<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT RAMTOP/AUTOCONFIG/config_out(1) AND RAMTOP/AUTOCONFIG/config_out(0) AND NOT A(1) AND A(6) AND 
-<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT A(5) AND A(3));
+SPI_CS<1> = Vcc;    
 </td></tr><tr><td>
-FTCPE_RAMTOP/GAYLE/INT_CHNG: FTCPE port map (RAMTOP/GAYLE/INT_CHNG,RAMTOP/GAYLE/INT_CHNG_T,RAMTOP/GAYLE/INT_CHNG_C,NOT RESET,RAMTOP/GAYLE/INT_CHNG_PRE);
-<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;RAMTOP/GAYLE/INT_CHNG_T <= (NOT AS20 AND RAMTOP/GAYLE/INT_CHNG AND NOT D(7).PIN AND A(22) AND 
-<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT A(21) AND A(19) AND NOT A(16) AND A(23) AND A(20) AND NOT A(18) AND A(17) AND 
-<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	A(15) AND NOT A(13) AND NOT RW20 AND A(12));
-<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;RAMTOP/GAYLE/INT_CHNG_C <= (NOT AS20 AND A(22) AND NOT A(21) AND A(19) AND NOT A(16) AND A(23) AND 
-<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	A(20) AND A(17) AND NOT DS20 AND $OpTx$FX_DC$34);
-<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;RAMTOP/GAYLE/INT_CHNG_PRE <= (RAMTOP/GAYLE/intena AND IDEINT AND 
-<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT RAMTOP/GAYLE/intlast);
+SPI_MOSI = Gnd;    
 </td></tr><tr><td>
-FTCPE_RAMTOP/GAYLE/gayleid1: FTCPE port map (RAMTOP/GAYLE/gayleid(1),RAMTOP/GAYLE/gayleid_T(1),RAMTOP/GAYLE/gayleid_C(1),NOT RESET,'0');
-<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;RAMTOP/GAYLE/gayleid_T(1) <= ((A(18) AND NOT A(13) AND RW20 AND A(12) AND 
-<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT RAMTOP/GAYLE/gayleid(1))
-<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (A(18) AND NOT A(13) AND NOT RW20 AND A(12) AND 
-<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	RAMTOP/GAYLE/gayleid(1)));
-<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;RAMTOP/GAYLE/gayleid_C(1) <= (NOT AS20 AND A(22) AND NOT A(21) AND A(19) AND NOT A(16) AND A(23) AND 
-<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	A(20) AND A(17) AND NOT DS20 AND $OpTx$FX_DC$34);
-</td></tr><tr><td>
-FTCPE_RAMTOP/GAYLE/gayleid2: FTCPE port map (RAMTOP/GAYLE/gayleid(2),RAMTOP/GAYLE/gayleid_T(2),RAMTOP/GAYLE/gayleid_C(2),'0',NOT RESET);
-<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;RAMTOP/GAYLE/gayleid_T(2) <= ((A(18) AND NOT A(13) AND NOT RW20 AND A(12) AND 
-<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT RAMTOP/GAYLE/gayleid(2))
-<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (A(18) AND NOT A(13) AND A(12) AND RAMTOP/GAYLE/gayleid(1) AND 
-<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT RAMTOP/GAYLE/gayleid(2))
-<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (A(18) AND NOT A(13) AND RW20 AND A(12) AND 
-<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT RAMTOP/GAYLE/gayleid(1) AND RAMTOP/GAYLE/gayleid(2)));
-<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;RAMTOP/GAYLE/gayleid_C(2) <= (NOT AS20 AND A(22) AND NOT A(21) AND A(19) AND NOT A(16) AND A(23) AND 
-<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	A(20) AND A(17) AND NOT DS20 AND $OpTx$FX_DC$34);
-</td></tr><tr><td>
-FTCPE_RAMTOP/GAYLE/gayleid3: FTCPE port map (RAMTOP/GAYLE/gayleid(3),RAMTOP/GAYLE/gayleid_T(3),RAMTOP/GAYLE/gayleid_C(3),'0',NOT RESET);
-<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;RAMTOP/GAYLE/gayleid_T(3) <= ((A(18) AND NOT A(13) AND NOT RW20 AND A(12) AND 
-<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT RAMTOP/GAYLE/gayleid(3))
-<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (A(18) AND NOT A(13) AND A(12) AND RAMTOP/GAYLE/gayleid(2) AND 
-<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT RAMTOP/GAYLE/gayleid(3))
-<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (A(18) AND NOT A(13) AND RW20 AND A(12) AND 
-<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT RAMTOP/GAYLE/gayleid(2) AND RAMTOP/GAYLE/gayleid(3)));
-<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;RAMTOP/GAYLE/gayleid_C(3) <= (NOT AS20 AND A(22) AND NOT A(21) AND A(19) AND NOT A(16) AND A(23) AND 
-<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	A(20) AND A(17) AND NOT DS20 AND $OpTx$FX_DC$34);
-</td></tr><tr><td>
-FDCPE_RAMTOP/GAYLE/intena: FDCPE port map (RAMTOP/GAYLE/intena,D(7).PIN,RAMTOP/GAYLE/intena_C,NOT RESET,'0',RAMTOP/GAYLE/intena_CE);
-<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;RAMTOP/GAYLE/intena_C <= (NOT AS20 AND A(22) AND NOT A(21) AND A(19) AND NOT A(16) AND A(23) AND 
-<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	A(20) AND A(17) AND NOT DS20 AND $OpTx$FX_DC$34);
-<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;RAMTOP/GAYLE/intena_CE <= (NOT A(18) AND A(13) AND NOT RW20 AND NOT A(12));
-</td></tr><tr><td>
-FDCPE_RAMTOP/GAYLE/intlast: FDCPE port map (RAMTOP/GAYLE/intlast,IDEINT,CLKCPU,'0','0');
-</td></tr><tr><td>
-FDCPE_RAMTOP/WAITSTATE: FDCPE port map (RAMTOP/WAITSTATE,RAMTOP/WAITSTATE_D,CLKCPU,'0',AS20);
-<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;RAMTOP/WAITSTATE_D <= (NOT AS20 AND NOT A(22) AND A(21) AND NOT A(23) AND NOT DS20 AND 
-<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT RAMTOP/AUTOCONFIG/shutup(0));
-</td></tr><tr><td>
-FDCPE_RAMTOP/gayle_dout: FDCPE port map (RAMTOP/gayle_dout,RAMTOP/gayle_dout_D,RAMTOP/gayle_dout_C,'0','0',RESET);
-<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;RAMTOP/gayle_dout_D <= ((RAMTOP/GAYLE/intena AND NOT A(18) AND A(13) AND RW20 AND 
-<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT A(12))
-<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (NOT A(18) AND A(13) AND NOT RW20 AND NOT A(12) AND 
-<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	RAMTOP/gayle_dout)
-<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (NOT A(18) AND NOT A(13) AND RW20 AND NOT A(12) AND IDEINT)
-<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (RAMTOP/GAYLE/INT_CHNG AND NOT A(18) AND NOT A(13) AND RW20 AND 
-<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	A(12))
-<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (A(18) AND NOT A(13) AND RW20 AND A(12) AND 
-<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	RAMTOP/GAYLE/gayleid(3))
-<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (A(18) AND NOT A(13) AND NOT RW20 AND A(12) AND 
-<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	RAMTOP/gayle_dout));
-<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;RAMTOP/gayle_dout_C <= (NOT AS20 AND A(22) AND NOT A(21) AND A(19) AND NOT A(16) AND A(23) AND 
-<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	A(20) AND A(17) AND NOT DS20 AND $OpTx$FX_DC$34);
-</td></tr><tr><td>
-FDCPE_RAMTOP/intcycle_dout: FDCPE port map (RAMTOP/intcycle_dout,RAMTOP/intcycle_dout_D,CLKCPU,'0',AS20);
-<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;RAMTOP/intcycle_dout_D <= ((NOT AS20 AND A(22) AND A(21) AND A(19) AND NOT A(16) AND A(23) AND 
-<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT A(20) AND NOT A(18) AND NOT A(17) AND RW20 AND 
-<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT RAMTOP/AUTOCONFIG/config_out(0))
-<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (NOT AS20 AND A(22) AND A(21) AND A(19) AND A(16) AND A(23) AND 
-<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT A(20) AND NOT A(18) AND NOT A(17) AND RW20 AND 
-<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT RAMTOP/AUTOCONFIG/shutup(1))
-<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (NOT AS20 AND A(22) AND A(21) AND A(19) AND NOT A(16) AND A(23) AND 
-<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT A(20) AND NOT A(18) AND NOT A(17) AND RW20 AND 
-<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT RAMTOP/AUTOCONFIG/config_out(1))
-<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (NOT AS20 AND A(22) AND NOT A(21) AND A(19) AND NOT A(16) AND A(23) AND 
-<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	A(20) AND A(18) AND A(17) AND NOT A(15) AND RW20)
-<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (NOT AS20 AND A(22) AND NOT A(21) AND A(19) AND NOT A(16) AND A(23) AND 
-<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	A(20) AND NOT A(18) AND A(17) AND A(15) AND RW20));
-</td></tr><tr><td>
-FDCPE_RAMTOP/zii_dout4: FDCPE port map (RAMTOP/zii_dout(4),RAMTOP/zii_dout_D(4),NOT DS20,'0',NOT RESET);
-<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;RAMTOP/zii_dout_D(4) <= ((NOT A(4) AND A(2) AND A(1) AND NOT A(6) AND NOT A(5) AND NOT A(3))
-<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (NOT A(4) AND A(2) AND NOT A(1) AND NOT A(6) AND A(5) AND NOT A(3))
-<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (NOT A(4) AND RAMTOP/AUTOCONFIG/config_out(1) AND 
-<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT RAMTOP/zii_dout(4) AND NOT A(6) AND NOT A(5) AND NOT A(3))
-<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (NOT A(2) AND RAMTOP/AUTOCONFIG/config_out(1) AND 
-<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT RAMTOP/zii_dout(4) AND NOT A(6) AND NOT A(5) AND NOT A(3))
-<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (NOT A(2) AND NOT RAMTOP/AUTOCONFIG/config_out(1) AND NOT A(1) AND 
-<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT A(6) AND NOT A(5) AND NOT A(3))
-<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (A(4) AND NOT A(2) AND NOT A(6) AND NOT A(5) AND NOT A(3))
-<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (A(4) AND NOT A(1) AND NOT A(6) AND NOT A(5) AND NOT A(3))
-<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (NOT A(2) AND NOT RAMTOP/AUTOCONFIG/config_out(1) AND 
-<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT RAMTOP/AUTOCONFIG/config_out(0) AND NOT A(6) AND NOT A(5) AND NOT A(3)));
-</td></tr><tr><td>
-FDCPE_RAMTOP/zii_dout5: FDCPE port map (RAMTOP/zii_dout(5),RAMTOP/zii_dout_D(5),NOT DS20,'0',NOT RESET);
-<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;RAMTOP/zii_dout_D(5) <= ((NOT A(4) AND NOT A(2) AND NOT RAMTOP/AUTOCONFIG/config_out(1) AND 
-<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	RAMTOP/AUTOCONFIG/config_out(0) AND NOT A(6) AND NOT A(5) AND NOT A(3))
-<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (NOT A(4) AND RAMTOP/AUTOCONFIG/config_out(1) AND 
-<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT RAMTOP/zii_dout(5) AND NOT A(1) AND NOT A(6) AND NOT A(5) AND NOT A(3))
-<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (NOT A(4) AND A(1) AND NOT A(6) AND A(5) AND NOT A(3))
-<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (A(4) AND NOT A(2) AND A(1) AND NOT A(6) AND NOT A(5) AND NOT A(3))
-<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (NOT A(2) AND RAMTOP/AUTOCONFIG/config_out(1) AND 
-<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT RAMTOP/zii_dout(5) AND A(1) AND NOT A(6) AND NOT A(5) AND NOT A(3)));
-</td></tr><tr><td>
-FDCPE_RAMTOP/zii_dout6: FDCPE port map (RAMTOP/zii_dout(6),RAMTOP/zii_dout_D(6),NOT DS20,'0',NOT RESET);
-<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;RAMTOP/zii_dout_D(6) <= ((NOT A(4) AND NOT A(2) AND NOT RAMTOP/AUTOCONFIG/config_out(1) AND 
-<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	RAMTOP/AUTOCONFIG/config_out(0) AND A(1) AND NOT A(6) AND NOT A(5) AND NOT A(3))
-<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (A(4) AND A(2) AND NOT A(1) AND NOT A(6) AND NOT A(5) AND NOT A(3))
-<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (NOT A(4) AND NOT A(2) AND RAMTOP/AUTOCONFIG/config_out(1) AND 
-<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT RAMTOP/zii_dout(6) AND NOT A(6) AND NOT A(5) AND NOT A(3))
-<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (NOT A(4) AND RAMTOP/AUTOCONFIG/config_out(1) AND 
-<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT RAMTOP/zii_dout(6) AND NOT A(1) AND NOT A(6) AND NOT A(5) AND NOT A(3)));
-</td></tr><tr><td>
-FDCPE_RAMTOP/zii_dout7: FDCPE port map (RAMTOP/zii_dout(7),RAMTOP/zii_dout_D(7),NOT DS20,'0',NOT RESET);
-<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;RAMTOP/zii_dout_D(7) <= ((NOT A(4) AND NOT A(2) AND NOT A(1) AND NOT A(6) AND NOT A(5) AND A(3))
-<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (NOT A(4) AND NOT A(2) AND NOT RAMTOP/AUTOCONFIG/config_out(1) AND 
-<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	A(1) AND NOT A(6) AND NOT A(5) AND NOT A(3))
-<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (A(2) AND NOT RAMTOP/AUTOCONFIG/config_out(1) AND 
-<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	RAMTOP/AUTOCONFIG/config_out(0) AND NOT A(1) AND NOT A(6) AND NOT A(5) AND NOT A(3))
-<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (A(4) AND A(2) AND NOT A(6) AND NOT A(5) AND NOT A(3))
-<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (NOT A(4) AND NOT A(2) AND NOT RAMTOP/zii_dout(7) AND A(1) AND NOT A(6) AND 
-<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT A(5) AND NOT A(3))
-<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (NOT A(4) AND RAMTOP/AUTOCONFIG/config_out(1) AND 
-<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT RAMTOP/zii_dout(7) AND NOT A(1) AND NOT A(6) AND NOT A(5) AND NOT A(3)));
-</td></tr><tr><td>
-</td></tr><tr><td>
-SPI_CLK <= '0';
-</td></tr><tr><td>
-</td></tr><tr><td>
-SPI_CS(0) <= '1';
-</td></tr><tr><td>
-</td></tr><tr><td>
-SPI_CS(1) <= '1';
-</td></tr><tr><td>
-</td></tr><tr><td>
-SPI_MOSI <= '0';
-</td></tr><tr><td>
-FDCPE_STERM: FDCPE port map (STERM,RAMTOP/WAITSTATE,CLKCPU,'0',AS20);
-</td></tr><tr><td>
-Register Legend:
-<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; FDCPE (Q,D,C,CLR,PRE,CE); 
-<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; FTCPE (Q,D,C,CLR,PRE,CE); 
-<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; LDCP  (Q,D,G,CLR,PRE); 
+STERM.D = RAMTOP/WAITSTATE;
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;   STERM.CLK = CLKCPU;	// GCK
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;   STERM.AP = AS20;    
 </td></tr><tr><td>
 </td></tr>
 </table>

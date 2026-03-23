@@ -5,7 +5,7 @@
 <design name='tf530r3_bus_top'/>
 <rptdir name='tf530r3_bus_top'/>
 <xilinx path='/opt/Xilinx/14.7/ISE_DS/ISE:'/>
-<projDir path='/home/ise/Development/TF530_rev3/tf530r3_bus_top'/>
+<projDir path='/home/ise/Development/TF530/tf530r3_bus_top'/>
 <xslDir path='chipviewer/data/xsl'/>
 <fileDir path='/chipviewer/data/html'/>
 <dataFile file='index.htm'/>

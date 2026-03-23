@@ -23,3 +23,14 @@ cpldfit -intstyle ise -p xc9572xl-10-VQ64 -ofmt vhdl -optimize speed -htmlrpt -l
 XSLTProcess tf530r3_bus_top_build.xml 
 tsim -intstyle ise tf530r3_bus_top tf530r3_bus_top.nga 
 hprep6 -s IEEE1149 -n tf530r3_bus_top -i tf530r3_bus_top 
+xst -intstyle ise -ifn "/home/ise/Development/TF530/tf530r3_bus_top/tf530r3_bus_top.xst" -ofn "/home/ise/Development/TF530/tf530r3_bus_top/tf530r3_bus_top.syr" 
+ngdbuild -intstyle ise -dd _ngo -uc /home/ise/Development/TF530/files/tf530r3_bus.ucf -p xc9572xl-VQ64-10 tf530r3_bus_top.ngc tf530r3_bus_top.ngd  
+cpldfit -intstyle ise -p xc9572xl-10-VQ64 -ofmt vhdl -optimize speed -htmlrpt -loc on -slew fast -init low -inputs 54 -pterms 25 -unused float -power std -terminate keeper tf530r3_bus_top.ngd 
+XSLTProcess tf530r3_bus_top_build.xml 
+tsim -intstyle ise tf530r3_bus_top tf530r3_bus_top.nga 
+hprep6 -s IEEE1149 -n tf530r3_bus_top -i tf530r3_bus_top 
+ngdbuild -intstyle ise -dd _ngo -uc /home/ise/Development/TF530/files/tf530r3_bus.ucf -p xc9572xl-VQ64-10 tf530r3_bus_top.ngc tf530r3_bus_top.ngd  
+cpldfit -intstyle ise -p xc9572xl-10-VQ64 -ofmt vhdl -optimize speed -htmlrpt -loc on -slew fast -init low -inputs 54 -pterms 25 -unused float -power std -terminate keeper tf530r3_bus_top.ngd 
+XSLTProcess tf530r3_bus_top_build.xml 
+tsim -intstyle ise tf530r3_bus_top tf530r3_bus_top.nga 
+hprep6 -s IEEE1149 -n tf530r3_bus_top -i tf530r3_bus_top 

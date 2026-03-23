@@ -41,7 +41,7 @@ NGDBUILD Design Results Summary:
   Number of errors:     0
   Number of warnings:   2
 
-Total memory usage is 485132 kilobytes
+Total memory usage is 485136 kilobytes
 
 Writing NGD file "tf530r3_bus_top.ngd" ...
 Total REAL time to NGDBUILD completion:  1 sec

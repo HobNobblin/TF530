@@ -83,30 +83,24 @@
       <outfile xil_pn:name="webtalk_pn.xml"/>
       <outfile xil_pn:name="xst"/>
     </transform>
-    <transform xil_pn:end_ts="1774210315" xil_pn:in_ck="-4207870599024479751" xil_pn:name="TRAN_compileBCD2" xil_pn:prop_ck="5524089477000536084" xil_pn:start_ts="1774210315">
+    <transform xil_pn:end_ts="1774235243" xil_pn:in_ck="-4207870599024479751" xil_pn:name="TRAN_compileBCD2" xil_pn:prop_ck="5524089477000536084" xil_pn:start_ts="1774235243">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
-      <status xil_pn:value="OutOfDateForInputs"/>
-      <status xil_pn:value="InputChanged"/>
     </transform>
-    <transform xil_pn:end_ts="1774235084" xil_pn:in_ck="-7178446237850538447" xil_pn:name="TRAN_ngdbuild" xil_pn:prop_ck="-2081320714713457669" xil_pn:start_ts="1774235080">
+    <transform xil_pn:end_ts="1774235247" xil_pn:in_ck="-7178446237850538447" xil_pn:name="TRAN_ngdbuild" xil_pn:prop_ck="-2081320714713457669" xil_pn:start_ts="1774235243">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="WarningsGenerated"/>
       <status xil_pn:value="ReadyToRun"/>
-      <status xil_pn:value="OutOfDateForInputs"/>
-      <status xil_pn:value="OutOfDateForPredecessor"/>
-      <status xil_pn:value="InputChanged"/>
       <outfile xil_pn:name="_ngo"/>
       <outfile xil_pn:name="_xmsgs/ngdbuild.xmsgs"/>
       <outfile xil_pn:name="tf530r3_bus_top.bld"/>
       <outfile xil_pn:name="tf530r3_bus_top.ngd"/>
       <outfile xil_pn:name="tf530r3_bus_top_ngdbuild.xrpt"/>
     </transform>
-    <transform xil_pn:end_ts="1774235092" xil_pn:in_ck="7550953641863250137" xil_pn:name="TRANEXT_vm6File_xc9500xl" xil_pn:prop_ck="-7803592096684451546" xil_pn:start_ts="1774235084">
+    <transform xil_pn:end_ts="1774235254" xil_pn:in_ck="7550953641863250137" xil_pn:name="TRANEXT_vm6File_xc9500xl" xil_pn:prop_ck="-7803592096684451546" xil_pn:start_ts="1774235247">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="WarningsGenerated"/>
       <status xil_pn:value="ReadyToRun"/>
-      <status xil_pn:value="OutOfDateForPredecessor"/>
       <outfile xil_pn:name="tf530r3_bus_top.gyd"/>
       <outfile xil_pn:name="tf530r3_bus_top.mfd"/>
       <outfile xil_pn:name="tf530r3_bus_top.nga"/>
@@ -121,10 +115,9 @@
       <outfile xil_pn:name="tf530r3_bus_top_html"/>
       <outfile xil_pn:name="tf530r3_bus_top_pad.csv"/>
     </transform>
-    <transform xil_pn:end_ts="1774235094" xil_pn:in_ck="7550953641863259001" xil_pn:name="TRANEXT_crtProg_xc9500" xil_pn:prop_ck="-6294026017969277533" xil_pn:start_ts="1774235092">
+    <transform xil_pn:end_ts="1774235257" xil_pn:in_ck="7550953641863259001" xil_pn:name="TRANEXT_crtProg_xc9500" xil_pn:prop_ck="-6294026017969277533" xil_pn:start_ts="1774235254">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
-      <status xil_pn:value="OutOfDateForPredecessor"/>
       <outfile xil_pn:name="tf530r3_bus_top.jed"/>
     </transform>
     <transform xil_pn:end_ts="1774210333" xil_pn:in_ck="7550953641863259001" xil_pn:name="TRAN_timRpt" xil_pn:prop_ck="111903974446" xil_pn:start_ts="1774210330">
@@ -132,7 +125,6 @@
       <status xil_pn:value="WarningsGenerated"/>
       <status xil_pn:value="ReadyToRun"/>
       <status xil_pn:value="OutOfDateForInputs"/>
-      <status xil_pn:value="OutOfDateForPredecessor"/>
       <status xil_pn:value="InputChanged"/>
     </transform>
   </transforms>

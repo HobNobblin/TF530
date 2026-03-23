@@ -1,9 +1,9 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <report-views version="2.0" >
  <header>
-  <DateModified>2026-03-23T00:34:16</DateModified>
+  <DateModified>2026-03-23T00:49:26</DateModified>
   <ModuleName>tf530r3_bus_top</ModuleName>
-  <SummaryTimeStamp>2026-03-23T00:34:13</SummaryTimeStamp>
+  <SummaryTimeStamp>2026-03-23T00:49:22</SummaryTimeStamp>
   <SavedFilePath>/home/mfawcett/Development/TF530/tf530r3_bus_top/iseconfig/tf530r3_bus_top.xreport</SavedFilePath>
   <ImplementationReportsDirectory>/home/mfawcett/Development/TF530/tf530r3_bus_top/</ImplementationReportsDirectory>
   <DateInitialized>2026-03-22T20:11:46</DateInitialized>

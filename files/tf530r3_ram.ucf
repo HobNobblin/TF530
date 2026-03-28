@@ -76,3 +76,6 @@ NET "SPI_CS<1>"      LOC="8";
 NET "SPI_MISO"      LOC="6";
 NET "SPI_MOSI"      LOC="5";
 NET "STERM"      LOC="43";
+
+# Force intcycle_dout into FB3 so OE stays in FB3
+INST "RAMTOP/intcycle_dout" LOC = "FB3_18";

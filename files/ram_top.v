@@ -200,7 +200,7 @@ always @(posedge CLKCPU) begin
 	CLKB2 <= ~CLKB2;
 	
     // Use combinatorial zii_decode instead of registered zii_access to avoid race
-    data_out[15:12] <= spi_access ? (zii_decode ? {gayle_dout,3'b000} : zii_dout ) : spi_dout[7:4];
+    // data_out[15:12] driven by combinatorial/latched diag_e8 path
     data_out[11:8] <= spi_access ? 4'd0 : spi_dout[3:0];
     data_out[7:0] <=  8'hFF;
 
@@ -299,14 +299,43 @@ assign SLOWCYCLE = SLOWCYCLE_D  & INT2_STERM;
 
 // INTCYCLE: assert for fast RAM cycles AND AutoConfig/Gayle cycles
 // BUS CPLD uses SLOWCYCLE (derived from INTCYCLE) to time DSACK1
-assign INTCYCLE = ram_access & INT2_INTCYCLE;
+// INTCYCLE goes low for both fast RAM and TF530 AutoConfig cycles
+assign INTCYCLE = ram_access & INT2_INTCYCLE & zii_decode;
 assign IDEWAIT = (INT2_IDEWAIT & RAMOE) ? 1'b1: 1'b0;
 
 // disable all burst control.
 assign STERM = STERM_D;
 assign INT2 = GAYLE_INT2;
 
-assign D[15:0] = ~intcycle_dout ? data_out : 16'bzzzzzzzz_zzzzzzzz;
+wire diag_e8 = A[23] & A[22] & A[21] & ~A[20] & A[19];
+// Latch A[1:6] on negedge AS20 - captures stable address at cycle start
+reg a1_lat = 0, a2_lat = 0, a3_lat = 0;
+reg a4_lat = 0, a5_lat = 0, a6_lat = 0;
+always @(negedge AS20) begin
+    a1_lat <= A[1]; a2_lat <= A[2]; a3_lat <= A[3];
+    a4_lat <= A[4]; a5_lat <= A[5]; a6_lat <= A[6];
+end
+// Full AutoConfig ROM using latched address bits
+// nac_N = 1 means bit N of nibble = 0
+wire nac7 = ( a1_lat & ~a2_lat & ~a3_lat & ~a4_lat & ~a5_lat & ~a6_lat)
+           |(~a1_lat & ~a2_lat &  a3_lat & ~a4_lat & ~a5_lat & ~a6_lat)
+           |(~a1_lat &  a2_lat & ~a3_lat &  a4_lat & ~a5_lat & ~a6_lat)
+           |( a1_lat &  a2_lat & ~a3_lat &  a4_lat & ~a5_lat & ~a6_lat);
+wire nac6 = (~a1_lat &  a2_lat & ~a3_lat &  a4_lat & ~a5_lat & ~a6_lat);
+wire nac5 = ( a1_lat & ~a2_lat & ~a3_lat &  a4_lat & ~a5_lat & ~a6_lat)
+           |( a1_lat & ~a2_lat & ~a3_lat & ~a4_lat &  a5_lat & ~a6_lat)
+           |( a1_lat &  a2_lat & ~a3_lat & ~a4_lat &  a5_lat & ~a6_lat);
+wire nac4 = (~a1_lat & ~a2_lat & ~a3_lat & ~a4_lat & ~a5_lat & ~a6_lat)
+           |( a1_lat & ~a2_lat & ~a3_lat & ~a4_lat & ~a5_lat & ~a6_lat)
+           |( a1_lat &  a2_lat & ~a3_lat & ~a4_lat & ~a5_lat & ~a6_lat)
+           |(~a1_lat & ~a2_lat & ~a3_lat &  a4_lat & ~a5_lat & ~a6_lat)
+           |( a1_lat & ~a2_lat & ~a3_lat &  a4_lat & ~a5_lat & ~a6_lat)
+           |(~a1_lat &  a2_lat & ~a3_lat &  a4_lat & ~a5_lat & ~a6_lat)
+           |(~a1_lat &  a2_lat & ~a3_lat & ~a4_lat &  a5_lat & ~a6_lat);
+wire [15:0] d_val = {diag_e8 & ~nac7, diag_e8 & ~nac6,
+                     diag_e8 & ~nac5, diag_e8 & ~nac4,
+                     data_out[11:0]};
+assign D[15:0] = ~intcycle_dout ? d_val : 16'bzzzzzzzz_zzzzzzzz;
 
 assign WRITEPROT = 1'b1;
 assign HOLD = 1'b1;

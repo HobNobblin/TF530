@@ -48,10 +48,11 @@ module fastram(
        );
 
 // ram control lines
-wire RAMCS3n = A[1] | A[0];
-wire RAMCS2n = (~SIZ[1] & SIZ[0] & ~A[0]) | A[1];
-wire RAMCS1n = (SIZ[1] & ~SIZ[0] & ~A[1] & ~A[0]) | (~SIZ[1] & SIZ[0] & ~A[1]) |(A[1] & A[0]);
-wire RAMCS0n = (~SIZ[1] & SIZ[0] & ~A[1] ) | (~SIZ[1] & SIZ[0] & ~A[0] ) | (SIZ[1] & ~A[1] & ~A[0] ) | (SIZ[1] & ~SIZ[0] & ~A[1] );
+wire LINE = SIZ[1] & SIZ[0]; // Line transfer - enable all byte lanes
+wire RAMCS3n = (A[1] | A[0]) & ~LINE;
+wire RAMCS2n = ((~SIZ[1] & SIZ[0] & ~A[0]) | A[1]) & ~LINE;
+wire RAMCS1n = ((SIZ[1] & ~SIZ[0] & ~A[1] & ~A[0]) | (~SIZ[1] & SIZ[0] & ~A[1]) | (A[1] & A[0])) & ~LINE;
+wire RAMCS0n = ((~SIZ[1] & SIZ[0] & ~A[1]) | (~SIZ[1] & SIZ[0] & ~A[0]) | (SIZ[1] & ~A[1] & ~A[0]) | (SIZ[1] & ~SIZ[0] & ~A[1])) & ~LINE;
 
 // disable all the RAM.
 assign RAMOE = ACCESS;
@@ -63,7 +64,7 @@ reg BURSTING;
 reg [1:0] BCOUNT;
 
 // a read cycle at a tag aligned addres. 
-wire CAN_BURST = ({A[3:2]} != 2'b00) | CBREQ | ACCESS | ~RW20;
+wire CAN_BURST = 1'b1; // Burst disabled
 
 assign RAMA[3:2] = BURSTING ? {A[3:2]} : BCOUNT;
 assign CBACK = BURSTING | CBREQ | (BCOUNT == 2'b11);

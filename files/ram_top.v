@@ -70,6 +70,8 @@ module ram_top(
 
 reg STERM_D;
 reg STERM_D2;
+reg STERM_D3;
+reg STERM_D4;
 wire ROM_ACCESS = (A[23:19] != {4'hF, 1'b1}) | AS20;
 
 // produce an internal data strobe
@@ -164,6 +166,7 @@ autoconfig AUTOCONFIG(
 
 wire RAMOE_INT;
 wire [3:0] RAMCS_INT;
+reg [3:0] RAMCS_D = 4'b1111; // extra pipeline for address settling
 
 fastram RAMCONTROL (
 
@@ -246,16 +249,24 @@ always @(posedge CLKCPU, posedge AS20) begin
     if (AS20 == 1'b1) begin
 
         RAMCS <= 4'b1111;
+        RAMCS_D <= 4'b1111;
         RAMOE <= 1'b1;
         WAITSTATE <= 1'b1;
         STERM_D <= 1'b1;
+        STERM_D2 <= 1'b1;
+        STERM_D3 <= 1'b1;
+        STERM_D4 <= 1'b1;
  
     end else begin
 
-        RAMCS <= RAMCS_INT;
+        RAMCS_D <= RAMCS_INT;
+        RAMCS <= RAMCS_D;
         RAMOE <= RAMOE_INT;
         WAITSTATE <= ram_access | DS20;
         STERM_D <= WAITSTATE | (~STERM_D & ~CBACK);
+        STERM_D2 <= STERM_D | (~STERM_D2 & ~CBACK);
+        STERM_D3 <= STERM_D2 | (~STERM_D3 & ~CBACK);
+        STERM_D4 <= STERM_D3 | (~STERM_D4 & ~CBACK);
         
     end
 
@@ -299,16 +310,15 @@ assign SLOWCYCLE = SLOWCYCLE_D  & INT2_STERM;
 
 // INTCYCLE: assert for fast RAM cycles AND AutoConfig/Gayle cycles
 // BUS CPLD uses SLOWCYCLE (derived from INTCYCLE) to time DSACK1
-// INTCYCLE goes low for both fast RAM and TF530 AutoConfig cycles
-assign INTCYCLE = ram_access & INT2_INTCYCLE & zii_decode;
+assign INTCYCLE = ram_access & INT2_INTCYCLE;
 assign IDEWAIT = (INT2_IDEWAIT & RAMOE) ? 1'b1: 1'b0;
 
 // disable all burst control.
-assign STERM = STERM_D;
+assign STERM = STERM_D4 | ram_access; // 4 wait states + guard
 assign INT2 = GAYLE_INT2;
 
 wire diag_e8 = A[23] & A[22] & A[21] & ~A[20] & A[19];
-// Latch A[1:6] on negedge AS20 - captures stable address at cycle start
+// Latch A[1:6] on negedge AS20 to overcome keeper timing issue
 reg a1_lat = 0, a2_lat = 0, a3_lat = 0;
 reg a4_lat = 0, a5_lat = 0, a6_lat = 0;
 always @(negedge AS20) begin
@@ -316,22 +326,27 @@ always @(negedge AS20) begin
     a4_lat <= A[4]; a5_lat <= A[5]; a6_lat <= A[6];
 end
 // Full AutoConfig ROM using latched address bits
-// nac_N = 1 means bit N of nibble = 0
 wire nac7 = ( a1_lat & ~a2_lat & ~a3_lat & ~a4_lat & ~a5_lat & ~a6_lat)
            |(~a1_lat & ~a2_lat &  a3_lat & ~a4_lat & ~a5_lat & ~a6_lat)
            |(~a1_lat &  a2_lat & ~a3_lat &  a4_lat & ~a5_lat & ~a6_lat)
-           |( a1_lat &  a2_lat & ~a3_lat &  a4_lat & ~a5_lat & ~a6_lat);
-wire nac6 = (~a1_lat &  a2_lat & ~a3_lat &  a4_lat & ~a5_lat & ~a6_lat);
+           |( a1_lat &  a2_lat & ~a3_lat &  a4_lat & ~a5_lat & ~a6_lat)
+           |( a1_lat & ~a2_lat &  a3_lat & ~a4_lat & ~a5_lat & ~a6_lat); // zaddr 0x05 er_Flags low=0x0
+wire nac6 = (~a1_lat &  a2_lat & ~a3_lat &  a4_lat & ~a5_lat & ~a6_lat)
+           |( a1_lat & ~a2_lat &  a3_lat & ~a4_lat & ~a5_lat & ~a6_lat); // zaddr 0x05 er_Flags low=0x0
 wire nac5 = ( a1_lat & ~a2_lat & ~a3_lat &  a4_lat & ~a5_lat & ~a6_lat)
            |( a1_lat & ~a2_lat & ~a3_lat & ~a4_lat &  a5_lat & ~a6_lat)
-           |( a1_lat &  a2_lat & ~a3_lat & ~a4_lat &  a5_lat & ~a6_lat);
+           |( a1_lat &  a2_lat & ~a3_lat & ~a4_lat &  a5_lat & ~a6_lat)
+           |(~a1_lat & ~a2_lat &  a3_lat & ~a4_lat & ~a5_lat & ~a6_lat) // zaddr 0x04 er_Flags high=0x4
+           |( a1_lat & ~a2_lat &  a3_lat & ~a4_lat & ~a5_lat & ~a6_lat); // zaddr 0x05 er_Flags low=0x0
 wire nac4 = (~a1_lat & ~a2_lat & ~a3_lat & ~a4_lat & ~a5_lat & ~a6_lat)
            |( a1_lat & ~a2_lat & ~a3_lat & ~a4_lat & ~a5_lat & ~a6_lat)
            |( a1_lat &  a2_lat & ~a3_lat & ~a4_lat & ~a5_lat & ~a6_lat)
            |(~a1_lat & ~a2_lat & ~a3_lat &  a4_lat & ~a5_lat & ~a6_lat)
            |( a1_lat & ~a2_lat & ~a3_lat &  a4_lat & ~a5_lat & ~a6_lat)
            |(~a1_lat &  a2_lat & ~a3_lat &  a4_lat & ~a5_lat & ~a6_lat)
-           |(~a1_lat &  a2_lat & ~a3_lat & ~a4_lat &  a5_lat & ~a6_lat);
+           |(~a1_lat &  a2_lat & ~a3_lat & ~a4_lat &  a5_lat & ~a6_lat)
+           |(~a1_lat & ~a2_lat &  a3_lat & ~a4_lat & ~a5_lat & ~a6_lat) // zaddr 0x04 er_Flags high=0x4
+           |( a1_lat & ~a2_lat &  a3_lat & ~a4_lat & ~a5_lat & ~a6_lat); // zaddr 0x05 er_Flags low=0x0
 wire [15:0] d_val = {diag_e8 & ~nac7, diag_e8 & ~nac6,
                      diag_e8 & ~nac5, diag_e8 & ~nac4,
                      data_out[11:0]};

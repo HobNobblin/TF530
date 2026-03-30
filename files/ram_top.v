@@ -337,7 +337,8 @@ wire nac5 = ( a1_lat & ~a2_lat & ~a3_lat &  a4_lat & ~a5_lat & ~a6_lat)
            |( a1_lat & ~a2_lat & ~a3_lat & ~a4_lat &  a5_lat & ~a6_lat)
            |( a1_lat &  a2_lat & ~a3_lat & ~a4_lat &  a5_lat & ~a6_lat)
            |(~a1_lat & ~a2_lat &  a3_lat & ~a4_lat & ~a5_lat & ~a6_lat) // zaddr 0x04 er_Flags high=0x4
-           |( a1_lat & ~a2_lat &  a3_lat & ~a4_lat & ~a5_lat & ~a6_lat); // zaddr 0x05 er_Flags low=0x0
+           |( a1_lat & ~a2_lat &  a3_lat & ~a4_lat & ~a5_lat & ~a6_lat) // zaddr 0x05 er_Flags low=0x0
+           |(~a1_lat & ~a2_lat & ~a3_lat & ~a4_lat & ~a5_lat & ~a6_lat); // zaddr 0x00 MEMLIST=0
 wire nac4 = (~a1_lat & ~a2_lat & ~a3_lat & ~a4_lat & ~a5_lat & ~a6_lat)
            |( a1_lat & ~a2_lat & ~a3_lat & ~a4_lat & ~a5_lat & ~a6_lat)
            |( a1_lat &  a2_lat & ~a3_lat & ~a4_lat & ~a5_lat & ~a6_lat)

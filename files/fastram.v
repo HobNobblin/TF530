@@ -58,7 +58,7 @@ wire RAMCS0n = ((~SIZ[1] & SIZ[0] & ~A[1]) | (~SIZ[1] & SIZ[0] & ~A[0]) | (SIZ[1
 assign RAMOE = ACCESS;
 assign RAMCS = {4{ACCESS}} | ({ RAMCS3n, RAMCS2n, RAMCS1n , RAMCS0n} & {4{~RW20}});
 
-assign CIIN = AS20 | ~ACCESS;
+assign CIIN = 1'b0; // Cache inhibit - fast RAM non-cacheable for KS3.2 compatibility
 
 reg BURSTING;
 reg [1:0] BCOUNT;

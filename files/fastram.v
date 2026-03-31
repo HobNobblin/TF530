@@ -48,7 +48,7 @@ module fastram(
        );
 
 // ram control lines
-wire LINE = SIZ[1] & SIZ[0]; // Line transfer - enable all byte lanes
+wire LINE = SIZ[1] & SIZ[0];
 wire RAMCS3n = (A[1] | A[0]) & ~LINE;
 wire RAMCS2n = ((~SIZ[1] & SIZ[0] & ~A[0]) | A[1]) & ~LINE;
 wire RAMCS1n = ((SIZ[1] & ~SIZ[0] & ~A[1] & ~A[0]) | (~SIZ[1] & SIZ[0] & ~A[1]) | (A[1] & A[0])) & ~LINE;
@@ -58,13 +58,13 @@ wire RAMCS0n = ((~SIZ[1] & SIZ[0] & ~A[1]) | (~SIZ[1] & SIZ[0] & ~A[0]) | (SIZ[1
 assign RAMOE = ACCESS;
 assign RAMCS = {4{ACCESS}} | ({ RAMCS3n, RAMCS2n, RAMCS1n , RAMCS0n} & {4{~RW20}});
 
-assign CIIN = 1'b0; // Cache inhibit - fast RAM non-cacheable for KS3.2 compatibility
+assign CIIN = AS20 | ~ACCESS;
 
 reg BURSTING;
 reg [1:0] BCOUNT;
 
 // a read cycle at a tag aligned addres. 
-wire CAN_BURST = 1'b1; // Burst disabled
+wire CAN_BURST = 1'b1;
 
 assign RAMA[3:2] = BURSTING ? {A[3:2]} : BCOUNT;
 assign CBACK = BURSTING | CBREQ | (BCOUNT == 2'b11);

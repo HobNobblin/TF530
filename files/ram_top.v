@@ -70,8 +70,6 @@ module ram_top(
 
 reg STERM_D;
 reg STERM_D2;
-reg STERM_D3;
-reg STERM_D4;
 wire ROM_ACCESS = (A[23:19] != {4'hF, 1'b1}) | AS20;
 
 // produce an internal data strobe
@@ -166,7 +164,7 @@ autoconfig AUTOCONFIG(
 
 wire RAMOE_INT;
 wire [3:0] RAMCS_INT;
-reg [3:0] RAMCS_D = 4'b1111; // extra pipeline for address settling
+reg [3:0] RAMCS_D = 4'b1111;
 
 fastram RAMCONTROL (
 
@@ -203,7 +201,7 @@ always @(posedge CLKCPU) begin
 	CLKB2 <= ~CLKB2;
 	
     // Use combinatorial zii_decode instead of registered zii_access to avoid race
-    // data_out[15:12] driven by combinatorial/latched diag_e8 path
+    // data_out[15:12] driven by diag_e8 path
     data_out[11:8] <= spi_access ? 4'd0 : spi_dout[3:0];
     data_out[7:0] <=  8'hFF;
 
@@ -254,8 +252,6 @@ always @(posedge CLKCPU, posedge AS20) begin
         WAITSTATE <= 1'b1;
         STERM_D <= 1'b1;
         STERM_D2 <= 1'b1;
-        STERM_D3 <= 1'b1;
-        STERM_D4 <= 1'b1;
  
     end else begin
 
@@ -265,8 +261,6 @@ always @(posedge CLKCPU, posedge AS20) begin
         WAITSTATE <= ram_access | DS20;
         STERM_D <= WAITSTATE | (~STERM_D & ~CBACK);
         STERM_D2 <= STERM_D | (~STERM_D2 & ~CBACK);
-        STERM_D3 <= STERM_D2 | (~STERM_D3 & ~CBACK);
-        STERM_D4 <= STERM_D3 | (~STERM_D4 & ~CBACK);
         
     end
 
@@ -310,44 +304,43 @@ assign SLOWCYCLE = SLOWCYCLE_D  & INT2_STERM;
 
 // INTCYCLE: assert for fast RAM cycles AND AutoConfig/Gayle cycles
 // BUS CPLD uses SLOWCYCLE (derived from INTCYCLE) to time DSACK1
-assign INTCYCLE = ram_access & INT2_INTCYCLE;
+assign INTCYCLE = ram_access & INT2_INTCYCLE & zii_decode; // low during AutoConfig AND fast RAM
 assign IDEWAIT = (INT2_IDEWAIT & RAMOE) ? 1'b1: 1'b0;
 
 // disable all burst control.
-assign STERM = STERM_D4 | ram_access; // 4 wait states + guard
+assign STERM = STERM_D2 | ram_access;
 assign INT2 = GAYLE_INT2;
 
-wire diag_e8 = A[23] & A[22] & A[21] & ~A[20] & A[19];
-// Latch A[1:6] on negedge AS20 to overcome keeper timing issue
+// diag_e8 gated with ~zii_decode: only active during TF530's own AutoConfig
+// zii_decode=0 when 0xE8xxxx AND config_out != 2'b11 (TF530 still active)
+// zii_decode=1 when TF530 done -> diag_e8=0 -> D bus tristated for SupraRAM
+wire diag_e8 = A[23] & A[22] & A[21] & ~A[20] & A[19] & ~zii_decode;
 reg a1_lat = 0, a2_lat = 0, a3_lat = 0;
 reg a4_lat = 0, a5_lat = 0, a6_lat = 0;
 always @(negedge AS20) begin
     a1_lat <= A[1]; a2_lat <= A[2]; a3_lat <= A[3];
     a4_lat <= A[4]; a5_lat <= A[5]; a6_lat <= A[6];
 end
-// Full AutoConfig ROM using latched address bits
-wire nac7 = ( a1_lat & ~a2_lat & ~a3_lat & ~a4_lat & ~a5_lat & ~a6_lat)
-           |(~a1_lat & ~a2_lat &  a3_lat & ~a4_lat & ~a5_lat & ~a6_lat)
-           |(~a1_lat &  a2_lat & ~a3_lat &  a4_lat & ~a5_lat & ~a6_lat)
-           |( a1_lat &  a2_lat & ~a3_lat &  a4_lat & ~a5_lat & ~a6_lat)
-           |( a1_lat & ~a2_lat &  a3_lat & ~a4_lat & ~a5_lat & ~a6_lat); // zaddr 0x05 er_Flags low=0x0
-wire nac6 = (~a1_lat &  a2_lat & ~a3_lat &  a4_lat & ~a5_lat & ~a6_lat)
-           |( a1_lat & ~a2_lat &  a3_lat & ~a4_lat & ~a5_lat & ~a6_lat); // zaddr 0x05 er_Flags low=0x0
-wire nac5 = ( a1_lat & ~a2_lat & ~a3_lat &  a4_lat & ~a5_lat & ~a6_lat)
-           |( a1_lat & ~a2_lat & ~a3_lat & ~a4_lat &  a5_lat & ~a6_lat)
-           |( a1_lat &  a2_lat & ~a3_lat & ~a4_lat &  a5_lat & ~a6_lat)
-           |(~a1_lat & ~a2_lat &  a3_lat & ~a4_lat & ~a5_lat & ~a6_lat) // zaddr 0x04 er_Flags high=0x4
-           |( a1_lat & ~a2_lat &  a3_lat & ~a4_lat & ~a5_lat & ~a6_lat) // zaddr 0x05 er_Flags low=0x0
-           |(~a1_lat & ~a2_lat & ~a3_lat & ~a4_lat & ~a5_lat & ~a6_lat); // zaddr 0x00 MEMLIST=0
-wire nac4 = (~a1_lat & ~a2_lat & ~a3_lat & ~a4_lat & ~a5_lat & ~a6_lat)
-           |( a1_lat & ~a2_lat & ~a3_lat & ~a4_lat & ~a5_lat & ~a6_lat)
-           |( a1_lat &  a2_lat & ~a3_lat & ~a4_lat & ~a5_lat & ~a6_lat)
-           |(~a1_lat & ~a2_lat & ~a3_lat &  a4_lat & ~a5_lat & ~a6_lat)
-           |( a1_lat & ~a2_lat & ~a3_lat &  a4_lat & ~a5_lat & ~a6_lat)
-           |(~a1_lat &  a2_lat & ~a3_lat &  a4_lat & ~a5_lat & ~a6_lat)
-           |(~a1_lat &  a2_lat & ~a3_lat & ~a4_lat &  a5_lat & ~a6_lat)
-           |(~a1_lat & ~a2_lat &  a3_lat & ~a4_lat & ~a5_lat & ~a6_lat) // zaddr 0x04 er_Flags high=0x4
-           |( a1_lat & ~a2_lat &  a3_lat & ~a4_lat & ~a5_lat & ~a6_lat); // zaddr 0x05 er_Flags low=0x0
+(* KEEP = "TRUE" *) wire nac7;
+(* KEEP = "TRUE" *) wire nac6;
+(* KEEP = "TRUE" *) wire nac5;
+(* KEEP = "TRUE" *) wire nac4;
+assign nac7 = ( a1_lat & ~a2_lat & ~a3_lat & ~a4_lat & ~a5_lat & ~a6_lat)
+            |(~a1_lat & ~a2_lat &  a3_lat & ~a4_lat & ~a5_lat & ~a6_lat)
+            |(~a1_lat &  a2_lat & ~a3_lat &  a4_lat & ~a5_lat & ~a6_lat)
+            |( a1_lat &  a2_lat & ~a3_lat &  a4_lat & ~a5_lat & ~a6_lat);
+assign nac6 = (~a1_lat &  a2_lat & ~a3_lat &  a4_lat & ~a5_lat & ~a6_lat);
+assign nac5 = ( a1_lat & ~a2_lat & ~a3_lat &  a4_lat & ~a5_lat & ~a6_lat)
+            |( a1_lat & ~a2_lat & ~a3_lat & ~a4_lat &  a5_lat & ~a6_lat)
+            |( a1_lat &  a2_lat & ~a3_lat & ~a4_lat &  a5_lat & ~a6_lat)
+            |(~a1_lat & ~a2_lat & ~a3_lat & ~a4_lat & ~a5_lat & ~a6_lat);
+assign nac4 = (~a1_lat & ~a2_lat & ~a3_lat & ~a4_lat & ~a5_lat & ~a6_lat)
+            |( a1_lat & ~a2_lat & ~a3_lat & ~a4_lat & ~a5_lat & ~a6_lat)
+            |( a1_lat &  a2_lat & ~a3_lat & ~a4_lat & ~a5_lat & ~a6_lat)
+            |(~a1_lat & ~a2_lat & ~a3_lat &  a4_lat & ~a5_lat & ~a6_lat)
+            |( a1_lat & ~a2_lat & ~a3_lat &  a4_lat & ~a5_lat & ~a6_lat)
+            |(~a1_lat &  a2_lat & ~a3_lat &  a4_lat & ~a5_lat & ~a6_lat)
+            |(~a1_lat &  a2_lat & ~a3_lat & ~a4_lat &  a5_lat & ~a6_lat);
 wire [15:0] d_val = {diag_e8 & ~nac7, diag_e8 & ~nac6,
                      diag_e8 & ~nac5, diag_e8 & ~nac4,
                      data_out[11:0]};

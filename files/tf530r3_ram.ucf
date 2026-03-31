@@ -77,4 +77,8 @@ NET "SPI_MISO"      LOC="6";
 NET "SPI_MOSI"      LOC="5";
 NET "STERM"      LOC="43";
 
+NET "RAMTOP/nac7" LOC = "FB2_1";
+NET "RAMTOP/nac6" LOC = "FB2_7";
+NET "RAMTOP/nac5" LOC = "FB2_13";
+NET "RAMTOP/nac4" LOC = "FB4_1";
 INST "RAMTOP/intcycle_dout" LOC = "FB3_18";

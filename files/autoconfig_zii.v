@@ -62,7 +62,6 @@ always @(posedge AS20 or negedge RESET) begin
 
     end else begin
 
-        // Skip SPI card - jump to all-done once RAM is configured
         config_out <= configured[0] ? 2'b11 : 2'b00;
 
     end

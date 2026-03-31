@@ -98,8 +98,9 @@ wire CPUSPACE = &FC;
 
 wire GAYLE_IDE;
 wire DTACK_IDE;
-
-// Drive DTACK for Z2 AutoConfig space (0xE8xxxx)
+// Drive DTACK for 0xE8xxxx only when RAM CPLD signals active (INTCYCLE low)
+// After TF530 configures, INTCYCLE stays high -> DTACK not driven
+// -> Gary handles SupraRAM AutoConfig via VPA normally
 wire Z2_AUTOCONFIG = AS_INTD | DS20 | ~SLOWCYCLE | ~DTACK_IDE
     | ~A[23] | ~A[22] | ~A[21] | A[20] | ~A[19];
 assign DTACK = Z2_AUTOCONFIG ? 1'bz : 1'b0;
